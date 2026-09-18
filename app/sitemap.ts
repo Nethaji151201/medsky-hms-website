@@ -3,6 +3,8 @@ import { MODULES_DATA } from "@/data/modules";
 import { BLOG_POSTS } from "@/data/blogs";
 import { SITE_CONFIG } from "@/lib/metadata";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
 
