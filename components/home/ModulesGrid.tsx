@@ -29,7 +29,7 @@ function ProductCard({ product }: { product: ProductItem }) {
   const Icon = ICON_MAP[product.iconName] || Activity;
 
   return (
-    <div className="bg-white dark:bg-[#0f172a] rounded-[24px] overflow-hidden border border-slate-100 dark:border-slate-800 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative">
+    <div className="h-full bg-white dark:bg-[#0f172a] rounded-[24px] overflow-hidden border border-slate-100 dark:border-slate-800 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group relative">
       {/* 1. Top Image Section */}
       <div className="relative w-full">
         {/* Inner container with overflow-hidden for the image zoom only */}
@@ -70,7 +70,7 @@ function ProductCard({ product }: { product: ProductItem }) {
           </p>
 
           {/* Description */}
-          <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 mt-2 line-clamp-2 leading-relaxed font-normal min-h-[38px]">
+          <p className="text-xs sm:text-[13px] text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed font-normal">
             {product.description}
           </p>
         </div>
@@ -81,7 +81,7 @@ function ProductCard({ product }: { product: ProductItem }) {
             href={`/modules/${product.slug}`}
             className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#162044] dark:text-cyan-400 hover:text-primary dark:hover:text-cyan-300 transition-colors"
           >
-            <span>Explore Service</span>
+            <span>Explore Product</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -99,7 +99,7 @@ export function ModulesGrid() {
             badge="Core Healthcare Products"
             title="Designed for Modern"
             titleHighlight="Healthcare Workflows"
-            description="A connected suite of 6 core hospital, laboratory, clinic, pharmacy, appointments, and EMR solutions engineered for zero friction."
+            description="A connected healthcare software suite for hospitals, clinics, labs, pharmacies, appointments, and EMR—built for seamless healthcare management."
           />
         </ScrollReveal>
 
@@ -111,6 +111,7 @@ export function ModulesGrid() {
               direction="bottom"
               delay={idx * 100}
               duration={700}
+              className="h-full"
             >
               <ProductCard product={product} />
             </ScrollReveal>

@@ -50,12 +50,12 @@ export function AboutSection() {
 
               {/* Main Heading matching Image 2 */}
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-                Transforming Clinics With Digital Power
+                Transforming Your Healthcare Facility With Digital Power
               </h2>
 
               {/* Description matching Image 2 */}
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                MedSky Healthcare brings a million-dollar SaaS experience to your clinic. We streamline patient management, billing, and pharmacy operations into one ultra-fast, intelligent system. Designed specifically for modern healthcare providers who value speed, accuracy, and patient satisfaction.
+                MEDSKY Software is an integrated healthcare management platform engineered to connect every touchpoint of patient care and hospital administration. By consolidating clinical workflows, lab diagnostics, pharmacy operations, and billing into one unified platform, we help healthcare organizations operate with greater accuracy, speed, and efficiency.
               </p>
 
               {/* 2-Column Checklist matching Image 2 */}

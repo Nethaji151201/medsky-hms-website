@@ -38,7 +38,7 @@ export function Hero() {
           <div className="lg:col-span-7 space-y-6 max-w-2xl animate-slide-left">
             {/* Huge Headline */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
-              Your Trusted Partner Health and Wellness
+              Your Trusted Partner for Simplifying Healthcare
               <span className="sr-only"> — India&apos;s Best Hospital Software, Clinic Management (CMS), Diagnostic Lab (LMS), and Pharmacy (PMS) System</span>
             </h1>
           </div>
@@ -47,7 +47,7 @@ export function Hero() {
           <div className="lg:col-span-5 flex justify-end animate-slide-right">
             <div className="bg-white text-slate-900 rounded-[28px] rounded-br-[4px] p-7 sm:p-8 max-w-md shadow-2xl border border-slate-100 space-y-5 transition-all duration-300 hover:shadow-cyan-950/40 hover:-translate-y-1">
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                Our experienced medical team combines the latest technology with personalized attention to provide you with exceptional healthcare tailored to your unique needs.
+                MEDSKY is an integrated healthcare management software designed to simplify and streamline day-to-day operations for hospitals, clinics, laboratories, and pharmacies.
               </p>
 
               <Link

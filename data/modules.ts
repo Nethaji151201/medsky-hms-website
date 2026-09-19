@@ -44,9 +44,9 @@ export const PRODUCTS_DATA: ProductItem[] = [
     slug: "ipd",
     tagline: "Hospital Management Software",
     description:
-      "End-to-end multi-department inpatient governance, real-time bed census, OT management, nursing eMAR charts, and discharge clearance.",
+      "Streamline clinical workflows, automate billing, and elevate patient care with a secure, all-in-one Hospital Management System designed for modern medical institutions.",
     iconName: "Bed",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80",
+    image: "/images/hms-reseption.png",
     badge: "Enterprise",
   },
   {
@@ -55,9 +55,9 @@ export const PRODUCTS_DATA: ProductItem[] = [
     slug: "laboratory",
     tagline: "Laboratory Management Software",
     description:
-      "Diagnostic test workflows, sample barcode scanning, bi-directional analyzer interfacing, pathologist sign-off, and automated reports.",
+      "The all-in-one Laboratory Information Management System (LIMS) engineered to automate sample accessioning, integrate clinical instruments, and deliver secure, verifiable test reports to doctors and patients without delays.",
     iconName: "FlaskConical",
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=600&q=80",
+    image: "/images/lab-test.png",
     badge: "Diagnostics",
   },
   {
@@ -66,9 +66,9 @@ export const PRODUCTS_DATA: ProductItem[] = [
     slug: "opd",
     tagline: "Clinic Management Software",
     description:
-      "Streamlined outpatient registration, intelligent token queues, quick doctor consultations, digital prescriptions, and daycare clinic billing.",
+      "The all-in-one clinic management software that automates patient scheduling, simplifies digital charting, and accelerates your billing—so you can focus entirely on patient care.",
     iconName: "Activity",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
+    image: "/images/clinic.png",
     badge: "Polyclinic",
   },
   {
@@ -77,9 +77,9 @@ export const PRODUCTS_DATA: ProductItem[] = [
     slug: "pharmacy",
     tagline: "Pharmacy Management Software",
     description:
-      "Retail and inpatient point-of-sale dispensing, FEFO batch expiry monitoring, supplier purchase orders, and zero-error prescription synchronization.",
+      "Streamline your daily pharmacy operations with an all-in-one platform built for independent stores, hospital dispensaries, and retail chains. Automate inventory, eliminate dispensing errors, and deliver faster patient care.",
     iconName: "Pill",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=80",
+    image: "/images/pharmacy.png",
     badge: "Pharmacy POS",
   },
   {
@@ -90,7 +90,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     description:
       "Omnichannel doctor booking via WhatsApp, web, and kiosk with real-time doctor rosters, automated SMS reminders, and waiting room TV screens.",
     iconName: "Calendar",
-    image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=600&q=80",
+    image: "/images/appoinment.png",
     badge: "Patient Experience",
   },
   {
@@ -101,7 +101,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     description:
       "Specialty-specific SOAP templates, rapid e-prescribing, longitudinal patient health timelines, and real-time drug allergy decision support.",
     iconName: "Stethoscope",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
+    image: "/images/medsky_doctor_emr_hd.webp",
     badge: "Clinical Suite",
   },
 ];
@@ -115,7 +115,7 @@ export const MODULES_DATA: ModuleData[] = [
     description:
       "Comprehensive hospital management covering inpatient admissions, real-time bed census, OT scheduling, nursing rounds, and discharge clearance.",
     iconName: "Bed",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80",
+    image: "/images/hms-reseption.png",
     category: "Clinical",
     badge: "Enterprise",
     heroHighlights: [
@@ -161,7 +161,7 @@ export const MODULES_DATA: ModuleData[] = [
     description:
       "End-to-end diagnostic and pathology laboratory Software with bi-directional analyzer interfacing, sample tracking, and automated digital sign-offs.",
     iconName: "FlaskConical",
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=600&q=80",
+    image: "/images/lab-test.png",
     category: "Diagnostics",
     badge: "Diagnostics LIS",
     heroHighlights: [
@@ -207,7 +207,7 @@ export const MODULES_DATA: ModuleData[] = [
     description:
       "Purpose-built for outpatient clinics and polyclinics to manage rapid patient check-ins, automated token queues, consultations, and day-care billing.",
     iconName: "Activity",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
+    image: "/images/clinic.png",
     category: "Clinical",
     badge: "Polyclinic",
     heroHighlights: [
@@ -253,7 +253,7 @@ export const MODULES_DATA: ModuleData[] = [
     description:
       "Automated pharmacy management featuring barcode scanning, generic substitution suggestions, near-expiry alerts, and integrated retail billing.",
     iconName: "Pill",
-    image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=600&q=80",
+    image: "/images/pharmacy.png",
     category: "Operations",
     badge: "Retail & Inpatient",
     heroHighlights: [
@@ -299,7 +299,7 @@ export const MODULES_DATA: ModuleData[] = [
     description:
       "Omnichannel appointment scheduling via web, mobile, and WhatsApp with real-time doctor rosters, automated reminders, and live TV queue screens.",
     iconName: "Calendar",
-    image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=600&q=80",
+    image: "/images/appoinment.png",
     category: "Operations",
     badge: "Patient Experience",
     heroHighlights: [
@@ -345,7 +345,7 @@ export const MODULES_DATA: ModuleData[] = [
     description:
       "Specialty-specific SOAP templates, rapid e-prescribing, longitudinal patient health timelines, and real-time drug allergy decision support.",
     iconName: "Stethoscope",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80",
+    image: "/images/medsky_doctor_emr_hd.webp",
     category: "Clinical",
     badge: "Clinical Suite",
     heroHighlights: [
