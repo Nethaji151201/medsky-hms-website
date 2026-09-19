@@ -30,7 +30,7 @@ export default function HomePage() {
       {/* <FeatureShowcase /> */}
 
       {/* 5. Role-Based Feature Experience */}
-      <RoleSection />
+      {/* <RoleSection /> */}
 
       {/* 6. Flexible Pricing Plans (INR ₹) */}
       <PricingSection />

@@ -32,7 +32,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
   {
     id: "hms",
     label: "HMS Pricing",
-    shortTitle: "Hospital Management System",
+    shortTitle: "Hospital Management Software",
     description: "End-to-end hospital operations from OPD/IPD, OT, Ward Nursing, Pharmacy, Billing, to TPA Insurance.",
     tiers: [
       {
@@ -110,7 +110,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
   {
     id: "cms",
     label: "CMS Pricing",
-    shortTitle: "Clinic Management System",
+    shortTitle: "Clinic Management Software",
     description: "Streamlined single and polyclinic workflow, appointment booking, patient queue, and digital clinical notes.",
     tiers: [
       {
@@ -182,7 +182,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
   {
     id: "lms",
     label: "LMS Pricing",
-    shortTitle: "Lab Management System (LIS)",
+    shortTitle: "Laboratory Management Software (LIS)",
     description: "Automated laboratory workflow from sample collection, barcode scanning, bi-directional analyzer interfacing to QR verified reports.",
     tiers: [
       {
@@ -254,7 +254,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
   {
     id: "pms",
     label: "PMS Pricing",
-    shortTitle: "Pharmacy Management System",
+    shortTitle: "Pharmacy Management Software",
     description: "High-speed retail POS, hospital pharmacy, FEFO batch expiry control, and automated GST billing.",
     tiers: [
       {

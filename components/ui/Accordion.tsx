@@ -24,7 +24,7 @@ export function Accordion({
   className = "",
 }: AccordionProps) {
   const [openIds, setOpenIds] = useState<string[]>(
-    defaultOpenId ? [defaultOpenId] : [items[0]?.id || ""]
+    defaultOpenId ? [defaultOpenId] : []
   );
 
   const toggleItem = (id: string) => {
@@ -48,14 +48,14 @@ export function Accordion({
             className={cn(
               "rounded-2xl border transition-all duration-200 overflow-hidden",
               isOpen
-                ? "bg-white dark:bg-slate-900 border-[#17a2b8]/60 shadow-md shadow-[#17a2b8]/5"
+                ? "bg-white dark:bg-slate-900 border-primary/60 shadow-md shadow-primary/5"
                 : "bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
             )}
           >
             <button
               type="button"
               onClick={() => toggleItem(item.id)}
-              className="w-full flex items-center justify-between p-5 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#17a2b8]"
+              className="w-full flex items-center justify-between p-5 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               aria-expanded={isOpen}
             >
               <span className="text-base sm:text-lg font-medium text-slate-900 dark:text-slate-100 pr-4">
@@ -65,8 +65,8 @@ export function Accordion({
                 className={cn(
                   "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200",
                   isOpen
-                    ? "bg-cyan-50 text-[#17a2b8] dark:bg-cyan-950/80 dark:text-cyan-400"
-                    : "bg-slate-100 text-[#17a2b8] dark:bg-slate-800 dark:text-cyan-400"
+                    ? "bg-cyan-50 text-primary dark:bg-cyan-950/80 dark:text-cyan-400"
+                    : "bg-slate-100 text-primary dark:bg-slate-800 dark:text-cyan-400"
                 )}
               >
                 {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}

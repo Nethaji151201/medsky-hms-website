@@ -41,7 +41,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
     setLoading(false);
 
     if (res.success) {
-      setSuccessMessage(res.message || "Appointment booked successfully! Our specialist team will reach out shortly.");
+      setSuccessMessage(res.message || "Enquiry booked successfully! Our specialist team will reach out shortly.");
       setFormData({
         treatment: "",
         name: "",
@@ -55,7 +55,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
   };
 
   return (
-    <section id="appointment" className={`w-full py-16 sm:py-24 ${className}`}>
+    <section id="appointment" className={`w-full py-16 sm:py-24 bg-slate-50 dark:bg-[#0c1527] ${className}`}>
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="bg-white dark:bg-slate-900 rounded-[28px] sm:rounded-[36px] p-6 sm:p-10 lg:p-12 shadow-xl border border-slate-200/80 dark:border-slate-800 relative overflow-hidden">
           {/* Subtle Background Glow */}
@@ -65,13 +65,13 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
             {/* Left Header Info with Smooth Left Transition */}
             <div className="lg:col-span-5 space-y-6">
               <ScrollReveal direction="left" duration={750}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200/80 dark:border-cyan-800 text-[#0e7490] dark:text-cyan-300 text-xs font-semibold uppercase tracking-wider">
-                  <span className="w-2 h-2 rounded-full bg-[#17a2b8] animate-pulse" />
-                  Appointment Booking
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200/80 dark:border-cyan-800 text-accent-foreground dark:text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  Enquiry Booking
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight mt-2">
-                  Make an Appointment Now!
+                  Make an Enquiry Now!
                 </h2>
 
                 <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed mt-2">
@@ -80,16 +80,16 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
 
                 {/* Call Center Block */}
                 <div className="flex items-center gap-4 pt-4">
-                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 dark:bg-cyan-500/20 text-[#17a2b8] dark:text-cyan-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 dark:bg-cyan-500/20 text-primary dark:text-cyan-400 flex items-center justify-center flex-shrink-0 shadow-sm">
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
                     <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                      Appointment Hotline
+                      Enquiry Hotline
                     </span>
                     <a
                       href="tel:+919159595353"
-                      className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white hover:text-[#17a2b8] dark:hover:text-cyan-400 transition-colors tracking-wide"
+                      className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white hover:text-primary dark:hover:text-cyan-400 transition-colors tracking-wide"
                     >
                       +91-91 59 59 53 53
                     </a>
@@ -113,7 +113,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your Name *"
                       required
-                      className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#17a2b8] focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm"
+                      className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm"
                     />
                   </div>
 
@@ -128,7 +128,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="Phone Number *"
                       required
-                      className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#17a2b8] focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm"
+                      className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm"
                     />
                   </div>
 
@@ -142,7 +142,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                       value={formData.state}
                       onChange={(e) => setFormData({ ...formData, state: e.target.value })}
                       placeholder="City / State"
-                      className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#17a2b8] focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm"
+                      className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm"
                     />
                   </div>
 
@@ -155,7 +155,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                       <select
                         value={formData.treatment}
                         onChange={(e) => setFormData({ ...formData, treatment: e.target.value })}
-                        className="w-full appearance-none bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#17a2b8] focus:bg-white dark:focus:bg-slate-800 transition-all pr-10 cursor-pointer shadow-sm"
+                        className="w-full appearance-none bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3.5 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white dark:focus:bg-slate-800 transition-all pr-10 cursor-pointer shadow-sm"
                       >
                         {SPECIALTIES.map((s, idx) => (
                           <option key={s} value={idx === 0 ? "" : s}>
@@ -169,8 +169,8 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
 
                   {/* Feedback Messages */}
                   {successMessage && (
-                    <div className="p-4 rounded-xl bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-800 text-[#0e7490] dark:text-cyan-200 text-sm flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#17a2b8] flex-shrink-0" />
+                    <div className="p-4 rounded-xl bg-cyan-50 dark:bg-cyan-950/80 border border-cyan-200 dark:border-cyan-800 text-accent-foreground dark:text-cyan-200 text-sm flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                       <span>{successMessage}</span>
                     </div>
                   )}
@@ -187,10 +187,10 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                       type="submit"
                       variant="primary"
                       size="lg"
-                      className="w-full sm:w-auto px-8 shadow-lg shadow-[#17a2b8]/20"
+                      className="w-full sm:w-auto px-8 shadow-lg shadow-primary/20"
                       disabled={loading}
                     >
-                      {loading ? "Processing..." : "Confirm Doctor Appointment"}
+                      {loading ? "Processing..." : "Submit Enquiry"}
                     </Button>
                   </div>
                 </form>

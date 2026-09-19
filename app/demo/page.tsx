@@ -64,9 +64,9 @@ export default function DemoPage() {
                 <span className="text-xs text-slate-400 block mb-1">Direct Sales Hotline</span>
                 <a
                   href="tel:+919159595353"
-                  className="text-lg font-bold text-white hover:text-[#17a2b8] transition-colors flex items-center gap-2"
+                  className="text-lg font-bold text-white hover:text-primary transition-colors flex items-center gap-2"
                 >
-                  <Phone className="w-4 h-4 text-[#17a2b8]" />
+                  <Phone className="w-4 h-4 text-primary" />
                   +91-91 59 59 53 53
                 </a>
               </div>

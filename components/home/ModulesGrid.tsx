@@ -45,13 +45,13 @@ function ProductCard({ product }: { product: ProductItem }) {
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-br from-cyan-500/20 to-sky-500/20 flex items-center justify-center">
-              <Icon className="w-12 h-12 text-[#17a2b8] dark:text-cyan-400 opacity-60" />
+              <Icon className="w-12 h-12 text-primary dark:text-cyan-400 opacity-60" />
             </div>
           )}
         </div>
 
         {/* 2. Floating Cyan/Teal Icon Badge — Overlapping Image & Card Body (100% visible) */}
-        <div className="absolute -bottom-6 left-6 z-20 w-[52px] h-[52px] rounded-[18px] bg-[#17a2b8] text-white flex items-center justify-center shadow-lg shadow-[#17a2b8]/35 group-hover:scale-110 group-hover:bg-[#13899c] transition-all duration-300 border-2 border-white dark:border-[#0f172a]">
+        <div className="absolute -bottom-6 left-6 z-20 w-[52px] h-[52px] rounded-[18px] bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/35 group-hover:scale-110 group-hover:bg-primary-hover transition-all duration-300 border-2 border-white dark:border-[#0f172a]">
           <Icon className="w-6 h-6 stroke-[2.2]" />
         </div>
       </div>
@@ -60,12 +60,12 @@ function ProductCard({ product }: { product: ProductItem }) {
       <div className="p-6 sm:p-7 pt-10 flex flex-col justify-between flex-1">
         <div>
           {/* Title in Deep Navy */}
-          <h3 className="text-xl font-bold text-[#162044] dark:text-white tracking-tight group-hover:text-[#17a2b8] dark:group-hover:text-cyan-400 transition-colors">
+          <h3 className="text-xl font-bold text-[#162044] dark:text-white tracking-tight group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors">
             {product.name}
           </h3>
 
           {/* Tagline / Subtitle */}
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-[#0e7490] dark:text-cyan-400 mt-0.5">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-accent-foreground dark:text-cyan-400 mt-0.5">
             {product.tagline}
           </p>
 
@@ -79,7 +79,7 @@ function ProductCard({ product }: { product: ProductItem }) {
         <div className="pt-4">
           <Link
             href={`/modules/${product.slug}`}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#162044] dark:text-cyan-400 hover:text-[#17a2b8] dark:hover:text-cyan-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#162044] dark:text-cyan-400 hover:text-primary dark:hover:text-cyan-300 transition-colors"
           >
             <span>Explore Service</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -92,7 +92,7 @@ function ProductCard({ product }: { product: ProductItem }) {
 
 export function ModulesGrid() {
   return (
-    <section className="py-20 sm:py-28 relative bg-slate-100/80 dark:bg-[#0c1527]">
+    <section className="py-20 sm:py-28 relative bg-slate-50 dark:bg-[#0c1527]">
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         <ScrollReveal direction="top">
           <SectionHeader

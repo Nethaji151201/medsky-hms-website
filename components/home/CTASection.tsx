@@ -39,7 +39,7 @@ export function CTASection() {
             size="xl"
             href="/demo"
             rightIcon={<ArrowRight className="w-5 h-5" />}
-            className="w-full sm:w-auto shadow-xl shadow-[#17a2b8]/30 text-base"
+            className="w-full sm:w-auto shadow-xl shadow-primary/30 text-base"
           >
             Request a Live Demo
           </Button>
@@ -48,7 +48,7 @@ export function CTASection() {
             variant="outline"
             size="xl"
             href="tel:+919159595353"
-            leftIcon={<Phone className="w-5 h-5 text-[#17a2b8]" />}
+            leftIcon={<Phone className="w-5 h-5 text-primary" />}
             className="w-full sm:w-auto border-slate-700 bg-slate-900/80 text-white hover:bg-slate-800"
           >
             Call +91-91 59 59 53 53

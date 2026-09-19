@@ -130,7 +130,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-20 sm:py-28 relative overflow-hidden bg-white dark:bg-[#060b14] gpu-layer">
+    <section className="py-20 sm:py-28 relative overflow-hidden bg-slate-50 dark:bg-[#0c1527] gpu-layer">
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 mb-12 sm:mb-16">
         <SectionHeader
           badge="Patient & Specialist Reviews"

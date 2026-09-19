@@ -52,7 +52,7 @@ export function Hero() {
 
               <Link
                 href="/about"
-                className="inline-flex items-center bg-[#17a2b8] hover:bg-[#13899c] text-white text-xs font-bold uppercase tracking-wider rounded-xl pl-5 pr-2 py-2.5 shadow-md shadow-[#17a2b8]/25 transition-all group"
+                className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl pl-5 pr-2 py-2.5 shadow-md shadow-primary/25 transition-all group"
               >
                 <span className="mr-3">Meet Our Team</span>
                 <div className="w-7 h-7 rounded-lg bg-white text-slate-950 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">

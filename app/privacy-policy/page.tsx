@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">1. Introduction</h2>
           <p>
-            Medsky Healthcare Technologies (&ldquo;Medsky&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is committed to safeguarding the privacy and confidentiality of healthcare organizations, medical practitioners, and patient health data managed through the Medsky Hospital Management System.
+            Medsky Healthcare Technologies (&ldquo;Medsky&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is committed to safeguarding the privacy and confidentiality of healthcare organizations, medical practitioners, and patient health data managed through the Medsky Hospital Management Software.
           </p>
         </section>
 

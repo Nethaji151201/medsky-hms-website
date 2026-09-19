@@ -38,13 +38,13 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#17a2b8] hover:bg-[#13899c] text-white shadow-md shadow-[#17a2b8]/20 focus:ring-[#17a2b8] border border-[#17a2b8]/20",
+      "bg-primary hover:bg-primary-hover text-white shadow-md shadow-primary/20 focus:ring-primary border border-primary/20",
     secondary:
-      "bg-sky-600 hover:bg-sky-700 text-white shadow-md shadow-sky-600/20 focus:ring-sky-500 border border-sky-500/20",
+      "bg-secondary hover:bg-secondary-hover text-white shadow-md shadow-secondary/20 focus:ring-secondary border border-secondary/20",
     outline:
-      "border-2 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 bg-white/80 dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 focus:ring-[#17a2b8] shadow-sm",
+      "border-2 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 bg-white/80 dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 focus:ring-primary shadow-sm",
     ghost:
-      "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:ring-[#17a2b8]",
+      "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:ring-primary",
     navy:
       "bg-slate-900 dark:bg-slate-800 hover:bg-slate-950 dark:hover:bg-slate-700 text-white shadow-md shadow-slate-900/20 focus:ring-slate-700 border border-slate-700/30",
     danger:

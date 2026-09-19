@@ -2,8 +2,58 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ========================================================================= */
+/* CENTRALIZED COLOR SYSTEM                                                  */
+/* Change primary, secondary, navy, or accent colors in the :root block      */
+/* below, and the new color values will automatically apply across the app.  */
+/* ========================================================================= */
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-border: var(--accent-border);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-navy-light: var(--navy-light);
+  --color-navy-card: var(--navy-card);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+}
+
 @layer base {
   :root {
+    /* 1. Primary Brand Color (Teal / Cyan) */
+    --primary: #17a2b8;
+    --primary-hover: #13899c;
+    --primary-foreground: #ffffff;
+    --primary-light: #eefbfd;
+
+    /* 2. Secondary Brand Color (Sky Blue) */
+    --secondary: #0284c7;
+    --secondary-hover: #0369a1;
+    --secondary-foreground: #ffffff;
+
+    /* 3. Accent & Highlight Colors */
+    --accent: #eefbfd;
+    --accent-border: #c6f0f5;
+    --accent-foreground: #0e7490;
+
+    /* 4. Deep Navy & Midnight Healthcare Colors (Header, Footer, Dark Cards) */
+    --navy: #091a2e;
+    --navy-dark: #040c18;
+    --navy-light: #0d2138;
+    --navy-card: #0b1328;
+    --navy-foreground: #ffffff;
+
+    /* 5. General Layout & Card Surfaces */
     --background: #f8fafc;
     --foreground: #0f172a;
     --card: #ffffff;
@@ -11,18 +61,6 @@
     --card-border: #e2e8f0;
     --muted: #f1f5f9;
     --muted-foreground: #64748b;
-    --primary: #17a2b8;
-    --primary-hover: #13899c;
-    --primary-foreground: #ffffff;
-    --secondary: #0284c7;
-    --secondary-hover: #0369a1;
-    --secondary-foreground: #ffffff;
-    --accent: #eefbfd;
-    --accent-border: #c6f0f5;
-    --accent-foreground: #0e7490;
-    --navy: #0b1328;
-    --navy-light: #131d33;
-    --navy-foreground: #ffffff;
     --border: #e2e8f0;
     --input: #ffffff;
     --input-border: #cbd5e1;
@@ -31,6 +69,26 @@
   }
 
   .dark {
+    /* Dark Theme Overrides */
+    --primary: #17a2b8;
+    --primary-hover: #13899c;
+    --primary-foreground: #ffffff;
+    --primary-light: #083344;
+
+    --secondary: #38bdf8;
+    --secondary-hover: #0ea5e9;
+    --secondary-foreground: #082f49;
+
+    --accent: #155e75;
+    --accent-border: #0e7490;
+    --accent-foreground: #67e8f9;
+
+    --navy: #040810;
+    --navy-dark: #020710;
+    --navy-light: #071324;
+    --navy-card: #0b1328;
+    --navy-foreground: #f8fafc;
+
     --background: #060b14;
     --foreground: #f1f5f9;
     --card: #0f172a;
@@ -38,22 +96,10 @@
     --card-border: #1e293b;
     --muted: #1e293b;
     --muted-foreground: #94a3b8;
-    --primary: #22d3ee;
-    --primary-hover: #06b6d4;
-    --primary-foreground: #083344;
-    --secondary: #38bdf8;
-    --secondary-hover: #0ea5e9;
-    --secondary-foreground: #082f49;
-    --accent: #155e75;
-    --accent-border: #0e7490;
-    --accent-foreground: #67e8f9;
-    --navy: #040810;
-    --navy-light: #0b1328;
-    --navy-foreground: #f8fafc;
     --border: #1e293b;
     --input: #0f172a;
     --input-border: #334155;
-    --ring: #22d3ee;
+    --ring: #17a2b8;
   }
 }
 
@@ -144,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Selection */
 ::selection {
-  background-color: #17a2b8;
+  background-color: var(--primary);
   color: #ffffff;
 }
 

@@ -17,7 +17,7 @@ export function Badge({
   dot = false,
 }: BadgeProps) {
   const variantStyles = {
-    teal: "bg-cyan-50 text-[#0e7490] border-cyan-200/80 dark:bg-cyan-950/50 dark:text-cyan-300 dark:border-cyan-800",
+    teal: "bg-cyan-50 text-accent-foreground border-cyan-200/80 dark:bg-cyan-950/50 dark:text-cyan-300 dark:border-cyan-800",
     blue: "bg-sky-50 text-sky-700 border-sky-200/80 dark:bg-sky-950/50 dark:text-sky-300 dark:border-sky-800",
     neutral: "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700",
     emerald: "bg-emerald-50 text-emerald-700 border-emerald-200/80 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800",
@@ -26,8 +26,8 @@ export function Badge({
   };
 
   const dotStyles = {
-    teal: "bg-[#17a2b8]",
-    blue: "bg-sky-500",
+    teal: "bg-primary",
+    blue: "bg-secondary",
     neutral: "bg-slate-400",
     emerald: "bg-emerald-500",
     amber: "bg-amber-500",

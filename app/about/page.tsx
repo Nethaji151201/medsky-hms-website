@@ -49,7 +49,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="py-12 sm:py-20 space-y-24">
+    <div className="pt-12 sm:pt-20 space-y-24">
       {/* 1. Mission Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <Badge variant="teal" size="md">

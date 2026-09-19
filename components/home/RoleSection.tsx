@@ -60,11 +60,11 @@ export function RoleSection() {
                 className="h-full"
               >
                 <Card
-                  className="p-6 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-[#17a2b8]/40 border-slate-200/80 dark:border-slate-800/90"
+                  className="p-6 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40 border-slate-200/80 dark:border-slate-800/90"
                   hoverEffect={false}
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-[#17a2b8] dark:text-cyan-400 flex items-center justify-center mb-4 transition-transform duration-300 hover:scale-105">
+                    <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-primary dark:text-cyan-400 flex items-center justify-center mb-4 transition-transform duration-300 hover:scale-105">
                       <Icon className="w-6 h-6" />
                     </div>
 
@@ -77,7 +77,7 @@ export function RoleSection() {
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-semibold text-[#17a2b8] dark:text-cyan-400">
+                  <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-semibold text-primary dark:text-cyan-400">
                     <Sparkles className="w-3.5 h-3.5 flex-shrink-0" />
                     <span>{item.perk}</span>
                   </div>

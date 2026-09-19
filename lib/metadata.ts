@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 export const SITE_CONFIG = {
   name: "Medsky HMS",
   shortName: "Medsky",
-  tagline: "Best Hospital Software, Clinic (CMS), Lab (LMS) & Pharmacy (PMS) System",
+  tagline: "Best Hospital Software, Clinic (CMS), Lab (LMS) & Pharmacy (PMS) Software",
   description:
-    "Medsky HMS is India's leading all-in-one cloud Hospital Software, Clinic Management Software (CMS), Diagnostic Lab Information System (LMS/LIS), and Pharmacy Management System (PMS). ABDM & NABH compliant with OPD, IPD, EMR/EHR, analyzer interfacing, and online appointment booking.",
+    "Medsky HMS is India's leading all-in-one cloud Hospital Software, Clinic Management Software (CMS), Diagnostic Lab Information Software (LMS/LIS), and Pharmacy Management Software (PMS). ABDM & NABH compliant with OPD, IPD, EMR/EHR, analyzer interfacing, and online appointment booking.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://medskyhms.com",
   ogImage: "/images/medsky-og.jpg",
   supportPhone: "+91-91 59 59 53 53",
@@ -96,7 +96,7 @@ export function createMetadata({
 } = {}): Metadata {
   const pageTitle = title
     ? `${title} | Medsky HMS - Hospital, Clinic, Lab & Pharmacy Software`
-    : `${SITE_CONFIG.name} | Best Hospital Software, Clinic (CMS), Lab (LMS) & Pharmacy (PMS) System`;
+    : `${SITE_CONFIG.name} | Best Hospital Software, Clinic (CMS), Lab (LMS) & Pharmacy (PMS) Software`;
   const pageDescription = description || SITE_CONFIG.description;
   const pageUrl = `${SITE_CONFIG.url}${path}`;
   const pageImage = image || `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`;
@@ -106,6 +106,14 @@ export function createMetadata({
     metadataBase: new URL(SITE_CONFIG.url),
     title: pageTitle,
     description: pageDescription,
+    icons: {
+      icon: [
+        { url: "/medsky_logo.png", type: "image/png" },
+        { url: "/favicon.ico", sizes: "any" },
+      ],
+      apple: "/medsky_logo.png",
+      shortcut: "/medsky_logo.png",
+    },
     keywords: mergedKeywords,
     authors: [{ name: "Medsky Healthcare Technologies", url: SITE_CONFIG.url }],
     creator: "Medsky Healthcare Technologies",

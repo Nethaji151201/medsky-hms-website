@@ -29,6 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${plusJakarta.variable} ${outfit.variable}`}>
       <head>
+        <link rel="icon" type="image/png" href="/medsky_logo.png" />
+        <link rel="apple-touch-icon" href="/medsky_logo.png" />
         <meta name="theme-color" content="#17a2b8" />
         <JsonLd />
         <script
@@ -46,7 +48,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans bg-[#fcfdfd] dark:bg-[#060b14] text-slate-900 dark:text-slate-100 antialiased selection:bg-[#17a2b8] selection:text-white">
+      <body className="min-h-screen flex flex-col font-sans bg-[#fcfdfd] dark:bg-[#060b14] text-slate-900 dark:text-slate-100 antialiased selection:bg-primary selection:text-white">
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>

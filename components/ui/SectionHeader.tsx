@@ -47,7 +47,7 @@ export function SectionHeader({
       >
         {title}{" "}
         {titleHighlight && (
-          <span className="text-[#17a2b8] dark:text-cyan-400 font-extrabold">{titleHighlight}</span>
+          <span className="text-primary dark:text-cyan-400 font-extrabold">{titleHighlight}</span>
         )}
       </h2>
 

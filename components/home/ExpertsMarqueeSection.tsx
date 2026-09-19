@@ -8,13 +8,13 @@ import { ArrowRight, Sparkles } from "lucide-react";
 export function ExpertsMarqueeSection() {
   const specialties = [
     { name: "PEDIATRICS", color: "text-[#0b1328] dark:text-white" },
-    { name: "OPHTHALMOLOGY", color: "text-[#17a2b8]" },
+    { name: "OPHTHALMOLOGY", color: "text-primary" },
     { name: "CARDIOLOGY", color: "text-[#0b1328] dark:text-white" },
-    { name: "NEUROLOGY", color: "text-[#17a2b8]" },
+    { name: "NEUROLOGY", color: "text-primary" },
     { name: "ORTHOPEDICS", color: "text-[#0b1328] dark:text-white" },
-    { name: "PSYCHIATRY", color: "text-[#17a2b8]" },
+    { name: "PSYCHIATRY", color: "text-primary" },
     { name: "RADIOLOGY", color: "text-[#0b1328] dark:text-white" },
-    { name: "LABORATORY", color: "text-[#17a2b8]" },
+    { name: "LABORATORY", color: "text-primary" },
     { name: "PHARMACY", color: "text-[#0b1328] dark:text-white" },
   ];
 
@@ -40,7 +40,7 @@ export function ExpertsMarqueeSection() {
           <div className="lg:col-span-6 space-y-6">
             {/* Big 25+ Typography */}
             <div className="relative">
-              <span className="text-7xl sm:text-9xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-[#17a2b8] to-sky-600 dark:from-white dark:via-cyan-400 dark:to-sky-400 select-none">
+              <span className="text-7xl sm:text-9xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-primary to-sky-600 dark:from-white dark:via-cyan-400 dark:to-sky-400 select-none">
                 25+
               </span>
             </div>
@@ -48,7 +48,7 @@ export function ExpertsMarqueeSection() {
             {/* Avatar Stack + Tagline */}
             <div className="flex items-center gap-4 pt-1">
               <div className="flex -space-x-3">
-                <div className="w-11 h-11 rounded-full border-2 border-white dark:border-slate-900 bg-[#17a2b8] text-white font-bold text-xs flex items-center justify-center shadow-md">
+                <div className="w-11 h-11 rounded-full border-2 border-white dark:border-slate-900 bg-primary text-white font-bold text-xs flex items-center justify-center shadow-md">
                   DR
                 </div>
                 <div className="w-11 h-11 rounded-full border-2 border-white dark:border-slate-900 bg-sky-600 text-white font-bold text-xs flex items-center justify-center shadow-md">
@@ -70,7 +70,7 @@ export function ExpertsMarqueeSection() {
             <div className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center bg-[#17a2b8] hover:bg-[#13899c] text-white text-xs font-bold uppercase tracking-wider rounded-xl pl-5 pr-2 py-2.5 shadow-md shadow-[#17a2b8]/25 transition-all group"
+                className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl pl-5 pr-2 py-2.5 shadow-md shadow-primary/25 transition-all group"
               >
                 <span className="mr-3">Discover More</span>
                 <div className="w-7 h-7 rounded-lg bg-white text-slate-950 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">

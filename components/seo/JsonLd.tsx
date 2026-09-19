@@ -98,7 +98,7 @@ export function JsonLd() {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "Medsky HMS - Hospital Management System Software",
+      name: "Medsky HMS - Hospital Management Software",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Cloud, Web Browser, iOS, Android, Windows",
       description:
@@ -192,7 +192,7 @@ export function JsonLd() {
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      name: "Medsky PMS - Pharmacy Management System Software",
+      name: "Medsky PMS - Pharmacy Management Software",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Cloud, Web Browser, Windows, POS Terminals",
       description:

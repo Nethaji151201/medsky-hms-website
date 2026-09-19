@@ -53,8 +53,8 @@ export function ContactForm() {
       </p>
 
       {success ? (
-        <div className="p-6 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-[#0e7490] dark:text-cyan-200 text-center space-y-3 animate-in fade-in">
-          <CheckCircle2 className="w-10 h-10 text-[#17a2b8] mx-auto" />
+        <div className="p-6 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800 text-accent-foreground dark:text-cyan-200 text-center space-y-3 animate-in fade-in">
+          <CheckCircle2 className="w-10 h-10 text-primary mx-auto" />
           <h4 className="text-lg font-bold">Message Sent Successfully!</h4>
           <p className="text-sm">
             Thank you for reaching out. A Medsky representative will get back to you within 2 business hours.
@@ -73,7 +73,7 @@ export function ContactForm() {
                 value={formData.fullName}
                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                 placeholder="Dr. Jane Smith"
-                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#17a2b8]"
+                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
@@ -87,7 +87,7 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="jane.smith@clinic.com"
-                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#17a2b8]"
+                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
           </div>
@@ -102,7 +102,7 @@ export function ContactForm() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="+91-91 59 59 53 53"
-                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#17a2b8]"
+                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
@@ -113,7 +113,7 @@ export function ContactForm() {
               <select
                 value={formData.department}
                 onChange={(e) => setFormData({ ...formData, department: e.target.value as any })}
-                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#17a2b8]"
+                className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="sales">New Hospital Sales & Demos</option>
                 <option value="support">Customer Technical Support</option>
@@ -132,7 +132,7 @@ export function ContactForm() {
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
               placeholder="Inquiry regarding Medsky HMS deployment..."
-              className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#17a2b8]"
+              className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
 
@@ -146,7 +146,7 @@ export function ContactForm() {
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               placeholder="How can we help your medical facility?"
-              className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-[#17a2b8]"
+              className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
 
@@ -162,7 +162,7 @@ export function ContactForm() {
             size="lg"
             isLoading={loading}
             rightIcon={<Send className="w-4 h-4" />}
-            className="w-full justify-center shadow-md shadow-[#17a2b8]/20"
+            className="w-full justify-center shadow-md shadow-primary/20"
           >
             Send Inquiry
           </Button>
