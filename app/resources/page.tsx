@@ -18,7 +18,7 @@ export const metadata = createMetadata({
 
 export default function ResourcesPage() {
   return (
-    <div className="py-12 sm:py-20 space-y-24">
+    <div className="pt-28 sm:pt-36 pb-16 sm:pb-24 space-y-24">
       {/* 1. Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <Badge variant="teal" size="md">

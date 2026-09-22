@@ -57,7 +57,7 @@ export default function ModulesPage() {
   const categories = ["All", "Clinical", "Operations", "Diagnostics", "Financial", "Administrative"] as const;
 
   return (
-    <div className="py-12 sm:py-20 space-y-16">
+    <div className="pt-28 sm:pt-36 pb-16 sm:pb-24 space-y-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           badge="Integrated Healthcare Suite"

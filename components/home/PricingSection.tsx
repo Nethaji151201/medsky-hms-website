@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Check, X, Sparkles, Building2, Stethoscope, FlaskConical, Pill, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { PRICING_CATEGORIES, PricingCategoryKey, PricingTier } from "@/data/pricing";
 import { SectionHeader } from "@/ui/SectionHeader";
+import { ScrollReveal } from "@/ui/ScrollReveal";
 
 const CATEGORY_ICONS: Record<PricingCategoryKey, any> = {
   hms: Building2,
@@ -116,19 +117,48 @@ function PricingCard({ tier, categoryKey }: { tier: PricingTier; categoryKey: Pr
   );
 }
 
-export function PricingSection({ showHeader = true }: { showHeader?: boolean }) {
-  const [activeIndex, setActiveIndex] = useState(0);
+interface PricingSectionProps {
+  showHeader?: boolean;
+  initialCategory?: PricingCategoryKey;
+  singleCategoryOnly?: boolean;
+  title?: string;
+  titleHighlight?: string;
+  badge?: string;
+  autoRotate?: boolean;
+}
 
-  // Auto-switch to next tab every 5 seconds with smooth sliding
+export function PricingSection({
+  showHeader = true,
+  initialCategory,
+  singleCategoryOnly = false,
+  title,
+  titleHighlight,
+  badge = "Transparent Yearly Pricing",
+  autoRotate = false,
+}: PricingSectionProps) {
+  const initialIndex = initialCategory
+    ? PRICING_CATEGORIES.findIndex((c) => c.id === initialCategory)
+    : 0;
+  const [activeIndex, setActiveIndex] = useState(initialIndex >= 0 ? initialIndex : 0);
+
   useEffect(() => {
+    if (initialCategory) {
+      const idx = PRICING_CATEGORIES.findIndex((c) => c.id === initialCategory);
+      if (idx >= 0) setActiveIndex(idx);
+    }
+  }, [initialCategory]);
+
+  // Auto-switch to next tab if autoRotate is true and not in single category mode
+  useEffect(() => {
+    if (!autoRotate || singleCategoryOnly) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % PRICING_CATEGORIES.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [autoRotate, singleCategoryOnly]);
 
-  const activeCategory = PRICING_CATEGORIES[activeIndex];
+  const activeCategory = PRICING_CATEGORIES[activeIndex] || PRICING_CATEGORIES[0];
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev - 1 + PRICING_CATEGORIES.length) % PRICING_CATEGORIES.length);
@@ -144,104 +174,142 @@ export function PricingSection({ showHeader = true }: { showHeader?: boolean }) 
     >
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         {showHeader && (
-          <div className="mb-8 sm:mb-10 text-center">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-              Medsky <span className="text-primary">Pricing Plans</span>
-            </h1>
-          </div>
+          <ScrollReveal direction="top">
+            <div className="mb-8 sm:mb-10 text-center">
+              {title ? (
+                <SectionHeader
+                  badge={badge}
+                  title={title}
+                  titleHighlight={titleHighlight}
+                  description={singleCategoryOnly ? activeCategory.description : "Transparent yearly packages with zero hidden fees. Scale modules effortlessly."}
+                />
+              ) : (
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                  Medsky <span className="text-primary">Pricing Plans</span>
+                </h1>
+              )}
+            </div>
+          </ScrollReveal>
         )}
 
-        {/* 4 Pricing Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-8 sm:mb-10">
-          {PRICING_CATEGORIES.map((category, idx) => {
-            const Icon = CATEGORY_ICONS[category.id] || Building2;
-            const isActive = activeIndex === idx;
+        {/* 4 Pricing Category Tabs (Hidden when singleCategoryOnly is true) */}
+        {!singleCategoryOnly && (
+          <>
+            <ScrollReveal direction="top" delay={100}>
+              <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-8 sm:mb-10">
+                {PRICING_CATEGORIES.map((category, idx) => {
+                  const Icon = CATEGORY_ICONS[category.id] || Building2;
+                  const isActive = activeIndex === idx;
 
-            return (
-              <button
-                key={category.id}
-                onClick={() => setActiveIndex(idx)}
-                type="button"
-                className={`flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer ${isActive
-                  ? "bg-primary text-white shadow-lg shadow-primary/25 scale-[1.02]"
-                  : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-800 hover:border-primary/40 hover:text-slate-900 dark:hover:text-white"
-                  }`}
-              >
-                <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-primary"}`} />
-                <span>{category.label}</span>
-              </button>
-            );
-          })}
-        </div>
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setActiveIndex(idx)}
+                      type="button"
+                      className={`flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 cursor-pointer ${isActive
+                        ? "bg-primary text-white shadow-lg shadow-primary/25 scale-[1.02]"
+                        : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-800 hover:border-primary/40 hover:text-slate-900 dark:hover:text-white"
+                        }`}
+                    >
+                      <Icon className={`w-4 h-4 ${isActive ? "text-white" : "text-primary"}`} />
+                      <span>{category.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </ScrollReveal>
 
-        {/* Tab description subtitle */}
-        <div className="text-center max-w-2xl mx-auto -mt-2 mb-8 transition-opacity duration-300">
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            {activeCategory.description}
-          </p>
-        </div>
+            {/* Tab description subtitle */}
+            <ScrollReveal direction="bottom" delay={150}>
+              <div className="text-center max-w-2xl mx-auto -mt-2 mb-8 transition-opacity duration-300">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                  {activeCategory.description}
+                </p>
+              </div>
+            </ScrollReveal>
+          </>
+        )}
       </div>
 
-      {/* Smooth Horizontal Sliding Carousel Container for 4 Tabs with top padding for badges */}
-      <div className="relative w-full max-w-[1400px] mx-auto overflow-hidden px-4 sm:px-6 pt-6 pb-4">
-        {/* Sliding Track for All 4 Tab Panels */}
-        <div
-          className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform pt-1"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-        >
-          {PRICING_CATEGORIES.map((category) => (
-            <div key={category.id} className="w-full flex-shrink-0 px-2 sm:px-4 pt-4 pb-2">
-              {/* 3 Pricing Values Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1280px] mx-auto">
-                {category.tiers.map((tier) => (
-                  <PricingCard
-                    key={`${category.id}-${tier.id}`}
-                    tier={tier}
-                    categoryKey={category.id}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+      {/* When singleCategoryOnly is true: show only the 3 specific pricing cards directly */}
+      {singleCategoryOnly ? (
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 pt-4 pb-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1280px] mx-auto">
+            {activeCategory.tiers.map((tier, idx) => (
+              <ScrollReveal
+                key={`${activeCategory.id}-${tier.id}`}
+                direction="bottom"
+                delay={idx * 120}
+                className="h-full"
+              >
+                <PricingCard
+                  tier={tier}
+                  categoryKey={activeCategory.id}
+                />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
-
-        {/* Left & Right Chevron Controls & Indicators */}
-        <div className="flex items-center justify-center gap-4 mt-8 sm:mt-10">
-          <button
-            onClick={handlePrev}
-            type="button"
-            aria-label="Previous Pricing Tab"
-            className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+      ) : (
+        /* Smooth Horizontal Sliding Carousel Container for All Tabs */
+        <div className="relative w-full max-w-[1400px] mx-auto overflow-hidden px-4 sm:px-6 pt-6 pb-4">
+          <div
+            className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform pt-1"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          {/* Dots Indicator */}
-          <div className="flex items-center gap-2">
-            {PRICING_CATEGORIES.map((cat, idx) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveIndex(idx)}
-                type="button"
-                aria-label={`Go to ${cat.label}`}
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === idx
-                  ? "w-8 bg-primary"
-                  : "w-2.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"
-                  }`}
-              />
+            {PRICING_CATEGORIES.map((category) => (
+              <div key={category.id} className="w-full flex-shrink-0 px-2 sm:px-4 pt-4 pb-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1280px] mx-auto">
+                  {category.tiers.map((tier) => (
+                    <PricingCard
+                      key={`${category.id}-${tier.id}`}
+                      tier={tier}
+                      categoryKey={category.id}
+                    />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
 
-          <button
-            onClick={handleNext}
-            type="button"
-            aria-label="Next Pricing Tab"
-            className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+          {/* Left & Right Chevron Controls & Indicators */}
+          <div className="flex items-center justify-center gap-4 mt-8 sm:mt-10">
+            <button
+              onClick={handlePrev}
+              type="button"
+              aria-label="Previous Pricing Tab"
+              className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex items-center gap-2">
+              {PRICING_CATEGORIES.map((cat, idx) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveIndex(idx)}
+                  type="button"
+                  aria-label={`Go to ${cat.label}`}
+                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${activeIndex === idx
+                    ? "w-8 bg-primary"
+                    : "w-2.5 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400"
+                    }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={handleNext}
+              type="button"
+              aria-label="Next Pricing Tab"
+              className="w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

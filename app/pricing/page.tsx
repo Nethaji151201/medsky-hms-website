@@ -19,7 +19,7 @@ export const metadata = createMetadata({
 
 export default function PricingPage() {
   return (
-    <div className="pt-8 sm:pt-14 pb-12 sm:pb-16">
+    <div className="pt-28 sm:pt-36 pb-16 sm:pb-24">
       <PricingSection showHeader={true} />
     </div>
   );

@@ -44,7 +44,7 @@ const ICON_MAP: Record<string, any> = {
 
 export default function FeaturesPage() {
   return (
-    <div className="pt-12 sm:pt-20 space-y-24">
+    <div className="pt-28 sm:pt-36 pb-16 sm:pb-24 space-y-24">
       {/* 1. Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         <Badge variant="teal" size="md">

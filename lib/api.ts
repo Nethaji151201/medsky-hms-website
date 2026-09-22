@@ -13,10 +13,14 @@ export interface DemoRequestData {
 }
 
 export interface AppointmentBookingData {
-  treatment: string;
   name: string;
+  email?: string;
   phone: string;
-  state: string;
+  city?: string;
+  product?: string;
+  remarks?: string;
+  treatment?: string;
+  state?: string;
   doctor?: string;
   date?: string;
   time?: string;
@@ -26,9 +30,11 @@ export interface ContactFormData {
   fullName: string;
   email: string;
   phone: string;
-  subject: string;
+  product?: string;
+  city?: string;
   message: string;
-  department: "sales" | "support" | "billing" | "partnership";
+  subject?: string;
+  department?: string;
 }
 
 export interface ApiResponse<T = unknown> {
@@ -58,16 +64,16 @@ export async function submitDemoRequest(data: DemoRequestData): Promise<ApiRespo
 export async function submitAppointmentBooking(data: AppointmentBookingData): Promise<ApiResponse<AppointmentBookingData>> {
   await new Promise((resolve) => setTimeout(resolve, 700));
 
-  if (!data.name || !data.phone || !data.date) {
+  if (!data.name || !data.phone) {
     return {
       success: false,
-      message: "Please provide your Name, Phone Number, and Preferred Date.",
+      message: "Please provide your Name and Phone Number.",
     };
   }
 
   return {
     success: true,
-    message: `Appointment scheduled successfully for ${data.name} on ${data.date}. A confirmation SMS has been dispatched.`,
+    message: `Thank you, ${data.name}! Your enquiry for ${data.product || "Medsky HMS"} has been received. Our solutions specialist will contact you shortly.`,
     data,
   };
 }

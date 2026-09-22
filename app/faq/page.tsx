@@ -20,7 +20,7 @@ export const metadata = createMetadata({
 
 export default function FAQPage() {
   return (
-    <div className="pt-8 pb-12">
+    <div className="pt-28 sm:pt-36 pb-16 sm:pb-24">
       <FAQSection />
     </div>
   );

@@ -19,7 +19,7 @@ export function ScrollReveal({
   delay = 0,
   duration = 750,
   className,
-  threshold = 0.15,
+  threshold = 0.08,
   once = true,
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,7 +41,7 @@ export function ScrollReveal({
       },
       {
         threshold,
-        rootMargin: "0px 0px -40px 0px",
+        rootMargin: "0px 0px -20px 0px",
       }
     );
 

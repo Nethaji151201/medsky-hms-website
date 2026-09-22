@@ -57,7 +57,7 @@ export function Hero() {
               </p>
 
               <Link
-                href="/about"
+                href="/contact"
                 className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl pl-5 pr-2 py-2.5 shadow-md shadow-primary/25 transition-all group"
               >
                 <span className="mr-3">Meet Our Team</span>

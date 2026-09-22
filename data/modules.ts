@@ -1,3 +1,20 @@
+export interface ModuleFAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export interface ModuleTestimonialItem {
+  id: string;
+  name: string;
+  role: string;
+  hospital: string;
+  rating: number;
+  quote: string;
+  avatar: string;
+  initials: string;
+}
+
 export interface ModuleData {
   slug: string;
   name: string;
@@ -24,6 +41,8 @@ export interface ModuleData {
     label: string;
   }[];
   relatedModules: string[];
+  testimonials?: ModuleTestimonialItem[];
+  faqs?: ModuleFAQItem[];
 }
 
 export interface ProductItem {
@@ -101,7 +120,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     description:
       "Specialty-specific SOAP templates, rapid e-prescribing, longitudinal patient health timelines, and real-time drug allergy decision support.",
     iconName: "Stethoscope",
-    image: "/images/medsky_doctor_emr_hd.webp",
+    image: "/images/medsky_doctor_emr_hd.png",
     badge: "Clinical Suite",
   },
 ];
@@ -152,6 +171,60 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "0", label: "Unaccounted Consumables" },
     ],
     relatedModules: ["nursing", "doctor", "pharmacy", "billing"],
+    testimonials: [
+      {
+        id: "hms-t1",
+        name: "Dr. Arvind Ramesh",
+        role: "Medical Superintendent",
+        hospital: "City Multi-Specialty Hospital, Chennai",
+        rating: 5,
+        quote: "Medsky HMS transformed our IPD department. The real-time bed matrix and instant discharge clearance shortened our patient turnaround by more than 50%.",
+        avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "AR",
+      },
+      {
+        id: "hms-t2",
+        name: "Sister Mary Varghese",
+        role: "Chief Nursing Officer",
+        hospital: "St. Jude Hospital & Research Center",
+        rating: 5,
+        quote: "The eMAR barcode medication verification eliminated medication errors in our ICU and general wards completely. Shift handovers are smooth and accountable.",
+        avatar: "https://images.unsplash.com/photo-1594824813576-9286d8b28cf9?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "MV",
+      },
+      {
+        id: "hms-t3",
+        name: "Karthik Subramanian",
+        role: "Operations Director",
+        hospital: "Apollo Apex Care Network",
+        rating: 5,
+        quote: "Discharge summaries that used to take 4 hours now finish in under 30 minutes with synchronized billing, pharmacy, and laboratory clearances.",
+        avatar: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "KS",
+      },
+    ],
+    faqs: [
+      {
+        id: "hms-f1",
+        question: "How does the real-time visual bed census matrix work in Medsky HMS?",
+        answer: "The bed census matrix displays color-coded floor maps of your hospital wards, ICUs, and private rooms. It updates in real time to show occupied, vacant, reserved, undergoing sanitation, and maintenance beds, allowing instant transfers and admissions.",
+      },
+      {
+        id: "hms-f2",
+        question: "Can Medsky HMS manage automated multi-department discharge clearance?",
+        answer: "Yes. When a doctor issues a discharge order, automated clearance tasks are dispatched simultaneously to Inpatient Pharmacy, Pathology, Radiology, and Billing. The final bill cannot be settled until all departments clear pending medications and investigation records.",
+      },
+      {
+        id: "hms-f3",
+        question: "Does the system support eMAR with barcode verification for nurses?",
+        answer: "Absolutely. Nurses scan the patient's UHID wristband and medication blister strip using any mobile or handheld barcode scanner. The system cross-checks doctor orders, dosage, timing, and allergy warnings before confirming administration.",
+      },
+      {
+        id: "hms-f4",
+        question: "Is Medsky HMS capable of handling multi-building hospital campuses?",
+        answer: "Yes, Medsky HMS is built on a multi-tier architectural hierarchy supporting multiple blocks, wings, nursing stations, and emergency units under a single centralized hospital database.",
+      },
+    ],
   },
   {
     slug: "laboratory",
@@ -198,6 +271,45 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "Instant", label: "Critical Value Notification" },
     ],
     relatedModules: ["radiology", "opd", "ipd", "billing"],
+    testimonials: [
+      {
+        id: "lms-t1",
+        name: "Dr. Sunita Deshmukh",
+        role: "Chief Pathologist",
+        hospital: "Metropolis Clinical Diagnostic Center",
+        rating: 5,
+        quote: "The bi-directional analyzer integration has eliminated transcription errors. Reports flow directly from our Roche and Sysmex analyzers into digital pathologist sign-off queues.",
+        avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "SD",
+      },
+      {
+        id: "lms-t2",
+        name: "Rajesh Kulkarni",
+        role: "Lab Operations Head",
+        hospital: "Zenith Reference Laboratories",
+        rating: 5,
+        quote: "Our TAT for emergency CBC and Cardiac Biomarkers dropped by 65%. Automated WhatsApp report dispatch reduced inquiry calls by 80%.",
+        avatar: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "RK",
+      },
+    ],
+    faqs: [
+      {
+        id: "lms-f1",
+        question: "Which laboratory analyzers are compatible with Medsky LMS?",
+        answer: "Medsky LMS supports ASTM, HL7, and RS-232 serial communication protocols compatible with major equipment manufacturers including Roche, Sysmex, Beckman Coulter, Abbott, Mindray, and Bio-Rad.",
+      },
+      {
+        id: "lms-f2",
+        question: "How does the barcode sample accessioning workflow operate?",
+        answer: "At the phlebotomy desk, durable barcode labels are printed with the patient's UHID, accession number, and sample color-code (EDTA, Serum, Sodium Fluoride). The analyzer reads the barcode and pulls the order automatically.",
+      },
+      {
+        id: "lms-f3",
+        question: "Can pathologists sign off reports digitally from outside the lab?",
+        answer: "Yes, Medsky LMS has a secure cloud sign-off portal with cryptographic digital signatures and delta checks that compare current values against historical tests.",
+      },
+    ],
   },
   {
     slug: "opd",
@@ -244,18 +356,57 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "3x", label: "Faster Documentation" },
     ],
     relatedModules: ["doctor", "appointments", "radiology", "billing"],
+    testimonials: [
+      {
+        id: "cms-t1",
+        name: "Dr. Meenakshi Sundaram",
+        role: "Chief Physician & Clinic Director",
+        hospital: "Sundaram Polyclinic & Pediatric Centre",
+        rating: 5,
+        quote: "Medsky CMS is lightning fast. I finish clinical notes, prescribe digital medicines with zero spelling errors, and dispatch WhatsApp instructions in under 90 seconds.",
+        avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "MS",
+      },
+      {
+        id: "cms-t2",
+        name: "Ananya Sharma",
+        role: "Practice Manager",
+        hospital: "Prime Care Clinics Group",
+        rating: 5,
+        quote: "Our waiting room chaos disappeared within 2 days of implementing the smart token queue system. Patients love the live status notifications.",
+        avatar: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "AS",
+      },
+    ],
+    faqs: [
+      {
+        id: "cms-f1",
+        question: "Can multiple doctors use Medsky CMS in a shared polyclinic setting?",
+        answer: "Yes. Medsky CMS supports individual doctor schedules, custom consultation fees, private clinical notes, and multi-doctor revenue splitting with separate receptionist consoles.",
+      },
+      {
+        id: "cms-f2",
+        question: "Does Medsky CMS work on iPads, tablets, and mobile phones?",
+        answer: "Yes, Medsky CMS is completely responsive and cloud-based. Doctors can examine patients and write prescriptions effortlessly using tablets or laptops.",
+      },
+      {
+        id: "cms-f3",
+        question: "Can digital prescriptions be sent to patients via WhatsApp and SMS?",
+        answer: "Yes. With a single click, patients receive their encrypted PDF prescription, lifestyle advice, and follow-up appointment date on their WhatsApp and SMS.",
+      },
+    ],
   },
   {
     slug: "pharmacy",
-    name: "Pharmacy & Medication POS",
-    shortName: "Pharmacy",
+    name: "Pharmacy & Medication POS (PMS)",
+    shortName: "PMS",
     tagline: "Complete pharmacy point-of-sale, batch expiry monitoring, and stock reordering.",
     description:
       "Automated pharmacy management featuring barcode scanning, generic substitution suggestions, near-expiry alerts, and integrated retail billing.",
     iconName: "Pill",
     image: "/images/pharmacy.png",
     category: "Operations",
-    badge: "Retail & Inpatient",
+    badge: "Pharmacy POS",
     heroHighlights: [
       "Direct receipt of doctor digital prescriptions with dosage validation",
       "FIFO / FEFO automated batch dispensing to minimize expiry losses",
@@ -290,6 +441,45 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "30 Sec", label: "Average Counter Billing Time" },
     ],
     relatedModules: ["inventory", "billing", "doctor", "nursing"],
+    testimonials: [
+      {
+        id: "pms-t1",
+        name: "Prakash Nambiar",
+        role: "Chief Pharmacist",
+        hospital: "LifeCare Hospital Dispensary",
+        rating: 5,
+        quote: "The FEFO batch picking and automated LASA drug warnings saved our pharmacy team from expired stocks and dispensing confusion. It's fast and compliant.",
+        avatar: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "PN",
+      },
+      {
+        id: "pms-t2",
+        name: "Geeta Radhakrishnan",
+        role: "Retail Pharmacy Chain Owner",
+        hospital: "MedPlus Allied Stores",
+        rating: 5,
+        quote: "Handling GST compliance, supplier purchase orders, and multi-branch stock transfers used to take days. With Medsky PMS, it runs on auto-pilot.",
+        avatar: "https://images.unsplash.com/photo-1594824813576-9286d8b28cf9?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "GR",
+      },
+    ],
+    faqs: [
+      {
+        id: "pms-f1",
+        question: "How does FEFO (First-Expiry-First-Out) batch management protect against expired drugs?",
+        answer: "Medsky PMS automatically suggests and prioritizes medicine batches that are closest to expiration date during dispensing, alerting staff 30, 60, and 90 days before expiry to initiate vendor credit returns.",
+      },
+      {
+        id: "pms-f2",
+        question: "Can the pharmacy dispense against OPD prescriptions and IPD ward indents?",
+        answer: "Yes, both retail walk-in OPD prescriptions and Inpatient ward doctor indents are handled seamlessly, with direct posting to the patient's active inpatient account.",
+      },
+      {
+        id: "pms-f3",
+        question: "Is GST and multi-tier tax invoicing built into the POS?",
+        answer: "Yes, complete HSN codes, multi-tax GST slabs (0%, 5%, 12%, 18%), and automated B2B/B2C GST return exports are built natively into the billing engine.",
+      },
+    ],
   },
   {
     slug: "appointments",
@@ -336,6 +526,45 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "100%", label: "Family Record Visibility" },
     ],
     relatedModules: ["doctor", "opd", "billing"],
+    testimonials: [
+      {
+        id: "app-t1",
+        name: "Dr. Sandeep Vardhan",
+        role: "Head of OPD Services",
+        hospital: "Greenfield Multi-Specialty Clinic",
+        rating: 5,
+        quote: "Automated WhatsApp booking and token TV displays cut our reception crowding by over 70%. Patients arrive just on time.",
+        avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "SV",
+      },
+      {
+        id: "app-t2",
+        name: "Deepa Menon",
+        role: "Patient Relations Officer",
+        hospital: "Fortis Health Network",
+        rating: 5,
+        quote: "Our appointment no-show rate fell from 28% to under 7% with the automated 24-hour and 2-hour SMS reminders.",
+        avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "DM",
+      },
+    ],
+    faqs: [
+      {
+        id: "app-f1",
+        question: "Can patients book appointments via WhatsApp?",
+        answer: "Yes, Medsky includes an AI-enabled WhatsApp booking bot where patients select doctor specialties, choose time slots, and receive instant confirmation tokens.",
+      },
+      {
+        id: "app-f2",
+        question: "How does the waiting room Smart TV token display work?",
+        answer: "Connect any Smart TV or Android stick via HDMI to open the Medsky Queue display URL. It shows live token numbers called by consulting doctors with audible chime notifications.",
+      },
+      {
+        id: "app-f3",
+        question: "Can doctors adjust slot durations or block leave dates?",
+        answer: "Yes, doctors have a dedicated schedule manager to customize consultation slots (e.g. 10m vs 30m), emergency buffers, and vacation blockouts.",
+      },
+    ],
   },
   {
     slug: "doctor",
@@ -345,7 +574,7 @@ export const MODULES_DATA: ModuleData[] = [
     description:
       "Specialty-specific SOAP templates, rapid e-prescribing, longitudinal patient health timelines, and real-time drug allergy decision support.",
     iconName: "Stethoscope",
-    image: "/images/medsky_doctor_emr_hd.webp",
+    image: "/images/medsky_doctor_emr_hd.png",
     category: "Clinical",
     badge: "Clinical Suite",
     heroHighlights: [
@@ -382,6 +611,45 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "0", label: "Adverse Drug Incidents" },
     ],
     relatedModules: ["opd", "ipd", "pharmacy", "laboratory"],
+    testimonials: [
+      {
+        id: "emr-t1",
+        name: "Dr. Vikram Sethi",
+        role: "Senior Consultant Cardiologist",
+        hospital: "National Heart & Lung Institute",
+        rating: 5,
+        quote: "The graphical trending of ECGs, lipid panels, and blood pressure across multi-year visits gives me complete diagnostic clarity in seconds.",
+        avatar: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "VS",
+      },
+      {
+        id: "emr-t2",
+        name: "Dr. Kavita Singhal",
+        role: "Pediatric Specialist",
+        hospital: "Blossom Mother & Child Hospital",
+        rating: 5,
+        quote: "Pediatric growth charts with WHO percentiles and automated vaccine schedules have made my clinical documentation effortless and comprehensive.",
+        avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "KS",
+      },
+    ],
+    faqs: [
+      {
+        id: "emr-f1",
+        question: "Does the EMR support ICD-10 and SNOMED-CT clinical coding?",
+        answer: "Yes, Medsky Doctor EMR includes full ICD-10 diagnostic search and SNOMED-CT terminology for international compliance and insurance processing.",
+      },
+      {
+        id: "emr-f2",
+        question: "Can doctors customize their own prescription favorites and templates?",
+        answer: "Yes, doctors can create specialty drug sets (e.g. Hypertension Starter Kit, Post-Op Antibiotics) to write complete prescriptions in a single click.",
+      },
+      {
+        id: "emr-f3",
+        question: "How does the clinical decision support system alert for drug allergies?",
+        answer: "When a doctor selects a medication, Medsky automatically checks the patient's recorded allergies, active prescriptions, and kidney/liver impairment warnings, flashing an immediate alert.",
+      },
+    ],
   },
   {
     slug: "emergency",
@@ -428,10 +696,34 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "Zero Delay", label: "Code Blue / Red Broadcast" },
     ],
     relatedModules: ["ipd", "laboratory", "radiology", "pharmacy"],
+    testimonials: [
+      {
+        id: "emg-t1",
+        name: "Dr. Jordan Hayes",
+        role: "Head of Emergency Medicine",
+        hospital: "Trauma & Acute Care Centre",
+        rating: 5,
+        quote: "In trauma care, every second counts. Medsky's rapid 10-second intake and instant Code Blue broadcasts have streamlined our resuscitation workflows.",
+        avatar: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "JH",
+      },
+    ],
+    faqs: [
+      {
+        id: "emg-f1",
+        question: "How does Medsky handle unconscious or unidentified trauma patients?",
+        answer: "The ER module provides temporary 'Emergency UHID' generation allowing immediate blood matching, imaging, and medication administration before formal identification.",
+      },
+      {
+        id: "emg-f2",
+        question: "Can stat lab and radiology orders be prioritized automatically?",
+        answer: "Yes, all emergency orders carry a STAT flag that automatically bypasses standard queues in the LIS and PACS worklists.",
+      },
+    ],
   },
   {
     slug: "radiology",
-    name: "Radiology & PACS Imaging",
+    name: "Radiology & PACS Imaging (RIS)",
     shortName: "Radiology & PACS",
     tagline: "Seamless imaging order management, DICOM viewer integration, and radiological reporting.",
     description:
@@ -474,6 +766,30 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "100%", label: "DICOM 3.0 Compliance" },
     ],
     relatedModules: ["laboratory", "doctor", "emergency", "ipd"],
+    testimonials: [
+      {
+        id: "rad-t1",
+        name: "Dr. Priya Patel",
+        role: "Chief Radiologist",
+        hospital: "Apex Diagnostic Imaging Institute",
+        rating: 5,
+        quote: "The integrated zero-footprint web DICOM viewer allows me to view 3D MRI reconstructions and dictate structured reports from any workstation without lagging.",
+        avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "PP",
+      },
+    ],
+    faqs: [
+      {
+        id: "rad-f1",
+        question: "Does the DICOM viewer require software installation on client PCs?",
+        answer: "No, Medsky uses a zero-footprint HTML5 DICOM viewer that runs directly in any modern web browser with full MPR, 3D, and measurement capabilities.",
+      },
+      {
+        id: "rad-f2",
+        question: "Can radiologists report remotely using teleradiology workflows?",
+        answer: "Yes, cloud-enabled teleradiology access with secure VPN and voice dictation allows reporting from anywhere 24/7.",
+      },
+    ],
   },
   {
     slug: "billing",
@@ -520,6 +836,30 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "100%", label: "Audit-Ready Financials" },
     ],
     relatedModules: ["opd", "ipd", "pharmacy", "reports"],
+    testimonials: [
+      {
+        id: "bil-t1",
+        name: "Rameshwar Sen",
+        role: "Chief Financial Officer",
+        hospital: "Medicare Super Specialty Hospitals",
+        rating: 5,
+        quote: "Revenue leakages in our bed and OT consumable billing vanished immediately. TPA pre-authorizations and claim settlements are 85% faster.",
+        avatar: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "RS",
+      },
+    ],
+    faqs: [
+      {
+        id: "bil-f1",
+        question: "Can Medsky handle split billing between patients and multiple insurance TPAs?",
+        answer: "Yes, our billing engine handles co-pay limits, non-payable consumable deductibles, and corporate cashless approvals with automated split invoice receipts.",
+      },
+      {
+        id: "bil-f2",
+        question: "How does doctor fee commission calculation work?",
+        answer: "You can define customizable commission slabs for OPD consultations, IPD visits, surgical procedures, and diagnostic referrals calculated in real time.",
+      },
+    ],
   },
   {
     slug: "nursing",
@@ -531,41 +871,60 @@ export const MODULES_DATA: ModuleData[] = [
     iconName: "Activity",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80",
     category: "Clinical",
-    badge: "Rehabilitation",
+    badge: "Ward Nursing",
     heroHighlights: [
-      "Physical therapy milestone tracking and exercise compliance logs",
-      "Multi-disciplinary care plan collaboration between nurses and therapists",
-      "Pain score assessments and longitudinal mobility index charting",
-      "Consolidated discharge recovery guidelines for home wellness",
+      "Digital vitals flowsheets with automatic NEWS2 clinical deterioration alerts",
+      "eMAR electronic medication administration with barcode scanning",
+      "Structured shift handover sheets eliminating patient communication gaps",
+      "Direct ward consumable indenting linked with patient billing ledger",
     ],
     keyFeatures: [
       {
-        title: "Rehab Care Plan",
-        description: "Structured physio schedules, mobility goals, and functional independence measures.",
-        icon: "HeartPulse",
+        title: "Digital Flowsheet & Vitals",
+        description: "Record temperature, pulse, BP, SpO2, blood glucose, and IV intake/output effortlessly.",
+        icon: "Activity",
       },
       {
-        title: "Vitals & Pain Charting",
-        description: "Graphical tracking of vitals, pain scale responses, and therapy progress.",
-        icon: "SlidersHorizontal",
+        title: "eMAR Verification",
+        description: "Scan barcodes to confirm the 5 rights of medication administration before dispensing.",
+        icon: "ShieldCheck",
       },
       {
-        title: "Nurse & Therapist Handover",
-        description: "Digital handover sheet eliminating communication gaps during rehabilitation.",
+        title: "Shift Handover Log",
+        description: "Electronic shift change checklists ensuring unbroken continuum of patient care.",
         icon: "Users",
       },
     ],
     workflowSteps: [
-      { stepNumber: "01", title: "Care Plan Setup", detail: "Therapist defines recovery milestones and exercise regimen." },
-      { stepNumber: "02", title: "Daily Session Log", detail: "Log therapy duration, range of motion, and patient endurance." },
-      { stepNumber: "03", title: "Outcome Evaluation", detail: "Generate progress chart for consulting orthopedic doctor." },
+      { stepNumber: "01", title: "Shift Takeover", detail: "Incoming nurse reviews active ward roster and critical patient alerts." },
+      { stepNumber: "02", title: "Vitals & eMAR", detail: "Administer scheduled IV/oral drugs and record periodic vital signs." },
+      { stepNumber: "03", title: "Handover Notes", detail: "Generate summary of new doctor orders and pending investigation results." },
     ],
     metrics: [
-      { value: "100%", label: "Therapy Compliance" },
-      { value: "45 Min", label: "Saved per Shift on Notes" },
-      { value: "Zero Gap", label: "Multi-Disciplinary Care" },
+      { value: "45 Min", label: "Saved per Nurse Shift" },
+      { value: "100%", label: "eMAR Chart Compliance" },
+      { value: "Zero Gap", label: "Shift Handover Accuracy" },
     ],
-    relatedModules: ["opd", "ipd", "doctor", "billing"],
+    relatedModules: ["ipd", "doctor", "pharmacy", "billing"],
+    testimonials: [
+      {
+        id: "nur-t1",
+        name: "Matron Teresa George",
+        role: "Head of Inpatient Nursing",
+        hospital: "Covenant Memorial Hospital",
+        rating: 5,
+        quote: "Nurses spend far less time on tedious paper charts and more time at the patient's bedside. The automated NEWS2 early warning alerts have saved lives.",
+        avatar: "https://images.unsplash.com/photo-1594824813576-9286d8b28cf9?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "TG",
+      },
+    ],
+    faqs: [
+      {
+        id: "nur-f1",
+        question: "Does the nursing module support Early Warning Scores (EWS / NEWS2)?",
+        answer: "Yes, entering patient vital signs triggers automated NEWS2 calculations with color-coded risk alerts notifying duty doctors immediately.",
+      },
+    ],
   },
   {
     slug: "inventory",
@@ -612,6 +971,25 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "Zero Out", label: "Stockout Prevention" },
     ],
     relatedModules: ["pharmacy", "billing", "reports"],
+    testimonials: [
+      {
+        id: "inv-t1",
+        name: "Sudhir Bhandari",
+        role: "Procurement Director",
+        hospital: "Heritage Health System",
+        rating: 5,
+        quote: "We eliminated emergency medical stockouts and reduced our warehouse holding costs by 30% through automated reorder thresholds.",
+        avatar: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "SB",
+      },
+    ],
+    faqs: [
+      {
+        id: "inv-f1",
+        question: "Can we track biomedical equipment service warranties and maintenance schedules?",
+        answer: "Yes, every hospital asset is tagged with its serial number, AMC/CMC contract expiry, preventive maintenance schedule, and service history.",
+      },
+    ],
   },
   {
     slug: "reports",
@@ -658,5 +1036,24 @@ export const MODULES_DATA: ModuleData[] = [
       { value: "100%", label: "Statutory Compliance" },
     ],
     relatedModules: ["billing", "opd", "ipd", "pharmacy", "laboratory"],
+    testimonials: [
+      {
+        id: "rep-t1",
+        name: "Dr. Alok Verma",
+        role: "Managing Director & CEO",
+        hospital: "CarePoint Healthcare Group",
+        rating: 5,
+        quote: "The executive dashboard gives me complete visibility over bed occupancy, daily cash collections, and departmental productivity from my phone.",
+        avatar: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=200&h=200&q=80",
+        initials: "AV",
+      },
+    ],
+    faqs: [
+      {
+        id: "rep-f1",
+        question: "Can hospital management receive automated daily MIS reports via email?",
+        answer: "Yes, automated scheduled digests can be configured to email morning revenue summaries, bed occupancy, and critical clinical indicators directly to executives.",
+      },
+    ],
   },
 ];

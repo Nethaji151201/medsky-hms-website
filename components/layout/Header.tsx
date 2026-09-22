@@ -58,7 +58,7 @@ const PRODUCT_SUBMENU = [
   },
   {
     label: "Online Appointment Booking",
-    href: "/#appointment",
+    href: "/modules/appointments",
     desc: "Doctor roster, real-time slots & instant SMS confirmation",
     icon: Calendar,
     badge: "Booking",
