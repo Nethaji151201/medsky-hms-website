@@ -26,7 +26,7 @@ export default function ContactPage() {
         {/* Expanded Page Header */}
         <div className="text-center max-w-5xl mx-auto mb-5 sm:mb-6 space-y-1.5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 text-[11px] font-bold uppercase tracking-wider">
-            Contact & Inquiries
+            Contact & Enquiry
           </div>
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
             Let&apos;s Talk About Your{" "}
@@ -48,7 +48,7 @@ export default function ContactPage() {
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white">Contact Details</h2>
                 <p className="text-[11.5px] text-slate-400 mt-0.5">
-                  We answer hospital leadership inquiries within 2 hours.
+                  We answer hospital leadership enquiry within 2 hours.
                 </p>
               </div>
 
@@ -84,7 +84,7 @@ export default function ContactPage() {
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-slate-400 block">Email Inquiries</span>
+                    <span className="text-[11px] font-semibold text-slate-400 block">Email Enquiry</span>
                     <div className="flex items-center gap-2 pt-0.5">
                       <a
                         href="mailto:support@medsky.in"

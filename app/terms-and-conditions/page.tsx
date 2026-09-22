@@ -44,7 +44,7 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">4. Governing Law & Support</h2>
           <p>
-            For legal inquiries or master service contract agreements, contact <a href="mailto:legal@medskyhms.com" className="text-teal-600 dark:text-teal-400 font-semibold underline">legal@medskyhms.com</a>.
+            For legal enquiry or master service contract agreements, contact <a href="mailto:legal@medskyhms.com" className="text-teal-600 dark:text-teal-400 font-semibold underline">legal@medskyhms.com</a>.
           </p>
         </section>
       </div>

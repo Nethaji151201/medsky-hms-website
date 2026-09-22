@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">4. Contact Privacy Officer</h2>
           <p>
-            For privacy inquiries or compliance data auditing requests, please contact our data governance team at <a href="mailto:privacy@medskyhms.com" className="text-teal-600 dark:text-teal-400 font-semibold underline">privacy@medskyhms.com</a>.
+            For privacy enquiry or compliance data auditing requests, please contact our data governance team at <a href="mailto:privacy@medskyhms.com" className="text-teal-600 dark:text-teal-400 font-semibold underline">privacy@medskyhms.com</a>.
           </p>
         </section>
       </div>
