@@ -81,70 +81,66 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
 
         {/* Hero Content Container */}
         <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-28 sm:pt-36 pb-16 sm:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Column (7 cols): Smooth Left Slide Animation */}
-            <div className="lg:col-span-7 space-y-6 max-w-2xl animate-slide-left">
-              {/* Breadcrumb Navigation - Smooth Top Slide */}
-              <nav className="flex items-center gap-2 text-xs text-slate-300 font-medium animate-slide-top">
-                <Link href="/" className="hover:text-teal-400 transition-colors">
-                  Home
-                </Link>
-                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-                <Link href="/modules" className="hover:text-teal-400 transition-colors">
-                  Modules
-                </Link>
-                <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-                <span className="text-teal-300 font-semibold">{module.shortName}</span>
-              </nav>
+          <div className="max-w-3xl space-y-6 animate-slide-left">
+            {/* Breadcrumb Navigation - Smooth Top Slide */}
+            <nav className="flex items-center gap-2 text-xs text-slate-300 font-medium animate-slide-top">
+              <Link href="/" className="hover:text-teal-400 transition-colors">
+                Home
+              </Link>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <Link href="/modules" className="hover:text-teal-400 transition-colors">
+                Modules
+              </Link>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <span className="text-teal-300 font-semibold">{module.shortName}</span>
+            </nav>
 
-              {/* Category & Badge - Smooth Top Slide */}
-              <div className="flex flex-wrap items-center gap-2.5 animate-slide-top" style={{ animationDelay: "100ms" }}>
-                <span className="px-3.5 py-1 rounded-full bg-primary/20 border border-primary/40 text-primary-light text-xs font-bold uppercase tracking-wider">
-                  {module.badge}
-                </span>
-                <span className="text-xs font-medium text-slate-300">
-                  {module.category} Module
-                </span>
-              </div>
-
-              {/* Huge Headline - Smooth Left Slide */}
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] transition-all duration-300">
-                {module.name}
-              </h1>
-
-              {/* Tagline in Teal */}
-              <p className="text-lg sm:text-xl text-primary-light font-medium leading-snug">
-                {module.tagline}
-              </p>
-
-              {/* Key Bullet Highlights with Teal Checkmarks - Smooth Bottom Slide */}
-              <div className="space-y-2.5 pt-2 animate-slide-bottom" style={{ animationDelay: "200ms" }}>
-                {module.heroHighlights.map((hl, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-200 transition-transform duration-200 hover:translate-x-1">
-                    <CheckCircle2 className="w-5 h-5 text-primary-light flex-shrink-0 mt-0.5" />
-                    <span>{hl}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Category & Badge - Smooth Top Slide */}
+            <div className="flex flex-wrap items-center gap-2.5 animate-slide-top" style={{ animationDelay: "100ms" }}>
+              <span className="px-3.5 py-1 rounded-full bg-primary/20 border border-primary/40 text-primary-light text-xs font-bold uppercase tracking-wider">
+                {module.badge}
+              </span>
+              <span className="text-xs font-medium text-slate-300">
+                {module.category} Module
+              </span>
             </div>
 
-            {/* Right Column (5 cols): Smooth Right Slide Animation */}
-            <div className="lg:col-span-5 flex justify-end animate-slide-right">
-              <div className="bg-white text-slate-900 rounded-[28px] rounded-br-[4px] p-7 sm:p-8 max-w-md shadow-2xl border border-slate-100 space-y-5 transition-all duration-500 hover:shadow-cyan-950/40 hover:-translate-y-2 hover:scale-[1.01]">
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                  {module.description}
-                </p>
+            {/* Huge Headline - Smooth Left Slide */}
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] transition-all duration-300">
+              {module.name}
+            </h1>
 
-                <Link
-                  href="/demo"
-                  className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl pl-5 pr-2 py-2.5 shadow-md shadow-primary/25 transition-all duration-200 group active:scale-95"
-                >
-                  <span className="mr-3">Schedule {module.shortName} Demo</span>
-                  <div className="w-7 h-7 rounded-lg bg-white text-slate-950 flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
-                </Link>
-              </div>
+            {/* Tagline in Teal */}
+            <p className="text-lg sm:text-xl text-primary-light font-medium leading-snug">
+              {module.tagline}
+            </p>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+              {module.description}
+            </p>
+
+            {/* Key Bullet Highlights with Teal Checkmarks - Smooth Bottom Slide */}
+            <div className="space-y-2.5 pt-2 animate-slide-bottom" style={{ animationDelay: "200ms" }}>
+              {module.heroHighlights.map((hl, idx) => (
+                <div key={idx} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-200 transition-transform duration-200 hover:translate-x-1">
+                  <CheckCircle2 className="w-5 h-5 text-primary-light flex-shrink-0 mt-0.5" />
+                  <span>{hl}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Schedule Demo CTA at the bottom of left content */}
+            <div className="pt-4 animate-slide-bottom" style={{ animationDelay: "300ms" }}>
+              <Link
+                href="/demo"
+                className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl pl-6 pr-2 py-2.5 shadow-lg shadow-primary/30 transition-all duration-200 group hover:scale-105 active:scale-95"
+              >
+                <span className="mr-3">Schedule {module.shortName} Demo</span>
+                <div className="w-8 h-8 rounded-lg bg-white text-slate-950 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                  <ArrowRight className="w-4 h-4 text-primary" />
+                </div>
+              </Link>
             </div>
           </div>
         </div>

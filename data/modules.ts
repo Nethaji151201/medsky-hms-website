@@ -107,7 +107,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     slug: "appointments",
     tagline: "Appointments & Smart Queue",
     description:
-      "Omnichannel doctor booking via WhatsApp, web, and kiosk with real-time doctor rosters, automated SMS reminders, and waiting room TV screens.",
+      "It helps healthcare organizations deliver a more organized appointment process while giving patients a convenient way to connect with the right healthcare provider at the right time.",
     iconName: "Calendar",
     image: "/images/appoinment.png",
     badge: "Patient Experience",
@@ -118,7 +118,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     slug: "doctor",
     tagline: "Electronic Medical & Health Records",
     description:
-      "Specialty-specific SOAP templates, rapid e-prescribing, longitudinal patient health timelines, and real-time drug allergy decision support.",
+      "Digitize your clinical workflows with a centralized electronic medical record platform designed for modern healthcare organizations.",
     iconName: "Stethoscope",
     image: "/images/medsky_doctor_emr_hd.png",
     badge: "Clinical Suite",

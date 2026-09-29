@@ -44,8 +44,8 @@ function PricingCard({ tier, categoryKey }: { tier: PricingTier; categoryKey: Pr
             <h4 className="font-bold text-[16.5px] text-[#1e293b] dark:text-white leading-tight truncate">
               {tier.name}
             </h4>
-            <p className="text-[11.5px] text-accent-foreground dark:text-cyan-400 font-semibold mt-0.5 uppercase tracking-wide">
-              {categoryKey.toUpperCase()} Suite
+            <p className="text-[11.5px] text-accent-foreground dark:text-cyan-400 font-semibold mt-0.5 uppercase tracking-wide truncate">
+              {tier.subtitle || `${categoryKey.toUpperCase()} Suite`}
             </p>
           </div>
         </div>
@@ -181,12 +181,17 @@ export function PricingSection({
                   badge={badge}
                   title={title}
                   titleHighlight={titleHighlight}
-                  description={singleCategoryOnly ? activeCategory.description : "Transparent yearly packages with zero hidden fees. Scale modules effortlessly."}
+                  description={singleCategoryOnly ? activeCategory.description : "Flexible healthcare software plans designed for hospitals, clinics, laboratories, and pharmacies."}
                 />
               ) : (
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                  Medsky <span className="text-primary">Pricing Plans</span>
-                </h1>
+                <div className="space-y-3">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Medsky <span className="text-primary">Pricing Plans</span>
+                  </h1>
+                  <p className="text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-normal">
+                    Flexible healthcare software plans designed for hospitals, clinics, laboratories, and pharmacies.
+                  </p>
+                </div>
               )}
             </div>
           </ScrollReveal>

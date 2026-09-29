@@ -218,6 +218,19 @@ export function Header() {
               </div>
             </div>
 
+            {/* LOCATIONS */}
+            <Link
+              href="/locations"
+              className={cn(
+                "text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-colors",
+                pathname.startsWith("/locations")
+                  ? "text-primary font-black"
+                  : "text-white/90 hover:text-white hover:bg-white/10"
+              )}
+            >
+              LOCATIONS
+            </Link>
+
             {/* PRICING */}
             <Link
               href="/pricing"
@@ -460,6 +473,13 @@ export function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   PMS (PHARMACY SUITE)
+                </Link>
+                <Link
+                  href="/locations"
+                  className="block px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:bg-white/10"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  LOCATIONS & REGIONS
                 </Link>
                 <Link
                   href="/pricing"

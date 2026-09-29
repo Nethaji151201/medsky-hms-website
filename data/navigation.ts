@@ -88,6 +88,7 @@ export const MAIN_NAV: NavItem[] = [
       },
     ],
   },
+  { label: "Locations", href: "/locations" },
   { label: "Features", href: "/features" },
   { label: "Security", href: "/security" },
   { label: "Pricing", href: "/pricing" },
@@ -107,13 +108,16 @@ export const FOOTER_DEPARTMENTS = [
 
 export const FOOTER_USEFUL_LINKS = [
   { label: "Home", href: "/" },
+  { label: "Locations & Regions", href: "/locations" },
+  { label: "Hospital Software Chennai", href: "/locations/tamil-nadu/chennai" },
+  { label: "Hospital Software Salem", href: "/locations/tamil-nadu/salem" },
+  { label: "Hospital Software Coimbatore", href: "/locations/tamil-nadu/coimbatore" },
   { label: "About Us", href: "/about" },
   { label: "All Modules", href: "/modules" },
   { label: "Platform Features", href: "/features" },
   { label: "Pricing Plans", href: "/pricing" },
   { label: "Security & Compliance", href: "/security" },
   { label: "Request a Demo", href: "/demo" },
-  { label: "Resources & Blog", href: "/resources" },
   { label: "Contact Us", href: "/contact" },
 ];
 

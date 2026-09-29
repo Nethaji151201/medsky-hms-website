@@ -6,6 +6,7 @@ export interface PricingFeature {
 export interface PricingTier {
   id: string;
   name: string;
+  subtitle?: string;
   badge?: string;
   tagline: string;
   priceYearlyINR: number;
@@ -38,7 +39,8 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       {
         id: "hms-essential",
         name: "HMS Essential",
-        tagline: "Essential operations for nursing homes and 25-bed multi-specialty hospitals.",
+        subtitle: "Essential Hospital Operations",
+        tagline: "Designed for hospitals and nursing homes managing up to 15 beds.",
         priceYearlyINR: 28788,
         equivalentMonthlyINR: 2399,
         billingPeriodNote: "Yearly Package (Billed Annually)",
@@ -47,7 +49,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         ctaLabel: "Choose HMS Essential →",
         ctaHref: "/demo?product=hms&plan=essential",
         features: [
-          { text: "Up to 25 IPD Bed Management", included: true },
+          { text: "Up to 15 IPD Bed Management", included: true },
           { text: "OPD Queue & Token Display System", included: true },
           { text: "Doctor EMR & Digital Prescriptions", included: true },
           { text: "Discharge Summary & Medical History", included: true },
@@ -61,8 +63,9 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       {
         id: "hms-standard",
         name: "HMS Standard",
+        subtitle: "Complete Hospital Automation",
         badge: "Most Popular",
-        tagline: "Comprehensive hospital automation for 25–100 bed surgical and general hospitals.",
+        tagline: "Ideal for 15–50 bed general and multi-specialty hospitals.",
         priceYearlyINR: 77988,
         equivalentMonthlyINR: 6499,
         billingPeriodNote: "Yearly Package (Billed Annually)",
@@ -71,7 +74,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         ctaLabel: "Choose HMS Standard →",
         ctaHref: "/demo?product=hms&plan=standard",
         features: [
-          { text: "Up to 100 IPD Bed Census & Ward Nursing", included: true },
+          { text: "Up to 50 IPD Bed Census & Ward Nursing", included: true },
           { text: "Nursing Station eMAR & Vitals Flowsheet", included: true },
           { text: "OT Scheduling & Pacs Integration", included: true },
           { text: "Emergency & STAT Orders Workflow", included: true },
@@ -84,15 +87,16 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       },
       {
         id: "hms-advanced",
-        name: "HMS Advanced (Custom)",
+        name: "HMS Enterprise",
+        subtitle: "Enterprise Hospital Management",
         badge: "Advanced (Custom)",
-        tagline: "Uncapped multi-specialty networks, hospital chains, and tertiary care institutions.",
+        tagline: "Built for multi-specialty hospitals, hospital groups, and growing healthcare networks.",
         priceYearlyINR: 179988,
         equivalentMonthlyINR: 14999,
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose HMS (Custom)→",
+        ctaLabel: "Choose HMS Enterprise →",
         ctaHref: "/demo?product=hms&plan=gold",
         features: [
           { text: "Unlimited Beds & Multi-Branch Network", included: true },
@@ -116,7 +120,8 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       {
         id: "cms-solo",
         name: "CMS Essential",
-        tagline: "Designed for independent practitioners, single consultants, and dental/pediatric OPDs.",
+        subtitle: "Essential Clinic Management",
+        tagline: "Designed for independent practitioners, single-doctor clinics, dental Clinics and pediatric OPDs.",
         priceYearlyINR: 17988,
         equivalentMonthlyINR: 1499,
         billingPeriodNote: "Yearly Package (Billed Annually)",
@@ -137,8 +142,9 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       {
         id: "cms-polyclinic",
         name: "CMS Standard",
+        subtitle: "Complete Clinic Management",
         badge: "Popular",
-        tagline: "Multi-doctor OPD clinics, specialty daycare centers, and diagnostic OPD complexes.",
+        tagline: "Ideal for multi-doctor OPDs, multi-specialty clinics, daycare centers, and diagnostic consultation centers.",
         priceYearlyINR: 35988,
         equivalentMonthlyINR: 2999,
         billingPeriodNote: "Yearly Package (Billed Annually)",
@@ -158,14 +164,16 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       },
       {
         id: "cms-network",
-        name: "CMS Advance (Custom)",
-        tagline: "Franchise clinics, dental chains, and multi-location wellness facilities.",
+        name: "CMS Enterprise",
+        subtitle: "Enterprise Clinic Management",
+        badge: "Enterprise",
+        tagline: "Built for clinic groups, dental chains, and multi-location healthcare networks.",
         priceYearlyINR: 71988,
         equivalentMonthlyINR: 5999,
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Get CMS Advance (Custom) →",
+        ctaLabel: "Get CMS Enterprise →",
         ctaHref: "/demo?product=cms&plan=network",
         features: [
           { text: "Unlimited Doctors Across Multi-Locations", included: true },
@@ -183,12 +191,13 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
     id: "lms",
     label: "LMS Pricing",
     shortTitle: "Laboratory Management Software (LIS)",
-    description: "Automated laboratory workflow from sample collection, barcode scanning, bi-directional analyzer interfacing to QR verified reports.",
+    description: "Streamline the complete laboratory workflow—from patient registration and test ordering to sample collection, analyzer integration, result validation, billing, and digital report delivery.",
     tiers: [
       {
         id: "lms-basic",
         name: "LMS Essential",
-        tagline: "Ideal for small diagnostic centers and collection centers with manual test entry.",
+        subtitle: "Essential Laboratory Management",
+        tagline: "Ideal for small diagnostic centers, pathology labs, and collection centers with manual or semi-automated workflows.",
         priceYearlyINR: 21588,
         equivalentMonthlyINR: 1799,
         billingPeriodNote: "Yearly Package (Billed Annually)",
@@ -209,8 +218,9 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       {
         id: "lms-smart",
         name: "LMS Standard",
+        subtitle: "Complete Laboratory Automation",
         badge: "Recommended",
-        tagline: "Full bidirectional interfacing for high-throughput hematology, biochemistry, and immunoassay labs.",
+        tagline: "Designed for high-volume pathology, hematology, biochemistry, and immunoassay laboratories.",
         priceYearlyINR: 47988,
         equivalentMonthlyINR: 3999,
         billingPeriodNote: "Yearly Package (Billed Annually)",
@@ -230,14 +240,16 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       },
       {
         id: "lms-chain",
-        name: "LMS Advance (Custom)",
-        tagline: "Central hub & spoke model with multiple collection centers and regional processing labs.",
+        name: "LMS Enterprise",
+        subtitle: "Enterprise Laboratory Management",
+        badge: "Enterprise",
+        tagline: "Built for central laboratories, multi-branch diagnostic networks.",
         priceYearlyINR: 95988,
         equivalentMonthlyINR: 7999,
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose LMS Advance (Custom) →",
+        ctaLabel: "Choose LMS Enterprise →",
         ctaHref: "/demo?product=lms&plan=chain",
         features: [
           { text: "Central Processing Lab + Hub-and-Spoke Spoke Centers", included: true },
@@ -255,11 +267,12 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
     id: "pms",
     label: "PMS Pricing",
     shortTitle: "Pharmacy Management Software",
-    description: "High-speed retail POS, hospital pharmacy, FEFO batch expiry control, and automated GST billing.",
+    description: "Manage pharmacy sales, inventory, purchasing, stock, and billing from one platform.",
     tiers: [
       {
         id: "pms-retail",
         name: "PMS Essential",
+        subtitle: "Essential Pharmacy Management",
         tagline: "Single retail medical store with high-speed POS billing and medicine barcode lookup.",
         priceYearlyINR: 15588,
         equivalentMonthlyINR: 1299,
@@ -281,6 +294,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       {
         id: "pms-hospital",
         name: "PMS Standard",
+        subtitle: "Complete Pharmacy Automation",
         badge: "Most Popular",
         tagline: "Integrated hospital pharmacy handling IPD ward indents, OT kits, and retail counters.",
         priceYearlyINR: 35988,
@@ -302,14 +316,16 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
       },
       {
         id: "pms-chain",
-        name: "PMS Advance (Custom)",
+        name: "PMS Enterprise",
+        subtitle: "Enterprise Pharmacy Management",
+        badge: "Enterprise",
         tagline: "Multi-outlet pharmacy chains, distribution hubs, and central warehouse management.",
         priceYearlyINR: 79988,
         equivalentMonthlyINR: 6665,
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose PMS Advance (Custom) →",
+        ctaLabel: "Choose PMS Enterprise →",
         ctaHref: "/demo?product=pms&plan=chain",
         features: [
           { text: "Central Warehouse (C&F) + Unlimited Outlets", included: true },

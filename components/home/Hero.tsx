@@ -33,39 +33,42 @@ export function Hero() {
 
       {/* 2. Main Content Container */}
       <div className="max-w-[1520px] mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-28 sm:pt-36 pb-16 sm:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Column (7 cols): Headline with Smooth Left Slide */}
-          <div className="lg:col-span-7 space-y-6 max-w-2xl animate-slide-left">
-            {/* Huge Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
-              Your Trusted Partner for Simplifying Healthcare
-              <span className="sr-only">
-                {" "}
-                — India&apos;s Best Hospital Software, Clinic Management (CMS),
-                Diagnostic Lab (LMS), and Pharmacy (PMS) System
-              </span>
-            </h1>
-          </div>
+        <div className="max-w-3xl space-y-6 animate-slide-left">
+          {/* Huge Headline */}
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+            Your Trusted Partner for Simplifying Healthcare
+            <span className="sr-only">
+              {" "}
+              — India&apos;s Best Hospital Software, Clinic Management (CMS),
+              Diagnostic Lab (LMS), and Pharmacy (PMS) System
+            </span>
+          </h1>
 
-          {/* Right Column (5 cols): Floating White Card with Smooth Right Slide */}
-          <div className="lg:col-span-5 flex justify-end animate-slide-right">
-            <div className="bg-white text-slate-900 rounded-[28px] rounded-br-[4px] p-7 sm:p-8 max-w-md shadow-2xl border border-slate-100 space-y-5 transition-all duration-300 hover:shadow-cyan-950/40 hover:-translate-y-1">
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                MEDSKY is an integrated healthcare management software designed
-                to simplify and streamline day-to-day operations for hospitals,
-                clinics, laboratories, and pharmacies.
-              </p>
+          {/* Subtitle / Description */}
+          <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
+            MEDSKY is an integrated healthcare management software designed to
+            simplify and streamline day-to-day operations for hospitals, clinics,
+            laboratories, and pharmacies.
+          </p>
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs font-bold uppercase tracking-wider rounded-xl pl-5 pr-2 py-2.5 shadow-md shadow-primary/25 transition-all group"
-              >
-                <span className="mr-3">Meet Our Team</span>
-                <div className="w-7 h-7 rounded-lg bg-white text-slate-950 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </Link>
-            </div>
+          {/* Schedule Demo CTA on the left */}
+          <div className="pt-3 flex flex-wrap items-center gap-4">
+            <Link
+              href="/demo"
+              className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl pl-6 pr-2.5 py-3 shadow-lg shadow-primary/30 transition-all duration-200 group hover:scale-105 active:scale-95"
+            >
+              <span className="mr-3">Schedule Live Demo</span>
+              <div className="w-8 h-8 rounded-lg bg-white text-slate-950 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                <ArrowRight className="w-4 h-4 text-primary" />
+              </div>
+            </Link>
+
+            <Link
+              href="/#appointment"
+              className="inline-flex items-center px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border border-white/15 transition-all"
+            >
+              Make an Enquiry
+            </Link>
           </div>
         </div>
       </div>
