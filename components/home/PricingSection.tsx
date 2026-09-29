@@ -76,7 +76,7 @@ function PricingCard({ tier, categoryKey }: { tier: PricingTier; categoryKey: Pr
 
         {/* Feature List */}
         <div className="space-y-2.5 pt-2">
-          {tier.features.slice(0, 6).map((feat, fidx) => (
+          {tier.features.map((feat, fidx) => (
             <div key={fidx} className="flex items-start gap-2.5">
               {feat.included ? (
                 <div className="w-4 h-4 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-primary flex items-center justify-center flex-shrink-0 mt-0.5 border border-cyan-200 dark:border-cyan-800">
@@ -88,7 +88,7 @@ function PricingCard({ tier, categoryKey }: { tier: PricingTier; categoryKey: Pr
                 </div>
               )}
               <span
-                className={`text-xs sm:text-[12.5px] leading-snug line-clamp-1 ${feat.included
+                className={`text-xs sm:text-[12.5px] leading-snug ${feat.included
                   ? "text-slate-600 dark:text-slate-300 font-medium"
                   : "text-slate-400 dark:text-slate-500 line-through opacity-60"
                   }`}

@@ -106,8 +106,8 @@ export function JsonLd() {
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "INR",
-        lowPrice: "28788",
-        highPrice: "179988",
+        lowPrice: "96000",
+        highPrice: "175000",
         offerCount: "3",
       },
       aggregateRating: {
@@ -138,8 +138,8 @@ export function JsonLd() {
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "INR",
-        lowPrice: "17988",
-        highPrice: "71988",
+        lowPrice: "30000",
+        highPrice: "90000",
         offerCount: "3",
       },
       aggregateRating: {
@@ -169,8 +169,8 @@ export function JsonLd() {
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "INR",
-        lowPrice: "21588",
-        highPrice: "95988",
+        lowPrice: "20000",
+        highPrice: "75000",
         offerCount: "3",
       },
       aggregateRating: {
