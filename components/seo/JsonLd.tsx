@@ -57,17 +57,17 @@ export function JsonLd() {
       },
       {
         "@type": "ContactPoint",
-        telephone: SITE_CONFIG.inquiryPhone,
+        telephone: SITE_CONFIG.enquiryPhone,
         contactType: "sales",
         areaServed: ["IN", "AE", "SA", "OM", "QA", "KW", "BH", "US", "GB"],
         availableLanguage: ["English", "Hindi", "Tamil"],
       },
     ],
     sameAs: [
-      "https://www.linkedin.com/company/medskyhms",
-      "https://twitter.com/medskyhms",
-      "https://www.facebook.com/medskyhms",
-      "https://www.youtube.com/@medskyhms",
+      "https://www.facebook.com/medskysoftware",
+      "https://www.instagram.com/medskyhms",
+      "https://www.youtube.com/@Medskyhms",
+      "https://www.linkedin.com/in/medskyhms",
     ],
   };
 

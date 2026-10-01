@@ -13,7 +13,7 @@ export function FAQSection() {
             badge="Frequently Asked Questions"
             title="Answers that simplify your"
             titleHighlight="MedSky decision."
-            description="Explore key concerns with elegant clarity and premium motion, built for modern healthcare buyers."
+            description="Explore common questions about Medsky HMS, its healthcare modules, features, implementation, support, and how it can help streamline hospital and clinic operations."
           />
         </ScrollReveal>
 

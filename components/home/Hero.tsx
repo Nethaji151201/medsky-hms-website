@@ -54,7 +54,7 @@ export function Hero() {
           {/* Schedule Demo CTA on the left */}
           <div className="pt-3 flex flex-wrap items-center gap-4">
             <Link
-              href="/demo"
+              href="/contact"
               className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl pl-6 pr-2.5 py-3 shadow-lg shadow-primary/30 transition-all duration-200 group hover:scale-105 active:scale-95"
             >
               <span className="mr-3">Schedule Live Demo</span>

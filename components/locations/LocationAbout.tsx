@@ -26,7 +26,7 @@ export function LocationAbout({
             <ScrollReveal direction="left" duration={800}>
               <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 group">
                 <Image
-                  src="/images/operating-room.jpg"
+                  src="/images/Hospital Managment Software.png"
                   alt={`Modern Hospital and Clinic Automation in ${fullLocationString}`}
                   width={800}
                   height={600}

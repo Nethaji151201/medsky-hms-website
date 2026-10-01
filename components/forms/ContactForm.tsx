@@ -6,29 +6,12 @@ import { submitContactForm, ContactFormData } from "@/lib/api";
 import { Button } from "@/ui/Button";
 
 const PRODUCT_OPTIONS = [
-  "HMS - Hospital Management Software",
-  "CMS - Clinic Management Software",
-  "LMS - Laboratory Management Software",
-  "PMS - Pharmacy Management Software",
-  "Online Appointment Booking",
-  "Doctor Clinical EMR",
-  "Integrated Multi-Specialty Hospital Suite",
-];
-
-const CITY_OPTIONS = [
-  "Chennai",
-  "Salem",
-  "Coimbatore",
-  "Madurai",
-  "Tiruchirappalli",
-  "Tiruppur",
-  "Erode",
-  "Vellore",
-  "Bengaluru / Bangalore",
-  "Hyderabad",
-  "Mumbai",
-  "Delhi / NCR",
-  "Other City",
+  "Hospital Management Software",
+  "Clinic Management Software",
+  "Laboratory Management Software",
+  "Pharmacy Management Software",
+  "Appointment Management Software",
+  "Patient EMR / EHR",
 ];
 
 export function ContactForm() {
@@ -36,8 +19,8 @@ export function ContactForm() {
     fullName: "",
     email: "",
     phone: "",
-    city: "Chennai",
-    product: "HMS - Hospital Management Software",
+    city: "",
+    product: PRODUCT_OPTIONS[0],
     message: "",
   });
 
@@ -59,8 +42,8 @@ export function ContactForm() {
         fullName: "",
         email: "",
         phone: "",
-        city: "Chennai",
-        product: "HMS - Hospital Management Software",
+        city: "",
+        product: PRODUCT_OPTIONS[0],
         message: "",
       });
       setTimeout(() => setSuccess(false), 8000);
@@ -122,7 +105,7 @@ export function ContactForm() {
               </div>
             </div>
 
-            {/* Row 2: Phone Number & City Dropdown */}
+            {/* Row 2: Phone Number & City */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               <div>
                 <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1">
@@ -142,17 +125,14 @@ export function ContactForm() {
                 <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1">
                   City *
                 </label>
-                <select
+                <input
+                  type="text"
+                  required
                   value={formData.city}
                   onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                  className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
-                >
-                  {CITY_OPTIONS.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
-                </select>
+                  placeholder="e.g. Chennai"
+                  className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                />
               </div>
             </div>
 
@@ -203,7 +183,7 @@ export function ContactForm() {
               rightIcon={<Send className="w-4 h-4" />}
               className="w-full justify-center shadow-md shadow-primary/20 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider"
             >
-              Send Inquiry
+              Send Enquiry
             </Button>
           </form>
         )}

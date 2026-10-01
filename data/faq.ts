@@ -8,58 +8,79 @@ export interface FAQItem {
 export const FAQ_DATA: FAQItem[] = [
   {
     id: "faq-1",
-    question: "What is Medsky HMS and what makes it different from other healthcare platforms?",
+    question: "What is Medsky?",
     answer:
-      "Medsky HMS is a unified cloud-native Hospital Management System that bridges the gap between clinical excellence, operational efficiency, and financial governance. Unlike fragmented legacy systems, Medsky provides a truly connected single-database architecture where OPD, IPD, Pharmacy, LIS, RIS, and Billing communicate with zero latency.",
+      "Medsky is an integrated healthcare software platform designed for hospitals, clinics, laboratories, pharmacies, and other healthcare providers.",
     category: "General",
   },
   {
     id: "faq-2",
-    question: "Can Medsky HMS scale as my clinic or hospital grows?",
+    question: "What does Medsky Healthcare Software do?",
     answer:
-      "Yes, Medsky HMS is built on a modular, elastic cloud architecture. Whether you operate a 15-bed specialized day-care clinic or a 500-bed multi-specialty tertiary care hospital network across multiple locations, you can activate modules and add users seamlessly without hardware overhauls.",
-    category: "Scalability",
+      "Medsky helps healthcare organizations streamline administrative, clinical, billing, reporting, and operational workflows through an integrated software platform.",
+    category: "Overview",
   },
   {
     id: "faq-3",
-    question: "How quickly can we start using Medsky HMS after onboarding?",
+    question: "Who can use Medsky Software?",
     answer:
-      "Most outpatient clinics and small hospitals can go live within 7 to 14 days. For mid-to-large multi-specialty hospitals with complex LIS/PACS integrations and legacy EMR data migration, our dedicated implementation engineers complete full onboarding and staff training in 3 to 4 weeks.",
-    category: "Implementation",
+      "Medsky can be used by hospitals, clinics, nursing homes, diagnostic centers, laboratories, pharmacies, and other healthcare organizations.",
+    category: "General",
   },
   {
     id: "faq-4",
-    question: "What does support look like after onboarding?",
+    question: "What modules are available in Medsky Software?",
     answer:
-      "Every Medsky HMS deployment includes 24/7 technical assistance, continuous regulatory updates, dedicated account management, and interactive on-demand video training modules for doctors, nurses, and administrative staff.",
-    category: "Support",
+      "Medsky offers modules including Out Patient Management (OPD), In Patient Management (IPD), EMR/EHR, Appointment Management, Pharmacy Management, Laboratory Management, Emergency Management, MRD Management, Surgery Management, Billing, Accounts, and Reports.",
+    category: "Modules",
   },
   {
     id: "faq-5",
-    question: "Can Medsky HMS manage both OPD and IPD workflows simultaneously?",
+    question: "Can multiple departments use the same Medsky Software?",
     answer:
-      "Yes. Medsky HMS features dedicated suites for both Outpatient (token queues, doctor consultation rooms, rapid e-prescriptions) and Inpatient departments (bed census maps, eMAR nursing charts, doctor ward rounds, and multi-department discharge clearance).",
-    category: "Clinical",
+      "Yes. Different departments can work through integrated modules, helping reduce duplicate data entry and improve coordination between departments.",
+    category: "Operations",
   },
   {
     id: "faq-6",
-    question: "Does Medsky HMS include Pharmacy and Laboratory Information System (LIS)?",
+    question: "Can Medsky be accessed from multiple locations?",
     answer:
-      "Yes, Pharmacy (with FEFO batch tracking, expiry monitoring, and POS invoicing) and Laboratory LIS (with barcode sample tracking, bi-directional analyzer interfacing, and digital pathologist sign-off) are fully integrated natively into the platform.",
-    category: "Diagnostics",
+      "Yes. Medsky Healthcare Software can be accessed from anywhere through a supported network or online deployment, allowing authorized users to manage healthcare operations from multiple locations.",
+    category: "Accessibility",
   },
   {
     id: "faq-7",
-    question: "How does Medsky HMS protect sensitive patient health data?",
+    question: "Can Medsky generate healthcare reports?",
     answer:
-      "Data security is foundational. Medsky HMS incorporates strict Role-Based Access Controls (RBAC), multi-factor authentication, end-to-end TLS 1.3 encryption in transit, AES-256 encryption at rest, immutable audit trails for all clinical and financial transactions, and daily automated encrypted backups.",
-    category: "Security",
+      "Yes. Medsky provides reporting capabilities to help organizations monitor areas such as patient visits, billing, laboratory activities, pharmacy transactions, and other operational information.",
+    category: "Reporting",
   },
   {
     id: "faq-8",
-    question: "How can I request a live demonstration for my hospital management team?",
+    question: "Can Medsky help reduce paperwork?",
     answer:
-      "You can schedule a personalized 1-on-1 walkthrough by clicking 'Request a Demo' anywhere on our website or calling our dedicated healthcare solution desk at +91-91 59 59 53 53. Our clinical solutions specialist will tailor the demo to your hospital's specific department workflow.",
-    category: "Demo",
+      "Yes. Digitizing registration, appointments, clinical records, prescriptions, billing, laboratory reports, pharmacy transactions, and other workflows can reduce dependence on manual paperwork.",
+    category: "Operations",
+  },
+  {
+    id: "faq-9",
+    question: "Can existing patient data be migrated to Medsky?",
+    answer:
+      "Yes. Data migration can be evaluated based on the format, structure, and quality of the existing database. The migration process can be planned during implementation.",
+    category: "Migration",
+  },
+  {
+    id: "faq-10",
+    question: "Can Medsky manage accounts and financial workflows?",
+    answer:
+      "Yes. Account-related functionality is available within the relevant Medsky modules to support healthcare organizations with their financial and billing workflows.",
+    category: "Billing & Finance",
+  },
+  {
+    id: "faq-11",
+    question: "Does Medsky provide technical support?",
+    answer:
+      "Yes. Medsky provides technical support and assistance for software implementation, troubleshooting, software-related requirements, and updates according to the applicable support or AMC plan.",
+    category: "Support",
   },
 ];

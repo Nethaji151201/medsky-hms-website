@@ -50,11 +50,10 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
         {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
-            className={`w-3.5 h-3.5 ${
-              i < item.rating
+            className={`w-3.5 h-3.5 ${i < item.rating
                 ? "text-amber-400 fill-amber-400"
                 : "text-slate-200 dark:text-slate-700 fill-transparent"
-            }`}
+              }`}
           />
         ))}
       </div>
@@ -100,15 +99,13 @@ function DraggableRow({
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUpOrLeave}
       onMouseLeave={handleMouseUpOrLeave}
-      className={`flex overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing overscroll-x-contain ${
-        isDragging ? "select-none" : ""
-      }`}
+      className={`flex overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing overscroll-x-contain ${isDragging ? "select-none" : ""
+        }`}
       style={{ WebkitOverflowScrolling: "touch" }}
     >
       <div
-        className={`${
-          reverse ? "animate-marquee-reverse" : "animate-marquee"
-        } flex gap-5 sm:gap-6 py-2 px-4 will-change-transform`}
+        className={`${reverse ? "animate-marquee-reverse" : "animate-marquee"
+          } flex gap-5 sm:gap-6 py-2 px-4 will-change-transform`}
         style={isDragging ? { animationPlayState: "paused" } : undefined}
       >
         {items.map((item, index) => (
@@ -134,9 +131,9 @@ export function TestimonialsSection() {
       <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 mb-12 sm:mb-16">
         <SectionHeader
           badge="Patient & Specialist Reviews"
-          title="Loved by Patients &"
-          titleHighlight="Healthcare Providers"
-          description="Discover how clinical staff and patients across clinics and multi-specialty hospitals experience care with Medsky HMS."
+          title="Trusted by Doctors &"
+          titleHighlight="Healthcare Professionals"
+          description="Discover experiences from doctors, hospital administrators, and healthcare teams using Medsky to simplify workflows and support better day-to-day operations."
         />
       </div>
 

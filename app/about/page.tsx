@@ -128,7 +128,7 @@ export default function AboutPage() {
               Hospitals operate 24 hours a day, 365 days a year. Our cloud infrastructure is engineered with continuous automated backups, auto-scaling compute clusters, and redundant failovers to guarantee zero disruption to emergency care.
             </p>
             <div className="pt-2">
-              <Button variant="primary" size="md" href="/demo">
+              <Button variant="primary" size="md" href="/contact">
                 Schedule Architecture Walkthrough
               </Button>
             </div>

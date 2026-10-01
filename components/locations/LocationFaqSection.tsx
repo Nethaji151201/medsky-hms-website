@@ -47,7 +47,7 @@ export function LocationFaqSection({
     {
       id: "loc-faq-6",
       question: `How can I schedule a live demo or get pricing for our medical facility in ${locationName}?`,
-      answer: `You can submit an inquiry through our booking form on this page, or call our direct solutions desk at +91-91 59 59 53 53. We will tailor a customized software walkthrough matching your department requirements in ${locationName}.`,
+      answer: `You can submit an enquiry through our booking form on this page, or call our direct solutions desk at +91-91 59 59 53 53. We will tailor a customized software walkthrough matching your department requirements in ${locationName}.`,
     },
   ];
 

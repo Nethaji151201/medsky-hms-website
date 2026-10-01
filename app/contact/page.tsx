@@ -48,31 +48,25 @@ export default function ContactPage() {
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white">Contact Details</h2>
                 <p className="text-[11.5px] text-slate-400 mt-0.5">
-                  We answer hospital leadership enquiry within 2 hours.
+                  We answer enquiries within 2-3 hours.
                 </p>
               </div>
 
               {/* Contact Methods List */}
               <div className="space-y-3.5 text-xs sm:text-[13px]">
-                {/* 1. Inquiry & Hotline */}
+                {/* 1. Enquiry & Hotline */}
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-xl bg-cyan-500/20 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] font-semibold text-slate-400 block">Inquiry & Support Hotline</span>
+                    <span className="text-[11px] font-semibold text-slate-400 block">Enquiry & Support Hotline</span>
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 pt-0.5">
                       <a
-                        href="tel:+917418884418"
+                        href="tel:+919159595353"
                         className="font-bold text-white hover:text-primary transition-colors text-xs sm:text-sm"
                       >
-                        +91-741 888 44 18
-                      </a>
-                      <a
-                        href="tel:+917418884419"
-                        className="font-bold text-white hover:text-primary transition-colors text-xs sm:text-sm"
-                      >
-                        +91-741 888 44 19
+                        +91-91 59 59 53 53
                       </a>
                     </div>
                   </div>
@@ -92,13 +86,13 @@ export default function ContactPage() {
                       >
                         support@medsky.in
                       </a>
-                      <span className="text-slate-600">&bull;</span>
+                      {/* <span className="text-slate-600">&bull;</span>
                       <a
                         href="mailto:sales@medsky.in"
                         className="text-slate-300 hover:text-primary transition-colors text-xs"
                       >
                         sales@medsky.in
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
@@ -116,12 +110,12 @@ export default function ContactPage() {
                       {/* Corporate Branch Chennai */}
                       <div>
                         <span className="font-bold text-primary text-[10.5px] uppercase tracking-wider block mb-0.5">
-                          Corporate Branch
+                          Corporate Office
                         </span>
                         <p className="text-slate-300">
-                          NO.6-B/69, Kakkan Nagar,<br />
-                          2nd Cross St, Adambakkam,<br />
-                          Chennai - 600 088.
+                          NO.6-B/69, Kakkan Nagar<br />
+                          2nd Cross St, Adambakkam<br />
+                          Chennai - 600 088
                         </p>
                       </div>
 
@@ -131,9 +125,9 @@ export default function ContactPage() {
                           Branch Office
                         </span>
                         <p className="text-slate-300">
-                          No.90/13, Harur Main Rd,<br />
-                          Ayothiyapatinam,<br />
-                          Salem - 636 103.
+                          No.90/13, Harur Main Rd<br />
+                          Ayothiyapatinam<br />
+                          Salem - 636 103
                         </p>
                       </div>
                     </div>
@@ -152,7 +146,7 @@ export default function ContactPage() {
                       <span className="text-slate-500 font-bold">:</span>
                       <span>09:00 AM to 07:00 PM</span>
 
-                      <span className="font-semibold text-slate-200">Sat</span>
+                      <span className="font-semibold text-slate-200">Saturday</span>
                       <span className="text-slate-500 font-bold">:</span>
                       <span>09:00 AM to 06:00 PM</span>
 

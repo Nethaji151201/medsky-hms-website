@@ -132,7 +132,7 @@ export default function ModulesPage() {
           <p className="text-slate-300 max-w-2xl mx-auto text-sm sm:text-base">
             Our medical systems architects can configure custom workflows, external HL7 interfaces, and specialty templates for your hospital network.
           </p>
-          <Button variant="primary" size="lg" href="/demo">
+          <Button variant="primary" size="lg" href="/contact">
             Request Custom Solution Architecture
           </Button>
         </div>

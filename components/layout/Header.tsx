@@ -29,42 +29,42 @@ import { cn } from "@/lib/utils";
 
 const PRODUCT_SUBMENU = [
   {
-    label: "HMS - Hospital Management Software",
+    label: "Hospital Management Software",
     href: "/modules/ipd",
     desc: "Inpatient admissions, bed census, OT & ward nursing care",
     icon: Building2,
-    badge: "Hospital",
+    badge: "HMS",
   },
   {
-    label: "CMS - Clinic Management Software",
+    label: "Clinic Management Software",
     href: "/modules/opd",
     desc: "Queue tokens, OPD consultations & digital e-prescriptions",
     icon: Stethoscope,
-    badge: "Clinic",
+    badge: "CMS",
   },
   {
-    label: "LMS - Laboratory Management Software",
+    label: "Laboratory Management Software",
     href: "/modules/laboratory",
     desc: "Sample barcode scan & bi-directional analyzer sync (LIS)",
     icon: FlaskConical,
-    badge: "Lab LIS",
+    badge: "LMS",
   },
   {
-    label: "PMS - Pharmacy Management Software",
+    label: "Pharmacy Management Software",
     href: "/modules/pharmacy",
     desc: "High-speed POS, FEFO batch expiry & drug inventory alerts",
     icon: Pill,
-    badge: "Pharmacy",
+    badge: "PMS",
   },
   {
-    label: "Online Appointment Booking",
+    label: "Appointment Management Software",
     href: "/modules/appointments",
     desc: "Doctor roster, real-time slots & instant SMS confirmation",
     icon: Calendar,
-    badge: "Booking",
+    badge: "Appointment",
   },
   {
-    label: "Doctor Clinical EMR",
+    label: "Patient EMR / EHR",
     href: "/modules/doctor",
     desc: "Specialty SOAP clinical notes & digital vitals flowsheet",
     icon: HeartPulse,
@@ -393,7 +393,7 @@ export function Header() {
 
             <div className="pt-6 border-t border-white/10 text-center">
               <Link
-                href="/demo"
+                href="/contact"
                 onClick={() => setSideDrawerOpen(false)}
                 className="w-full inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-bold py-3 rounded-xl shadow-lg"
               >

@@ -117,7 +117,7 @@ export const FOOTER_USEFUL_LINKS = [
   { label: "Platform Features", href: "/features" },
   { label: "Pricing Plans", href: "/pricing" },
   { label: "Security & Compliance", href: "/security" },
-  { label: "Request a Demo", href: "/demo" },
+  { label: "Request a Demo", href: "/contact" },
   { label: "Contact Us", href: "/contact" },
 ];
 

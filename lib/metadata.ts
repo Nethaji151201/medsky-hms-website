@@ -9,9 +9,9 @@ export const SITE_CONFIG = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://medskyhms.com",
   ogImage: "/images/medsky-og.jpg",
   supportPhone: "+91-91 59 59 53 53",
-  inquiryPhone: "+91-741 888 44 18",
-  contactEmail: "support@medskyhms.com",
-  salesEmail: "sales@medskyhms.com",
+  enquiryPhone: "",
+  contactEmail: "support@medsky.in",
+  salesEmail: "",
   address: {
     street: "Old No 29, New No 16, 2nd Floor, Rangarajapuram Main Road, Director's Colony",
     city: "Kodambakkam, Chennai",
@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
     postalCode: "600024",
     country: "India",
   },
-  workingHours: "Mon - Fri 09:00 - 19:00, Sat 09:00 - 18:00, Emergency Support 24/7",
+  workingHours: "Mon - Fri 09:00 - 19:00, Saturday 09:00 - 18:00, Emergency Support 24/7",
 };
 
 export const CORE_SEO_KEYWORDS = [

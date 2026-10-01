@@ -45,7 +45,7 @@ export function CTASection() {
             <Button
               variant="primary"
               size="xl"
-              href="/demo"
+              href="/contact"
               rightIcon={<ArrowRight className="w-5 h-5" />}
               className="w-full sm:w-auto shadow-xl shadow-primary/30 text-base"
             >

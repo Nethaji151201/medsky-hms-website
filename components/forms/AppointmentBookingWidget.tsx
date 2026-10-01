@@ -7,29 +7,12 @@ import { Button } from "@/ui/Button";
 import { ScrollReveal } from "@/ui/ScrollReveal";
 
 const PRODUCT_OPTIONS = [
-  "HMS - Hospital Management Software",
-  "CMS - Clinic Management Software",
-  "LMS - Laboratory Management Software",
-  "PMS - Pharmacy Management Software",
-  "Online Appointment Booking",
-  "Doctor Clinical EMR",
-  "Integrated Multi-Specialty Hospital Suite",
-];
-
-const CITY_OPTIONS = [
-  "Chennai",
-  "Salem",
-  "Coimbatore",
-  "Madurai",
-  "Tiruchirappalli",
-  "Tiruppur",
-  "Erode",
-  "Vellore",
-  "Bengaluru / Bangalore",
-  "Hyderabad",
-  "Mumbai",
-  "Delhi / NCR",
-  "Other City",
+  "Hospital Management Software",
+  "Clinic Management Software",
+  "Laboratory Management Software",
+  "Pharmacy Management Software",
+  "Appointment Management Software",
+  "Patient EMR / EHR",
 ];
 
 export function AppointmentBookingWidget({ className = "" }: { className?: string }) {
@@ -37,7 +20,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
     name: "",
     email: "",
     phone: "",
-    city: "Chennai",
+    city: "",
     product: "HMS - Hospital Management Software",
     remarks: "",
   });
@@ -60,7 +43,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
         name: "",
         email: "",
         phone: "",
-        city: "Chennai",
+        city: "",
         product: "HMS - Hospital Management Software",
         remarks: "",
       });
@@ -87,11 +70,11 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight mt-2">
-                  Make an Enquiry Now!
+                  Talk to Our Healthcare Software Experts!
                 </h2>
 
                 <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed mt-2">
-                  Connect with our certified medical specialists or book an operational walkthrough for your clinic workflow.
+                  Get a personalised demonstration and discover how Medsky can simplify your healthcare operations and workflows.
                 </p>
 
                 {/* Call Center Block */}
@@ -186,17 +169,14 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                           <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-1">
                             City *
                           </label>
-                          <select
+                          <input
+                            type="text"
+                            required
                             value={formData.city}
                             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                            className="w-full bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all cursor-pointer"
-                          >
-                            {CITY_OPTIONS.map((c) => (
-                              <option key={c} value={c}>
-                                {c}
-                              </option>
-                            ))}
-                          </select>
+                            placeholder="e.g. Chennai"
+                            className="w-full bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+                          />
                         </div>
                       </div>
 
@@ -248,7 +228,7 @@ export function AppointmentBookingWidget({ className = "" }: { className?: strin
                         rightIcon={<Send className="w-4 h-4" />}
                         className="w-full justify-center shadow-md shadow-primary/25 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider"
                       >
-                        Send Inquiry
+                        Send Enquiry
                       </Button>
                     </form>
                   )}

@@ -36,7 +36,7 @@ export function LocationAppointmentWidget({
     city: defaultCity,
     state: defaultState,
     product: "HMS - Hospital Management Software",
-    remarks: `Inquiry for ${locationName} facility implementation.`,
+    remarks: `Enquiry for ${locationName} facility implementation.`,
   });
 
   const [loading, setLoading] = useState(false);
@@ -54,7 +54,7 @@ export function LocationAppointmentWidget({
     if (res.success) {
       setSuccessMessage(
         res.message ||
-          `Enquiry booked successfully! Our ${locationName} solutions specialist will contact you shortly.`
+        `Enquiry booked successfully! Our ${locationName} solutions specialist will contact you shortly.`
       );
       setFormData({
         name: "",

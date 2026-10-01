@@ -5,17 +5,68 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
-  CheckCircle2,
+  Bed,
+  FlaskConical,
+  Activity,
+  Pill,
+  Calendar,
+  Stethoscope,
   ArrowRight,
   ChevronRight,
   ChevronDown,
   Star,
   Quote,
   HelpCircle,
+  CheckCircle2,
+  LayoutGrid,
+  DoorOpen,
+  QrCode,
+  Cpu,
+  FileText,
+  ListOrdered,
+  ScanLine,
+  Clock,
+  CreditCard,
+  Ambulance,
+  Scan,
+  Receipt,
+  Package,
+  BarChart3,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+  TrendingUp,
+  HeartPulse,
+  Lock,
+  RefreshCw,
+  Building2,
+  Users,
+  Award,
+  Layers,
+  Headphones,
+  Database,
+  Smartphone,
+  Check,
+  Radio,
+  Monitor,
+  Eye,
+  Bell,
+  BellRing,
+  FileSpreadsheet,
+  PenTool,
+  AlertOctagon,
+  ShieldAlert,
+  Tags,
+  PieChart,
+  FilePlus,
+  Wrench,
+  LayoutDashboard,
+  DollarSign,
 } from "lucide-react";
-import { MODULES_DATA } from "@/data/modules";
+import { MODULES_DATA, ModuleData } from "@/data/modules";
 import { PricingCategoryKey } from "@/data/pricing";
 import { Card } from "@/ui/Card";
+import { Badge } from "@/ui/Badge";
 import { SectionHeader } from "@/ui/SectionHeader";
 import { ScrollReveal } from "@/ui/ScrollReveal";
 import { PricingSection } from "@/components/home/PricingSection";
@@ -24,6 +75,59 @@ import { CTASection } from "@/components/home/CTASection";
 interface ModuleDetailViewProps {
   slug: string;
 }
+
+const ICON_MAP: Record<string, any> = {
+  Bed,
+  FlaskConical,
+  Activity,
+  Pill,
+  Calendar,
+  Stethoscope,
+  LayoutGrid,
+  DoorOpen,
+  QrCode,
+  Cpu,
+  FileText,
+  ListOrdered,
+  ScanLine,
+  Clock,
+  CreditCard,
+  Ambulance,
+  Scan,
+  Receipt,
+  Package,
+  BarChart3,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+  TrendingUp,
+  HeartPulse,
+  Lock,
+  RefreshCw,
+  Building2,
+  Users,
+  Award,
+  Layers,
+  Headphones,
+  Database,
+  Smartphone,
+  Radio,
+  Monitor,
+  Eye,
+  Bell,
+  BellRing,
+  FileSpreadsheet,
+  PenTool,
+  AlertOctagon,
+  ShieldAlert,
+  Tags,
+  PieChart,
+  FilePlus,
+  Wrench,
+  LayoutDashboard,
+  DollarSign,
+  CheckCircle2,
+};
 
 const PRICING_SLUG_MAP: Record<string, PricingCategoryKey> = {
   ipd: "hms",
@@ -47,7 +151,6 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
     notFound();
   }
 
-  const related = MODULES_DATA.filter((m) => module.relatedModules.includes(m.slug));
   const pricingCategory: PricingCategoryKey = PRICING_SLUG_MAP[slug] || "hms";
   const [openFaqId, setOpenFaqId] = useState<string | null>(
     module.faqs && module.faqs.length > 0 ? module.faqs[0].id : null
@@ -130,16 +233,23 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
               ))}
             </div>
 
-            {/* Schedule Demo CTA at the bottom of left content */}
-            <div className="pt-4 animate-slide-bottom" style={{ animationDelay: "300ms" }}>
+            {/* Schedule Demo CTA */}
+            <div className="pt-4 animate-slide-bottom flex flex-wrap gap-4 items-center" style={{ animationDelay: "300ms" }}>
               <Link
-                href="/demo"
-                className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl pl-6 pr-2 py-2.5 shadow-lg shadow-primary/30 transition-all duration-200 group hover:scale-105 active:scale-95"
+                href="/contact"
+                className="inline-flex items-center bg-primary hover:bg-primary-hover text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl pl-6 pr-2.5 py-3 shadow-lg shadow-primary/30 transition-all duration-200 group hover:scale-105 active:scale-95"
               >
                 <span className="mr-3">Schedule {module.shortName} Demo</span>
                 <div className="w-8 h-8 rounded-lg bg-white text-slate-950 flex items-center justify-center group-hover:translate-x-1 transition-transform">
                   <ArrowRight className="w-4 h-4 text-primary" />
                 </div>
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border border-white/15 transition-all"
+              >
+                Speak with Specialist
               </Link>
             </div>
           </div>
@@ -147,9 +257,89 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. FEATURES MATRIX / CORE CAPABILITIES (Pure White Background)             */}
+      {/* 2. ABOUT SECTION (Each Product Different Content - After Hero)             */}
       {/* ========================================================================= */}
-      <section className="bg-white dark:bg-[#060b14] py-20 sm:py-28 transition-colors duration-300">
+      <section id="about" className="py-20 sm:py-28 bg-white dark:bg-[#060b14] overflow-hidden border-b border-slate-100 dark:border-slate-800">
+        <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Left Column (6 cols): Product/Module Image with Smooth Left Slide */}
+            <div className="lg:col-span-6">
+              <ScrollReveal direction="left" duration={800}>
+                <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={module.about?.image || module.image}
+                    alt={module.about?.title || module.name}
+                    className="w-full h-auto max-h-[520px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+
+                  {/* Floating Bottom-Right #1 Top Rated Badge */}
+                  <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-white dark:bg-slate-900 rounded-2xl p-3 sm:p-4 shadow-xl border border-slate-100 dark:border-slate-800 flex items-center gap-3 backdrop-blur-md">
+                    <div className="w-10 h-10 rounded-xl bg-primary text-white font-black text-base flex items-center justify-center shadow-md shadow-primary/30">
+                      #1
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">
+                        Top Rated
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        {module.shortName} Healthcare Solution
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Right Column (6 cols): Custom Product About Content */}
+            <div className="lg:col-span-6 space-y-6">
+              <ScrollReveal direction="right" duration={800}>
+                {/* Badge pill */}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span>{module.about?.badge || `ABOUT ${module.shortName}`}</span>
+                </div>
+
+                {/* Main Heading */}
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                  {module.about?.title || `Transforming Your Healthcare Facility With ${module.shortName}`}
+                </h2>
+
+                {/* Description */}
+                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                  {module.about?.description || module.description}
+                </p>
+
+                {/* 2-Column Checklist */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+                  {(module.about?.highlights || module.heroHighlights).map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <div className="pt-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider hover:border-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-sm group"
+                  >
+                    <span>Request Live Demo</span>
+                    <ArrowRight className="w-4 h-4 text-slate-600 dark:text-slate-400 group-hover:translate-x-1 group-hover:text-primary transition-all" />
+                  </Link>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 3. FEATURES MATRIX / CORE CAPABILITIES (Icons Instead of Numbers)          */}
+      {/* ========================================================================= */}
+      <section className="bg-slate-50/70 dark:bg-[#070c17] py-20 sm:py-28 transition-colors duration-300 border-b border-slate-200/70 dark:border-slate-800">
         <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <ScrollReveal direction="top">
             <SectionHeader
@@ -160,93 +350,231 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
             />
           </ScrollReveal>
 
+          {/* Cards with Lucide Icons instead of Numbers */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-6">
-            {module.keyFeatures.map((feat, idx) => (
-              <ScrollReveal
-                key={idx}
-                direction="bottom"
-                delay={idx * 80}
-                className="h-full"
-              >
-                <Card
-                  className="p-6 sm:p-8 flex flex-col justify-between border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 h-full"
-                  hoverEffect
+            {module.keyFeatures.map((feat, idx) => {
+              const Icon = ICON_MAP[feat.icon] || Activity;
+              return (
+                <ScrollReveal
+                  key={idx}
+                  direction="bottom"
+                  delay={idx * 80}
+                  className="h-full"
                 >
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-5 font-bold text-lg border border-cyan-200/60 dark:border-cyan-800/60 transition-transform duration-300 hover:scale-110">
-                      {idx + 1}
+                  <Card
+                    className="p-6 sm:p-8 flex flex-col justify-between border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 h-full bg-white dark:bg-slate-900"
+                    hoverEffect
+                  >
+                    <div>
+                      {/* Icon in Rounded Container (Replacing number) */}
+                      <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-5 font-bold text-lg border border-cyan-200/60 dark:border-cyan-800/60 transition-transform duration-300 hover:scale-110">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2.5">
+                        {feat.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        {feat.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2.5">
-                      {feat.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                      {feat.description}
-                    </p>
-                  </div>
-                </Card>
-              </ScrollReveal>
-            ))}
+                  </Card>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. CONNECTED MODULES (Light Grey Shade Background)                         */}
+      {/* 4. MODULES DIRECTORY (Show All Modules Grid - Matching 2nd Attachment)     */}
       {/* ========================================================================= */}
-      {related.length > 0 && (
-        <section className="bg-slate-50/90 dark:bg-slate-900/40 border-y border-slate-200/80 dark:border-slate-800/80 py-20 sm:py-28 transition-colors duration-300">
-          <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
-            <ScrollReveal direction="left">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-slate-200 dark:border-slate-800">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-                    Connected Hospital Modules
-                  </h3>
-                  <p className="text-sm text-slate-500 mt-1">
-                    Seamlessly integrated with {module.shortName}
-                  </p>
-                </div>
-                <Link
-                  href="/modules"
-                  className="text-sm font-bold text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1 group"
-                >
-                  <span>View All Modules</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </ScrollReveal>
+      <section className="bg-white dark:bg-[#060b14] py-20 sm:py-28 transition-colors duration-300 border-b border-slate-100 dark:border-slate-800">
+        <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+          <ScrollReveal direction="top">
+            <SectionHeader
+              badge="Integrated Healthcare Suite"
+              title="Medsky HMS"
+              titleHighlight="Modules Directory."
+              description="Every clinical, diagnostic, operational, and financial department connected seamlessly in a single cloud system."
+            />
+          </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {related.map((rel, idx) => (
+          {/* Complete 3-Column Grid Showing All 12 Modules at the same time */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-6">
+            {MODULES_DATA.map((mod, idx) => {
+              const ModIcon = ICON_MAP[mod.iconName] || Activity;
+              const isCurrent = mod.slug === module.slug;
+
+              return (
                 <ScrollReveal
-                  key={rel.slug}
+                  key={mod.slug}
                   direction="bottom"
-                  delay={idx * 70}
+                  delay={idx * 50}
                   className="h-full"
                 >
-                  <Link
-                    href={`/modules/${rel.slug}`}
-                    className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 hover:border-cyan-500/50 hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 group block h-full"
+                  <div
+                    className={`p-6 sm:p-8 rounded-[24px] border flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-2 h-full bg-white dark:bg-slate-900 ${
+                      isCurrent
+                        ? "border-teal-500 ring-2 ring-teal-500/20 shadow-lg"
+                        : "border-slate-200/80 dark:border-slate-800 hover:border-teal-500/50 shadow-sm hover:shadow-xl"
+                    }`}
                   >
-                    <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mb-3 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
-                      {rel.category}
-                    </span>
-                    <h4 className="font-bold text-base text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                      {rel.shortName}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
-                      {rel.description}
-                    </p>
-                  </Link>
+                    <div>
+                      {/* Top Row: Icon Container + Category Tag */}
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center transition-transform duration-300 hover:scale-110">
+                          <ModIcon className="w-6 h-6" />
+                        </div>
+                        <Badge variant="teal" size="sm">
+                          {mod.category}
+                        </Badge>
+                      </div>
+
+                      {/* Module Title */}
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                        {mod.name}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2.5 leading-relaxed line-clamp-3">
+                        {mod.description}
+                      </p>
+
+                      {/* Core Highlights */}
+                      <div className="space-y-2 mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
+                          CORE HIGHLIGHTS:
+                        </span>
+                        {mod.heroHighlights.slice(0, 2).map((hl, i) => (
+                          <div key={i} className="text-xs text-slate-600 dark:text-slate-300 flex items-start gap-1.5">
+                            <span className="text-teal-600 dark:text-teal-400 font-bold">•</span>
+                            <span className="line-clamp-1">{hl}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bottom Bar: Metric + Explore Link */}
+                    <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-teal-600 dark:text-teal-400">
+                        {mod.metrics[0]?.value} {mod.metrics[0]?.label}
+                      </span>
+                      <Link
+                        href={`/modules/${mod.slug}`}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors group"
+                      >
+                        <span>Explore Module</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
                 </ScrollReveal>
-              ))}
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 5. BENEFITS SECTION (UI Styled Like Features - Product-Specific Content)   */}
+      {/* ========================================================================= */}
+      {module.benefits && module.benefits.length > 0 && (
+        <section className="bg-slate-50/70 dark:bg-[#070c17] py-20 sm:py-28 transition-colors duration-300 border-b border-slate-200/70 dark:border-slate-800">
+          <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+            <ScrollReveal direction="top">
+              <SectionHeader
+                badge="Key Advantages"
+                title="Transformative Benefits of"
+                titleHighlight={module.shortName}
+                description={`Measurable clinical, operational, and financial improvements delivered to healthcare facilities running ${module.shortName}.`}
+              />
+            </ScrollReveal>
+
+            {/* Feature-Style Cards Grid for Benefits */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+              {module.benefits.map((benefit, idx) => {
+                const BenefitIcon = ICON_MAP[benefit.icon] || Award;
+                return (
+                  <ScrollReveal
+                    key={idx}
+                    direction="bottom"
+                    delay={idx * 80}
+                    className="h-full"
+                  >
+                    <Card
+                      className="p-6 sm:p-8 flex flex-col justify-between border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 h-full bg-white dark:bg-slate-900"
+                      hoverEffect
+                    >
+                      <div>
+                        {/* Benefit Icon in Styled Teal/Cyan Badge */}
+                        <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-5 font-bold border border-teal-200/60 dark:border-teal-800/60 transition-transform duration-300 hover:scale-110">
+                          <BenefitIcon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2.5">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {benefit.description}
+                        </p>
+                      </div>
+                    </Card>
+                  </ScrollReveal>
+                );
+              })}
             </div>
           </div>
         </section>
       )}
 
       {/* ========================================================================= */}
-      {/* 4. PRODUCT PRICING SECTION (Regarding Router / Module - Above CTA)        */}
+      {/* 6. WHY MEDSKY SECTION (Each Product Different Content)                     */}
+      {/* ========================================================================= */}
+      {module.whyMedsky && module.whyMedsky.length > 0 && (
+        <section className="bg-white dark:bg-[#060b14] py-20 sm:py-28 transition-colors duration-300 border-b border-slate-100 dark:border-slate-800">
+          <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+            <ScrollReveal direction="top">
+              <SectionHeader
+                badge="Why Healthcare Leaders Choose Us"
+                title="Why Choose Medsky for"
+                titleHighlight={`${module.shortName}?`}
+                description="Built on clinical rigor, ultra-reliable infrastructure, and human-centric healthcare engineering."
+              />
+            </ScrollReveal>
+
+            {/* 4 Distinct Differentiators Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+              {module.whyMedsky.map((item, idx) => {
+                const WhyIcon = ICON_MAP[item.icon] || ShieldCheck;
+                return (
+                  <ScrollReveal
+                    key={idx}
+                    direction="bottom"
+                    delay={idx * 80}
+                    className="h-full"
+                  >
+                    <div className="p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 h-full flex flex-col justify-between group">
+                      <div>
+                        <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                          <WhyIcon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2.5">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 7. PRODUCT PRICING SECTION (Subscription Plans for that Product)          */}
       {/* ========================================================================= */}
       <PricingSection
         initialCategory={pricingCategory}
@@ -258,12 +586,12 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
       />
 
       {/* ========================================================================= */}
-      {/* 5. DIRECT CTA BANNER (Above Testimonials)                                 */}
+      {/* 8. DIRECT CTA BANNER (Above Testimonials)                                 */}
       {/* ========================================================================= */}
       <CTASection />
 
       {/* ========================================================================= */}
-      {/* 6. PRODUCT TESTIMONIALS (White Background)                                */}
+      {/* 9. PRODUCT TESTIMONIALS (White Background)                                */}
       {/* ========================================================================= */}
       {module.testimonials && module.testimonials.length > 0 && (
         <section className="bg-white dark:bg-[#060b14] py-20 sm:py-28 border-b border-slate-200/60 dark:border-slate-800/60 transition-colors duration-300">
@@ -302,12 +630,11 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
 
                     <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100 dark:border-slate-800">
                       <div className="w-11 h-11 rounded-full overflow-hidden relative flex-shrink-0 bg-cyan-100 dark:bg-cyan-950 border border-cyan-200 dark:border-cyan-800">
-                        <Image
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
                           src={test.avatar}
                           alt={test.name}
-                          fill
-                          className="object-cover"
-                          sizes="44px"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                       <div>
@@ -328,7 +655,7 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
       )}
 
       {/* ========================================================================= */}
-      {/* 7. PRODUCT FAQ (Light Grey Shade Background - Above Footer)                */}
+      {/* 10. PRODUCT FAQ (Light Grey Shade Background - Above Footer)              */}
       {/* ========================================================================= */}
       {module.faqs && module.faqs.length > 0 && (
         <section className="bg-slate-50/90 dark:bg-slate-900/40 py-20 sm:py-28 transition-colors duration-300">
