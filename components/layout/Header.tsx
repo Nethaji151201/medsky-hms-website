@@ -56,20 +56,20 @@ const PRODUCT_SUBMENU = [
     icon: Pill,
     badge: "PMS",
   },
-  {
-    label: "Appointment Management Software",
-    href: "/modules/appointments",
-    desc: "Doctor roster, real-time slots & instant SMS confirmation",
-    icon: Calendar,
-    badge: "Appointment",
-  },
-  {
-    label: "Patient EMR / EHR",
-    href: "/modules/doctor",
-    desc: "Specialty SOAP clinical notes & digital vitals flowsheet",
-    icon: HeartPulse,
-    badge: "EMR / EHR",
-  },
+  // {
+  //   label: "Appointment Management Software",
+  //   href: "/modules/appointments",
+  //   desc: "Doctor roster, real-time slots & instant SMS confirmation",
+  //   icon: Calendar,
+  //   badge: "Appointment",
+  // },
+  // {
+  //   label: "Patient EMR / EHR",
+  //   href: "/modules/doctor",
+  //   desc: "Specialty SOAP clinical notes & digital vitals flowsheet",
+  //   icon: HeartPulse,
+  //   badge: "EMR / EHR",
+  // },
 ];
 
 export function Header() {
@@ -219,7 +219,7 @@ export function Header() {
             </div>
 
             {/* LOCATIONS */}
-            <Link
+            {/* <Link
               href="/locations"
               className={cn(
                 "text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-colors",
@@ -229,7 +229,7 @@ export function Header() {
               )}
             >
               LOCATIONS
-            </Link>
+            </Link> */}
 
             {/* PRICING */}
             <Link
@@ -285,9 +285,9 @@ export function Header() {
                 <Phone className="w-4 h-4 fill-white text-white" />
               </div>
               <div>
-                <div className="text-[10px] font-medium text-slate-300 uppercase tracking-tight leading-none">
+                {/* <div className="text-[10px] font-medium text-slate-300 uppercase tracking-tight leading-none">
                   Emergency Call:
-                </div>
+                </div> */}
                 <div className="text-sm font-black text-white tracking-tight mt-0.5 leading-tight group-hover:text-cyan-300 transition-colors">
                   +91-91 59 59 53 53
                 </div>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { CheckCircle2, Building2, Users, Bed, Calendar, Clock, ArrowRight } from "lucide-react";
 import { submitDemoRequest, DemoRequestData } from "@/lib/api";
 import { Button } from "@/ui/Button";
+import { isValidEmail, isValidPhone, sanitizePhoneNumber } from "@/lib/validation";
 
 const MODULE_OPTIONS = [
   "OPD & Token Queue",
@@ -49,6 +50,17 @@ export function RequestDemoForm({ initialPlan = "professional" }: { initialPlan?
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    if (!isValidEmail(formData.email)) {
+      setError("Please enter a valid work email address (e.g. name@hospital.com).");
+      return;
+    }
+
+    if (!isValidPhone(formData.phone)) {
+      setError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
     setLoading(true);
 
     const res = await submitDemoRequest(formData);
@@ -143,11 +155,20 @@ export function RequestDemoForm({ initialPlan = "professional" }: { initialPlan?
             <input
               type="tel"
               required
+              maxLength={10}
+              minLength={10}
+              inputMode="numeric"
+              pattern="[0-9]{10}"
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              placeholder="+1 (555) 019-2834"
+              onChange={(e) => setFormData({ ...formData, phone: sanitizePhoneNumber(e.target.value) })}
+              placeholder="9159595353 (10 digits)"
               className="w-full bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
+            {formData.phone && formData.phone.length > 0 && formData.phone.length < 10 && (
+              <p className="text-[10px] text-amber-600 dark:text-amber-400 mt-1">
+                Please enter 10 digits ({formData.phone.length}/10 entered)
+              </p>
+            )}
           </div>
         </div>
       </div>

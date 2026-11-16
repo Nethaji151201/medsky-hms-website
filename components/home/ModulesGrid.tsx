@@ -75,8 +75,21 @@ function ProductCard({ product }: { product: ProductItem }) {
           </p>
         </div>
 
+        {
+          product.slug !== "appointments" && product.slug !== "doctor" && (
+            <div className="pt-4">
+              <Link
+                href={`/modules/${product.slug}`}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#162044] dark:text-cyan-400 hover:text-primary dark:hover:text-cyan-300 transition-colors"
+              >
+                <span>Explore Product</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          )
+        }
         {/* 4. Link CTA: "Explore Service →" */}
-        <div className="pt-4">
+        {/* <div className="pt-4">
           <Link
             href={`/modules/${product.slug}`}
             className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#162044] dark:text-cyan-400 hover:text-primary dark:hover:text-cyan-300 transition-colors"
@@ -84,7 +97,7 @@ function ProductCard({ product }: { product: ProductItem }) {
             <span>Explore Product</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

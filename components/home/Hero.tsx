@@ -63,12 +63,12 @@ export function Hero() {
               </div>
             </Link>
 
-            <Link
+            {/* <Link
               href="/#appointment"
               className="inline-flex items-center px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border border-white/15 transition-all"
             >
               Make an Enquiry
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Check, X, Sparkles, Building2, Stethoscope, FlaskConical, Pill, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { PRICING_CATEGORIES, PricingCategoryKey, PricingTier } from "@/data/pricing";
+import { BlurPricing } from "@/data/control";
 import { SectionHeader } from "@/ui/SectionHeader";
 import { ScrollReveal } from "@/ui/ScrollReveal";
 
@@ -58,10 +59,17 @@ function PricingCard({ tier, categoryKey }: { tier: PricingTier; categoryKey: Pr
         {/* Pricing Display */}
         <div className="pt-3 pb-2 border-y border-slate-100 dark:border-slate-800/80">
           <div className="flex items-baseline">
-            <span className="text-xl font-bold text-slate-900 dark:text-white mr-1">₹</span>
-            <span className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
-              {tier.priceYearlyINR.toLocaleString("en-IN")}
-            </span>
+            <div
+              className={`flex items-baseline transition-all duration-300 ${
+                BlurPricing ? "blur-xl select-none opacity-50 pointer-events-none" : ""
+              }`}
+              style={BlurPricing ? { filter: "blur(14px)", userSelect: "none" } : undefined}
+            >
+              <span className="text-xl font-bold text-slate-900 dark:text-white mr-1">₹</span>
+              <span className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                {tier.priceYearlyINR.toLocaleString("en-IN")}
+              </span>
+            </div>
             <span className="text-slate-400 dark:text-slate-500 text-xs sm:text-sm font-semibold ml-1.5">
               /year
             </span>
@@ -69,7 +77,14 @@ function PricingCard({ tier, categoryKey }: { tier: PricingTier; categoryKey: Pr
           <div className="text-[11.5px] text-slate-400 dark:text-slate-400 mt-1.5 flex items-center justify-between">
             <span className="font-semibold text-accent-foreground dark:text-cyan-400">✓ {tier.billingPeriodNote}</span>
             {tier.equivalentMonthlyINR && (
-              <span className="font-medium">(~₹{tier.equivalentMonthlyINR.toLocaleString("en-IN")}/mo)</span>
+              <span
+                className={`font-medium transition-all duration-300 ${
+                  BlurPricing ? "blur-md select-none opacity-50 pointer-events-none" : ""
+                }`}
+                style={BlurPricing ? { filter: "blur(10px)", userSelect: "none" } : undefined}
+              >
+                (~₹{tier.equivalentMonthlyINR.toLocaleString("en-IN")}/mo)
+              </span>
             )}
           </div>
         </div>

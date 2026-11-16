@@ -79,6 +79,422 @@ export interface ProductItem {
   badge: string;
 }
 
+export interface HMSModuleDirectoryItem {
+  id: string;
+  name: string;
+  slug: string;
+  category: "Clinical" | "Operations" | "Diagnostics" | "Financial" | "Administrative";
+  iconName: string;
+  description: string;
+  heroHighlights: string[];
+  metrics: { value: string; label: string }[];
+}
+
+export const HMS_MODULES_DIRECTORY: HMSModuleDirectoryItem[] = [
+  {
+    id: "opd",
+    name: "OPD Management Software",
+    slug: "opd",
+    category: "Clinical",
+    iconName: "Activity",
+    description:
+      "Streamline outpatient operations by managing patient registration, consultations, clinical records, billing, and follow-up visits through an organized workflow.",
+    heroHighlights: [
+      "Patient Registration, UHID Generation & Image Capture",
+      "Vitals, Medical History & Token Management",
+      "OPD Billing, Accounts & Follow-up Management",
+    ],
+    metrics: [{ value: "45%", label: "Wait Time Cut" }],
+  },
+  {
+    id: "ipd",
+    name: "IPD Management Software",
+    slug: "ipd",
+    category: "Clinical",
+    iconName: "Bed",
+    description:
+      "Manage the complete inpatient journey, from patient admission and bed allocation to nursing care, billing, and discharge.",
+    heroHighlights: [
+      "Patient Admission, Bed & Ward Management",
+      "Nursing, Doctor Visits, Medication & Clinical Documentation",
+      "IPD Billing, Discharge Summary & Reports",
+    ],
+    metrics: [{ value: "98%", label: "Bed Utilization" }],
+  },
+  {
+    id: "laboratory",
+    name: "Laboratory Management Software",
+    slug: "laboratory",
+    category: "Diagnostics",
+    iconName: "FlaskConical",
+    description:
+      "Simplify laboratory operations by managing test registration, sample processing, result entry, billing, and report generation.",
+    heroHighlights: [
+      "Lab Registration, Test & Sample Management",
+      "Barcode Management, Result Entry & Report Generation",
+      "Lab Billing, Patient History & Laboratory Reports",
+    ],
+    metrics: [{ value: "70%", label: "Faster Turnaround" }],
+  },
+  {
+    id: "pharmacy",
+    name: "Pharmacy Management Software",
+    slug: "pharmacy",
+    category: "Operations",
+    iconName: "Pill",
+    description:
+      "Manage pharmacy operations efficiently, including medicine purchases, sales, inventory, expiry monitoring, and financial transactions.",
+    heroHighlights: [
+      "Purchase, Sales & Supplier Management",
+      "Stock, Batch & Expiry Management",
+      "Pharmacy Billing, Margin Analysis & Accounts",
+    ],
+    metrics: [{ value: "100%", label: "Stock Accuracy" }],
+  },
+  {
+    id: "insurance",
+    name: "Insurance Management Software",
+    slug: "insurance",
+    category: "Financial",
+    iconName: "ShieldCheck",
+    description:
+      "Simplify hospital insurance operations by organizing patient insurance records, billing, claim processing, tracking, and payment settlements.",
+    heroHighlights: [
+      "Insurance Patient Registration & Billing",
+      "Claim Preparation, Submission & Tracking",
+      "Pending Claims, Payment Tracking & Reports",
+    ],
+    metrics: [{ value: "Fast", label: "Claim Processing" }],
+  },
+  {
+    id: "surgery",
+    name: "Surgery / OT Management Software",
+    slug: "surgery",
+    category: "Clinical",
+    iconName: "Activity",
+    description:
+      "Coordinate surgical operations by managing OT schedules, procedure bookings, pre-operative assessments, and post-operative documentation.",
+    heroHighlights: [
+      "OT Scheduling, Calendar & Surgery Booking",
+      "Pre-operative Assessment, Anesthesia & Surgical Records",
+      "OT Consumables, Surgery Billing & Reports",
+    ],
+    metrics: [{ value: "Zero", label: "Scheduling Conflicts" }],
+  },
+  {
+    id: "mrd",
+    name: "MRD Management Software",
+    slug: "mrd",
+    category: "Administrative",
+    iconName: "Database",
+    description:
+      "Organize hospital medical records through efficient document management, indexing, tracking, and quick retrieval of patient information.",
+    heroHighlights: [
+      "Patient Medical Records & Document Management",
+      "Medical Record Indexing, Tracking & Retrieval",
+      "Discharge Records, Patient History & MRD Reports",
+    ],
+    metrics: [{ value: "Instant", label: "Record Retrieval" }],
+  },
+  {
+    id: "daycare",
+    name: "Day Care Management Software",
+    slug: "daycare",
+    category: "Clinical",
+    iconName: "Calendar",
+    description:
+      "Manage short-stay treatments and procedures with streamlined patient registration, scheduling, clinical workflows, billing, and discharge.",
+    heroHighlights: [
+      "Day Care Registration, Appointment & Scheduling",
+      "Procedure, Doctor Consultation & Nursing Management",
+      "Medication, Billing & Discharge Management",
+    ],
+    metrics: [{ value: "Fast", label: "Turnaround Time" }],
+  },
+  {
+    id: "dialysis",
+    name: "Dialysis Management Software",
+    slug: "dialysis",
+    category: "Clinical",
+    iconName: "HeartPulse",
+    description:
+      "Manage dialysis services through organized patient records, treatment scheduling, session documentation, and billing workflows.",
+    heroHighlights: [
+      "Dialysis Patient Registration & Session Scheduling",
+      "Pre/Post-Dialysis Records, Vital Signs & Treatment Documentation",
+      "Dialysis Billing, Patient History & Reports",
+    ],
+    metrics: [{ value: "Complete", label: "Session Tracking" }],
+  },
+];
+
+export interface CMSModuleDirectoryItem {
+  id: string;
+  name: string;
+  slug: string;
+  category: "Clinical" | "Operations" | "Diagnostics" | "Financial" | "Administrative";
+  iconName: string;
+  description: string;
+  heroHighlights: string[];
+  metrics: { value: string; label: string }[];
+}
+
+export const CMS_MODULES_DIRECTORY: CMSModuleDirectoryItem[] = [
+  {
+    id: "patient-registration",
+    name: "Patient Registration Management",
+    slug: "opd",
+    category: "Administrative",
+    iconName: "FileText",
+    description:
+      "Simplify patient onboarding with an organized registration system that maintains accurate patient information and visit details.",
+    heroHighlights: [
+      "Quick patient registration and UHID generation.",
+      "Patient profile and demographic information management.",
+      "Patient photo capture and contact details.",
+      "Previous visit history and follow-up tracking.",
+    ],
+    metrics: [{ value: "Zero", label: "Wait Registration" }],
+  },
+  {
+    id: "emr",
+    name: "EMR – Electronic Medical Records",
+    slug: "doctor",
+    category: "Clinical",
+    iconName: "PenTool",
+    description:
+      "Manage patient consultations and clinical information digitally with structured electronic medical records.",
+    heroHighlights: [
+      "Digital consultation notes and clinical documentation.",
+      "Patient vitals, symptoms and diagnosis recording.",
+      "Digital prescriptions and treatment plans.",
+      "Previous consultation and medical history access.",
+    ],
+    metrics: [{ value: "100%", label: "Digital Prescriptions" }],
+  },
+  {
+    id: "ehr",
+    name: "EHR – Electronic Health Records",
+    slug: "doctor",
+    category: "Clinical",
+    iconName: "Database",
+    description:
+      "Maintain comprehensive patient health information in an organized digital format for better continuity of care.",
+    heroHighlights: [
+      "Centralized patient health records.",
+      "Medical history, allergies and diagnosis tracking.",
+      "Laboratory reports and investigation records.",
+      "Longitudinal patient health information management.",
+    ],
+    metrics: [{ value: "Unified", label: "Health Records" }],
+  },
+  {
+    id: "appointments",
+    name: "Appointment Management",
+    slug: "appointments",
+    category: "Operations",
+    iconName: "Calendar",
+    description:
+      "Simplify doctor scheduling and patient appointments with an organized appointment management system.",
+    heroHighlights: [
+      "Doctor-wise appointment scheduling.",
+      "Daily and weekly appointment calendars.",
+      "Appointment confirmation and reminder notifications.",
+      "Patient token and waiting queue management.",
+    ],
+    metrics: [{ value: "75%", label: "Fewer No-Shows" }],
+  },
+  {
+    id: "billing",
+    name: "Billing & Accounts Management",
+    slug: "billing",
+    category: "Financial",
+    iconName: "Receipt",
+    description:
+      "Manage clinic billing and financial transactions efficiently with an integrated billing and accounts module.",
+    heroHighlights: [
+      "Consultation and procedure billing.",
+      "Cash, card and digital payment tracking.",
+      "Receipt generation and payment management.",
+      "Daily collection and financial reports.",
+    ],
+    metrics: [{ value: "100%", label: "Billing Accuracy" }],
+  },
+];
+
+export interface LMSModuleDirectoryItem {
+  id: string;
+  name: string;
+  slug: string;
+  category: "Clinical" | "Operations" | "Diagnostics" | "Financial" | "Administrative";
+  iconName: string;
+  description: string;
+  heroHighlights: string[];
+  metrics: { value: string; label: string }[];
+}
+
+export const LMS_MODULES_DIRECTORY: LMSModuleDirectoryItem[] = [
+  {
+    id: "patient-registration",
+    name: "Patient Registration",
+    slug: "laboratory",
+    category: "Diagnostics",
+    iconName: "FileText",
+    description:
+      "Manage patient information and diagnostic test requests through a streamlined registration process.",
+    heroHighlights: [
+      "Register patients and maintain demographic details.",
+      "Manage test bookings, profiles, and packages.",
+      "Generate patient IDs and sample identification details.",
+      "Access previous test records and patient history.",
+    ],
+    metrics: [{ value: "Fast", label: "Patient Onboarding" }],
+  },
+  {
+    id: "sample-processing",
+    name: "Sample Processing",
+    slug: "laboratory",
+    category: "Diagnostics",
+    iconName: "QrCode",
+    description:
+      "Manage laboratory samples systematically and track their progress throughout the diagnostic workflow.",
+    heroHighlights: [
+      "Manage sample collection and barcode identification.",
+      "Allocate samples to relevant tests and departments.",
+      "Track sample processing, testing status and report generation.",
+    ],
+    metrics: [{ value: "100%", label: "Sample Tracking" }],
+  },
+  {
+    id: "lab-machine-interfacing",
+    name: "Lab Machine Interfacing",
+    slug: "laboratory",
+    category: "Diagnostics",
+    iconName: "Cpu",
+    description:
+      "Simplify diagnostic workflows through integration with compatible laboratory equipment and automated result transfer.",
+    heroHighlights: [
+      "Integrate compatible laboratory analyzers with the software.",
+      "Automatically receive test results from connected machines.",
+      "Reduce manual data entry and transcription errors.",
+    ],
+    metrics: [{ value: "Zero", label: "Transcription Errors" }],
+  },
+  {
+    id: "outsource-management",
+    name: "Outsource Management",
+    slug: "laboratory",
+    category: "Operations",
+    iconName: "RefreshCw",
+    description:
+      "Simplify outsourced test coordination by managing external laboratory requests, reports, and vendor payments.",
+    heroHighlights: [
+      "Manage outsourced test requests and vendor details.",
+      "Track sample dispatch and external test status.",
+      "Record outsourced investigation charges, payments and reports.",
+    ],
+    metrics: [{ value: "Complete", label: "Vendor Management" }],
+  },
+  {
+    id: "billing-accounts",
+    name: "Billing & Accounts",
+    slug: "billing",
+    category: "Financial",
+    iconName: "Receipt",
+    description:
+      "Manage laboratory revenue, payments, and financial transactions through an integrated billing and accounts module.",
+    heroHighlights: [
+      "Generate bills for individual tests and test packages.",
+      "Manage cash, credit, and payment transactions.",
+      "Track outstanding balances, patient dues and financial reports.",
+    ],
+    metrics: [{ value: "100%", label: "Billing Accuracy" }],
+  },
+];
+
+export const PMS_MODULES_DIRECTORY: HMSModuleDirectoryItem[] = [
+  {
+    id: "pms-purchase",
+    name: "Purchase Management",
+    slug: "pharmacy",
+    category: "Operations",
+    iconName: "Package",
+    description:
+      "Manage medicine purchases, supplier details, purchase entries, and purchase transactions through an organized workflow.",
+    heroHighlights: [
+      "Manage supplier details and purchase records.",
+      "Generate and maintain purchase entries.",
+      "Track purchase costs and supplier transactions.",
+      "Monitor purchase history and outstanding payments.",
+    ],
+    metrics: [{ value: "100%", label: "Purchase Control" }],
+  },
+  {
+    id: "pms-sales",
+    name: "Sales Management",
+    slug: "pharmacy",
+    category: "Clinical",
+    iconName: "CreditCard",
+    description:
+      "Manage daily medicine sales with efficient billing workflows for cash and credit transactions.",
+    heroHighlights: [
+      "Generate quick and accurate medicine bills.",
+      "Manage cash and credit sales.",
+      "Track medicine-wise sales and transactions.",
+      "Maintain customer details and sales history.",
+    ],
+    metrics: [{ value: "Fast", label: "Counter Billing" }],
+  },
+  {
+    id: "pms-expiry",
+    name: "Expiry Management",
+    slug: "pharmacy",
+    category: "Operations",
+    iconName: "Clock",
+    description:
+      "Monitor medicine expiry dates and identify products that require attention to reduce inventory losses.",
+    heroHighlights: [
+      "Track batch-wise medicine expiry dates.",
+      "Identify near-expiry and expired medicines.",
+      "View expiry-related stock information.",
+      "Minimize losses through timely expiry monitoring.",
+    ],
+    metrics: [{ value: "Zero", label: "Expiry Losses" }],
+  },
+  {
+    id: "pms-stock",
+    name: "Stock Management",
+    slug: "pharmacy",
+    category: "Operations",
+    iconName: "Layers",
+    description:
+      "Monitor medicine availability, stock movement, and inventory levels to maintain better control over pharmacy operations.",
+    heroHighlights: [
+      "Track medicine-wise stock availability.",
+      "Monitor minimum stock and reorder levels.",
+      "Manage batch numbers and stock quantities.",
+      "Maintain stock adjustments and movement records.",
+    ],
+    metrics: [{ value: "Real-Time", label: "Stock Visibility" }],
+  },
+  {
+    id: "pms-gst-accounts",
+    name: "GST Reports & Accounts",
+    slug: "billing",
+    category: "Financial",
+    iconName: "Receipt",
+    description:
+      "Manage pharmacy financial transactions with organized GST-related reports and accounting information.",
+    heroHighlights: [
+      "Generate GST-related sales and purchase reports.",
+      "Monitor daily sales and purchase summaries.",
+      "Track cash, credit, and payment transactions.",
+      "Maintain financial records and account statements.",
+    ],
+    metrics: [{ value: "100%", label: "GST Compliant" }],
+  },
+];
+
 export const PRODUCTS_DATA: ProductItem[] = [
   {
     id: "hms",
@@ -93,33 +509,33 @@ export const PRODUCTS_DATA: ProductItem[] = [
   },
   {
     id: "lms",
-    name: "Laboratory Management Software",
+    name: "Laboratory Management Software (LMS)",
     slug: "laboratory",
     tagline: "LMS",
     description:
-      "The all-in-one Laboratory Information Management System (LIMS) engineered to automate sample accessioning, integrate clinical instruments, and deliver secure, verifiable test reports to doctors and patients without delays.",
+      "Medsky Laboratory Information Management System (LIMS) is an integrated software solution designed to simplify laboratory operations, streamline sample processing, and improve diagnostic workflows.",
     iconName: "FlaskConical",
     image: "/images/lab-test.png",
     badge: "Diagnostics",
   },
   {
     id: "cms",
-    name: "Clinic Management Software",
+    name: "Clinic Management Software (CMS)",
     slug: "opd",
     tagline: "CMS",
     description:
-      "The all-in-one clinic management software that automates patient scheduling, simplifies digital charting, and accelerates your billing—so you can focus entirely on patient care.",
+      "Medsky Clinic Management Software helps doctors and clinics manage everyday operations through one integrated platform. From patient registration and appointments to consultations, digital prescriptions, billing and medical records, Medsky streamlines clinic workflows and helps deliver better patient care.",
     iconName: "Activity",
     image: "/images/clinic.png",
     badge: "Polyclinic",
   },
   {
     id: "pharmacy",
-    name: "Pharmacy Management Software",
+    name: "Pharmacy Management Software (PMS)",
     slug: "pharmacy",
     tagline: "PMS",
     description:
-      "Streamline your daily pharmacy operations with an all-in-one platform built for independent stores, hospital dispensaries, and retail chains. Automate inventory, eliminate dispensing errors, and deliver faster patient care.",
+      "Medsky Pharmacy Management Software (PIMS) is an integrated solution designed to streamline pharmacy operations, from medicine purchasing and sales to inventory, expiry tracking, GST billing, and accounts.",
     iconName: "Pill",
     image: "/images/pharmacy.png",
     badge: "Pharmacy POS",
@@ -154,69 +570,134 @@ export const MODULES_DATA: ModuleData[] = [
     slug: "ipd",
     name: "Hospital Management Software (HMS)",
     shortName: "HMS",
-    tagline: "Inpatient admissions, bed occupancy, ward rounds, and discharge summaries.",
+    tagline: "Simplify Hospital Operations with Medsky HMS",
     description:
-      "Comprehensive hospital management covering inpatient admissions, real-time bed census, OT scheduling, nursing rounds, and discharge clearance.",
+      "Manage your hospital's clinical, administrative, and operational workflows with Medsky Hospital Management Software. From OPD and IPD management to laboratory, pharmacy, billing, nursing, and electronic medical records, Medsky helps bring essential hospital activities together in one integrated software solution.",
     iconName: "Bed",
     image: "/images/hms-reseption.png",
     category: "Clinical",
     badge: "Enterprise",
     heroHighlights: [
-      "Real-time visual bed census matrix (ICU, General, Private, Isolation)",
-      "Automated bed charges, nursing tariffs, and clinical service bundles",
-      "Electronic Medication Administration Records (eMAR) with barcode verification",
-      "Discharge summary generation with one-click multi-department clearance",
+      "Streamlined Operations – Simplify daily healthcare workflows and improve operational efficiency.",
+      "Integrated Solutions – Connect OPD, IPD, laboratory, pharmacy and EMR operations seamlessly.",
+      "Smart Automation – Reduce manual work, minimize errors and save valuable time.",
+      "Dedicated Support – Get expert guidance, implementation assistance and reliable after-sales support.",
     ],
     about: {
-      badge: "Inpatient Operations",
-      title: "Transforming Inpatient Hospital Care With Digital Precision",
+      // badge: "Inpatient Operations",
+      title: "Complete Hospital Management Software for Modern Healthcare",
       description:
-        "Medsky HMS coordinates complex hospital operations from admission to discharge. By linking nursing stations, OT suites, inpatient pharmacy, and insurance clearance, we eliminate administrative lag and let medical staff focus on clinical excellence.",
+        "One Integrated Platform for Your Hospital Operations — Medsky Hospital Management Software connects clinical, administrative, financial, and operational workflows across your hospital in one integrated system.",
       image: "/images/Hospital Managment Software.png",
       highlights: [
-        "Live interactive bed matrix across ICUs, wards & suites",
-        "Automated multi-department discharge clearance workflows",
-        "Integrated electronic medication administration (eMAR)",
-        "Zero-leakage inpatient billing with real-time audit logs",
+        "Unified Hospital Management – Manage all hospital departments through one integrated platform.",
+        "Streamlined Patient Care – Simplify patient registration, consultations, admissions, and medical records.",
+        "Efficient Daily Operations – Connect clinical, diagnostic, pharmacy, and billing workflows seamlessly.",
+        "Flexible & Scalable Solution – Suitable for general hospitals, multispecialty hospitals, and nursing homes.",
       ],
     },
     keyFeatures: [
       {
-        title: "Admission & Bed Allocation",
-        description: "Color-coded visual bed map showing occupied, vacant, reserved, cleaning, and maintenance bed states.",
-        icon: "LayoutGrid",
+        title: "Patient Registration & OPD Management",
+        description: "Manage patient registration, UHID generation, appointments, token management, consultations, vitals, and follow-ups.",
+        icon: "FileText",
       },
       {
-        title: "Ward & Nurse Station Dashboard",
-        description: "Consolidated ward view displaying patient vitals, active IV lines, and pending doctor orders.",
+        title: "IPD & Patient Care Management",
+        description: "Streamline admissions, bed allocation, ward management, nursing stations, discharge summaries, and inpatient care.",
+        icon: "Bed",
+      },
+      {
+        title: "EMR & Clinical Documentation",
+        description: "Maintain digital patient records, medical histories, clinical notes, e-prescriptions, diagnosis, and treatment records.",
+        icon: "PenTool",
+      },
+      {
+        title: "Laboratory Management (LIS)",
+        description: "Manage lab registrations, test orders, sample tracking, machine interfacing, report generation, and billing.",
+        icon: "FlaskConical",
+      },
+      {
+        title: "Pharmacy & Inventory Management",
+        description: "Handle medicine sales, purchase orders, stock monitoring, expiry alerts, minimum stock alerts, and billing.",
+        icon: "Pill",
+      },
+      {
+        title: "Billing & Financial Management",
+        description: "Simplify OPD/IPD billing, payments, receipts, insurance processing, discounts, and financial reporting.",
+        icon: "Receipt",
+      },
+      {
+        title: "OT & Specialized Department Management",
+        description: "Coordinate operation theatres, surgery scheduling, emergency services, dialysis, day care, and specialized clinical workflows.",
         icon: "Activity",
       },
       {
-        title: "Discharge Workflow",
-        description: "Multi-department clearance checklist (Pharmacy, Lab, Accounts) and printable summaries.",
-        icon: "DoorOpen",
+        title: "Reports & Hospital Administration",
+        description: "Gain operational insights through dashboards, management reports, user access controls, and department-wise performance monitoring.",
+        icon: "BarChart3",
       },
     ],
     benefits: [
       {
-        title: "98% Bed Utilization Efficiency",
-        description: "Real-time visibility into bed occupancy, planned discharges, and sanitization cycles prevents idle bed downtime.",
-        icon: "TrendingUp",
+        title: "Streamlined Hospital Operations",
+        description: "Manage hospital activities and departmental workflows through a centralized software solution.",
+        icon: "LayoutGrid",
       },
       {
-        title: "50% Faster Discharge Turnaround",
-        description: "Parallel multi-department clearances cut patient discharge waiting times from hours to under 30 minutes.",
-        icon: "Clock",
+        title: "Centralized Patient Records",
+        description: "Access patient histories, consultations, diagnoses and treatment information in one place.",
+        icon: "FileText",
       },
       {
-        title: "Zero Clinical Medication Errors",
-        description: "Barcode-verified eMAR bedside medication scanning confirms the 5 rights of administration every shift.",
+        title: "Efficient Appointment Management",
+        description: "Simplify appointment scheduling, doctor availability, patient queues and follow-up management.",
+        icon: "Calendar",
+      },
+      {
+        title: "Integrated Laboratory Management",
+        description: "Streamline laboratory registration, billing, test processing, reports and analyzer interfacing.",
+        icon: "FlaskConical",
+      },
+      {
+        title: "Smart Pharmacy Management",
+        description: "Manage medicine sales, stock, expiry alerts, purchases, billing and inventory efficiently.",
+        icon: "Pill",
+      },
+      {
+        title: "Simplified Billing & Accounts",
+        description: "Organize billing, payments and financial transactions with improved accuracy and visibility.",
+        icon: "Receipt",
+      },
+      {
+        title: "Real-Time Reports & Insights",
+        description: "Generate meaningful reports to monitor performance and support better management decisions.",
+        icon: "BarChart3",
+      },
+      {
+        title: "Better Department Coordination",
+        description: "Connect essential departments and improve communication across hospital workflows.",
+        icon: "Layers",
+      },
+      {
+        title: "Secure Patient Information",
+        description: "Support controlled access to healthcare information with appropriate user permissions and security measures.",
         icon: "ShieldCheck",
       },
       {
-        title: "100% Transparent Financial Auditing",
-        description: "Every consumable, bed tariff, and nursing charge automatically posts to the running patient ledger in real time.",
-        icon: "Receipt",
+        title: "Reduced Paperwork",
+        description: "Digitize everyday processes, minimize manual documentation and improve information accessibility.",
+        icon: "FileSpreadsheet",
+      },
+      {
+        title: "Reliable Technical Support",
+        description: "Get dedicated technical assistance, implementation guidance and after-sales support from our team.",
+        icon: "Headphones",
+      },
+      {
+        title: "Flexible & Scalable Solutions",
+        description: "Choose individual modules or integrated solutions to suit your healthcare facility's requirements.",
+        icon: "Building2",
       },
     ],
     whyMedsky: [
@@ -287,23 +768,69 @@ export const MODULES_DATA: ModuleData[] = [
     faqs: [
       {
         id: "hms-f1",
-        question: "How does the real-time visual bed census matrix work in Medsky HMS?",
-        answer: "The bed census matrix displays color-coded floor maps of your hospital wards, ICUs, and private rooms. It updates in real time to show occupied, vacant, reserved, undergoing sanitation, and maintenance beds, allowing instant transfers and admissions.",
+        question: "What is Hospital Management Software?",
+        answer:
+          "Hospital Management Software is a digital system that helps manage hospital operations such as patient registration, OPD, IPD, billing, EMR, pharmacy, laboratory, appointments, accounts, and reports.",
       },
       {
         id: "hms-f2",
-        question: "Can Medsky HMS manage automated multi-department discharge clearance?",
-        answer: "Yes. When a doctor issues a discharge order, automated clearance tasks are dispatched simultaneously to Inpatient Pharmacy, Pathology, Radiology, and Billing. The final bill cannot be settled until all departments clear pending medications and investigation records.",
+        question: "What does Medsky Hospital Management Software include?",
+        answer:
+          "Medsky Hospital Management Software can manage patient registration, OPD, IPD, billing, EMR, pharmacy, laboratory, appointments, accounts, reports, and other hospital workflows.",
       },
       {
         id: "hms-f3",
-        question: "Does the system support eMAR with barcode verification for nurses?",
-        answer: "Absolutely. Nurses scan the patient's UHID wristband and medication blister strip using any mobile or handheld barcode scanner. The system cross-checks doctor orders, dosage, timing, and allergy warnings before confirming administration.",
+        question: "What modules are available in Medsky Hospital Management Software?",
+        answer:
+          "Medsky offers healthcare management modules such as OPD Management, IPD Management, Laboratory Management, Pharmacy Management, Clinic Management, EMR, Appointment Management, Billing, and Reports, depending on the implementation requirements of the healthcare organization.",
       },
       {
         id: "hms-f4",
-        question: "Is Medsky HMS capable of handling multi-building hospital campuses?",
-        answer: "Yes, Medsky HMS is built on a multi-tier architectural hierarchy supporting multiple blocks, wings, nursing stations, and emergency units under a single centralized hospital database.",
+        question: "Does Medsky support Electronic Medical Records (EMR)?",
+        answer:
+          "Yes. Medsky supports Electronic Medical Records (EMR) workflows that help healthcare professionals digitally maintain patient information, visit history, clinical records, prescriptions, and other relevant healthcare data.",
+      },
+      {
+        id: "hms-f5",
+        question: "Is Medsky suitable for multi-specialty hospitals?",
+        answer:
+          "Yes. Medsky is designed to support the workflows of multi-specialty hospitals by integrating different departments and healthcare operations into one platform.",
+      },
+      {
+        id: "hms-f6",
+        question: "Is Medsky Hospital Management Software easy to use?",
+        answer:
+          "Medsky is designed with healthcare workflows in mind, providing structured screens and department-specific functions to help hospital staff manage daily operations efficiently.",
+      },
+      {
+        id: "hms-f7",
+        question: "Does Medsky reduce paperwork in hospitals?",
+        answer:
+          "Yes. By digitizing patient registration, clinical records, prescriptions, billing, laboratory workflows, pharmacy operations, and other processes, Medsky can help hospitals reduce dependency on manual paperwork.",
+      },
+      {
+        id: "hms-f8",
+        question: "Can Medsky integrate multiple hospital departments?",
+        answer:
+          "Yes. Medsky is designed as an integrated healthcare software platform connecting departments such as OPD, IPD, appointments, laboratory, pharmacy, insurance, surgery, billing, and clinical records.",
+      },
+      {
+        id: "hms-f9",
+        question: "Can Medsky manage patient medical records?",
+        answer:
+          "Yes. Medsky enables hospitals to maintain digital patient records, medical history, clinical information, case sheets, prescriptions, investigations, and related healthcare data.",
+      },
+      {
+        id: "hms-f10",
+        question: "Why should hospitals use Medsky Hospital Management System?",
+        answer:
+          "Medsky helps hospitals reduce manual work, streamline workflows, improve data accessibility, manage patient information, and connect multiple hospital departments through an integrated software platform.",
+      },
+      {
+        id: "hms-f11",
+        question: "Which hospitals can use Medsky HMS?",
+        answer:
+          "Medsky Hospital Management Software can be used by multi-specialty hospitals, general hospitals, nursing homes, healthcare centres, and growing hospitals that need integrated hospital management.",
       },
     ],
   },
@@ -311,93 +838,128 @@ export const MODULES_DATA: ModuleData[] = [
   // 2. LABORATORY MANAGEMENT SOFTWARE (LMS / LIS)
   {
     slug: "laboratory",
-    name: "Laboratory Management Software (LMS)",
-    shortName: "LMS",
-    tagline: "Diagnostic test workflows, sample barcoding, analyzer interfacing, and verified reports.",
+    name: "Laboratory Information & Management Software (LIMS)",
+    shortName: "LIMS",
+    tagline: "Complete Laboratory Management Software for Accurate & Efficient Lab Operations",
     description:
-      "End-to-end diagnostic and pathology laboratory Software with bi-directional analyzer interfacing, sample tracking, and automated digital sign-offs.",
+      "Medsky Laboratory Information Management System (LIMS) is an integrated software solution designed to simplify laboratory operations, streamline sample processing, and improve diagnostic workflows. From patient registration and sample collection to report generation, machine interfacing, billing, and outsourced test management, Medsky brings essential laboratory activities together in one platform. Manage your laboratory more efficiently with organized workflows, accurate records, and seamless coordination between laboratory departments.",
     iconName: "FlaskConical",
     image: "/images/lab-test.png",
     category: "Diagnostics",
     badge: "Diagnostics LIS",
     heroHighlights: [
-      "Bi-directional integration with major hematology & biochemistry analyzers",
-      "Automated critical value alerts to consulting doctors and patient mobile",
-      "Barcode sample tracking from phlebotomy chair to report sign-off",
-      "Customizable report templates with reference ranges by age and gender",
+      "Simplified Patient Registration & Sample Management",
+      "Automated Lab Machine Interfacing",
+      "Efficient Test Processing & Report Management",
+      "Integrated Billing, Accounts & Outsource Management",
     ],
     about: {
-      badge: "Clinical Pathology",
-      title: "Accelerating Diagnostic Precision With Automated Laboratory Workflows",
+      badge: "",
+      title: "Simplifying Laboratory Operations with Medsky LIMS",
       description:
-        "Medsky LMS automates every step of diagnostic medicine—from phlebotomy barcode generation and ASTM/HL7 analyzer communication to delta check validations and instant WhatsApp QR report delivery.",
+        "Medsky Lab Management Software is an integrated solution that simplifies daily laboratory operations, from patient registration and test processing to billing and report generation. It helps diagnostic labs, hospital labs, and diagnostic centres manage their workflows efficiently through one connected platform.",
       image: "/images/lab-test.png",
       highlights: [
-        "Bi-directional machine interfacing (Roche, Sysmex, Abbott, Mindray)",
-        "Automated delta checks comparing results with historical trends",
-        "Instant encrypted WhatsApp & SMS report dispatch with QR verification",
-        "NABL-compliant quality control logs, Levey-Jennings charts & audit trails",
+        "Streamlined Operations: Manage patient registration, test bookings, lab profiles, packages, and billing.",
+        "Efficient Test Management: Organize sample workflows, lab history, and test processing.",
+        "Seamless Integration: Connect supported lab machines and manage outsourced investigations and vendor payments.",
+        "Better Reporting & Control: Generate laboratory reports, track accounts, and monitor daily operations.",
       ],
     },
     keyFeatures: [
       {
-        title: "Test Requisition & Barcoding",
-        description: "Unique test tube barcodes linked to patient UHID and investigation package.",
+        title: "Patient & Test Management",
+        description: "Manage patient details, test bookings, test profiles, and diagnostic requests efficiently.",
+        icon: "FileText",
+      },
+      {
+        title: "Sample Tracking & Processing",
+        description: "Organize sample collection, barcode identification, processing status, and test allocation.",
         icon: "QrCode",
       },
       {
-        title: "Bi-directional Analyzer Sync",
-        description: "Direct push/pull with lab analyzers eliminating manual data entry mistakes.",
+        title: "Automated Machine Integration",
+        description: "Connect compatible laboratory instruments to transfer test results and minimize manual data entry.",
         icon: "Cpu",
       },
       {
-        title: "Pathologist Sign-Off",
-        description: "Highlight abnormal results with delta checks against patient history.",
+        title: "Digital Report Management",
+        description: "Generate, review, and manage laboratory test reports with organized patient history.",
         icon: "CheckCircle2",
+      },
+      {
+        title: "Outsource Test Management",
+        description: "Coordinate outsourced investigations, vendor details, payments, and external test reports.",
+        icon: "RefreshCw",
+      },
+      {
+        title: "Billing & Financial Management",
+        description: "Manage test billing, payments, outstanding balances, and laboratory accounts.",
+        icon: "Receipt",
       },
     ],
     benefits: [
       {
-        title: "Zero Transcription Errors",
-        description: "Direct machine results streaming over RS232 and TCP/IP eliminates manual typing errors completely.",
-        icon: "Cpu",
+        title: "Improved Operational Efficiency",
+        description: "Simplify routine laboratory activities and reduce time spent on manual administrative tasks.",
+        icon: "TrendingUp",
       },
       {
-        title: "70% Faster Report Turnaround",
-        description: "Automated sample routing and bulk electronic sign-off queues accelerate STAT and routine report delivery.",
+        title: "Accurate Data Management",
+        description: "Maintain organized patient details, sample records, test results, and diagnostic reports.",
+        icon: "ShieldCheck",
+      },
+      {
+        title: "Faster Diagnostic Workflows",
+        description: "Improve coordination between registration, sample processing, testing, and reporting.",
         icon: "Clock",
       },
       {
-        title: "Automated Critical Value Alerts",
-        description: "Panic value results automatically trigger high-priority alerts to attending doctors and ICU teams.",
-        icon: "Zap",
+        title: "Reduced Manual Work",
+        description: "Minimize repetitive data entry through compatible laboratory machine integration.",
+        icon: "Cpu",
       },
       {
-        title: "NABL Quality Standardization",
-        description: "Built-in Westgard rules, Levey-Jennings charts, and dual-level QC logging ensure audit-proof compliance.",
-        icon: "Award",
+        title: "Better Financial Control",
+        description: "Manage test billing, collections, outsourced expenses, and accounts systematically.",
+        icon: "Receipt",
+      },
+      {
+        title: "Centralized Laboratory Records",
+        description: "Access patient history, test information, and laboratory reports from one platform.",
+        icon: "Database",
       },
     ],
     whyMedsky: [
       {
-        title: "Universal Instrument Compatibility",
-        description: "Plug-and-play drivers supporting over 200+ hematology, biochemistry, immunoassay, and urine analyzers.",
+        title: "Healthcare Software Expertise",
+        description: "Developed by a team of qualified Biomedical Engineers with healthcare technology experience.",
+        icon: "Award",
+      },
+      {
+        title: "Complete Laboratory Management",
+        description: "Manage registration, testing, sample processing, machine interfacing, outsourcing, and billing in one integrated system.",
+        icon: "Layers",
+      },
+      {
+        title: "Flexible Workflow Management",
+        description: "Software modules designed to support different laboratory operational requirements.",
+        icon: "Building2",
+      },
+      {
+        title: "Machine Integration Support",
+        description: "Simplify laboratory operations through integration with compatible diagnostic instruments.",
+        icon: "Cpu",
+      },
+      {
+        title: "Reliable After-Sales Support",
+        description: "Get assistance from our support team for software-related requirements and operational guidance.",
+        icon: "Headphones",
+      },
+      {
+        title: "Continuous Improvement",
+        description: "Benefit from ongoing software enhancements and improvements to support evolving laboratory needs.",
         icon: "RefreshCw",
-      },
-      {
-        title: "Cloud & Remote Pathologist Sign-Off",
-        description: "Pathologists can review flagged abnormal results, verify morphology, and sign reports digitally from anywhere.",
-        icon: "ShieldCheck",
-      },
-      {
-        title: "Patient QR-Verified Reports",
-        description: "Every PDF report includes an anti-tamper QR code allowing verification by airlines, employers, and doctors.",
-        icon: "QrCode",
-      },
-      {
-        title: "Doctor B2B Referral Management",
-        description: "Automate referral calculations, center-wise sample pickups, and B2B pricing matrices effortlessly.",
-        icon: "Users",
       },
     ],
     workflowSteps: [
@@ -436,18 +998,63 @@ export const MODULES_DATA: ModuleData[] = [
     faqs: [
       {
         id: "lms-f1",
-        question: "Which laboratory analyzers are compatible with Medsky LMS?",
-        answer: "Medsky LMS supports ASTM, HL7, and RS-232 serial communication protocols compatible with major equipment manufacturers including Roche, Sysmex, Beckman Coulter, Abbott, Mindray, and Bio-Rad.",
+        question: "What is Medsky Lab Management Software?",
+        answer:
+          "Medsky Lab Management Software is an integrated Lab Management System designed to simplify laboratory operations, including patient registration, billing, lab master management, profiles, packages, test processing, report generation, lab history, machine interfacing, and outsourced test management. Medsky provides a modern LIS/LIMS solution for diagnostic laboratories, hospitals, and healthcare organizations.",
       },
       {
         id: "lms-f2",
-        question: "How does the barcode sample accessioning workflow operate?",
-        answer: "At the phlebotomy desk, durable barcode labels are printed with the patient's UHID, accession number, and sample color-code (EDTA, Serum, Sodium Fluoride). The analyzer reads the barcode and pulls the order automatically.",
+        question: "What is the difference between LIS and LIMS?",
+        answer:
+          "LIS (Laboratory Information System) and LIMS (Laboratory Information Management System) are software solutions used to manage laboratory operations and information. Medsky combines essential LIS and LIMS capabilities with Lab Management Software features to help laboratories manage patient records, tests, billing, reports, laboratory workflows, and operational data efficiently.",
       },
       {
         id: "lms-f3",
-        question: "Can pathologists sign off reports digitally from outside the lab?",
-        answer: "Yes, Medsky LMS has a secure cloud sign-off portal with cryptographic digital signatures and delta checks that compare current values against historical tests.",
+        question: "Why choose Medsky as a Lab Management System?",
+        answer:
+          "Medsky is a Modern Lab Management System that helps laboratories streamline their daily workflows through centralized management of registration, billing, lab tests, packages, reports, patient history, machine interfacing, and outsourced investigations. It is designed to improve operational efficiency, reduce manual work, and provide faster access to laboratory information.",
+      },
+      {
+        id: "lms-f4",
+        question: "Is Medsky a Web Based LIS?",
+        answer:
+          "Yes. Medsky can be used as a Web Based LIMS, allowing authorized users to access laboratory information through a web-based environment. This helps laboratories manage operations, reports, and patient information from connected locations without depending on traditional paper-based workflows.",
+      },
+      {
+        id: "lms-f5",
+        question: "Is Medsky available as Cloud Based Lab Management Software?",
+        answer:
+          "Medsky supports modern healthcare software environments and can be deployed according to the laboratory's infrastructure and requirements. A Cloud Based Lab Management Software deployment can provide centralized access to laboratory data, workflows, and reports, while suitable security, access controls, backups, and infrastructure should be configured for the organization's requirements.",
+      },
+      {
+        id: "lms-f6",
+        question: "What features are included in Medsky Lab Management Software?",
+        answer:
+          "Medsky Lab Management System Software includes features such as: Patient & laboratory registration, Lab billing, Lab master management, Test and profile management, Package generation, Lab history, Laboratory report generation, Machine interfacing, Outsource management, Outsource vendor payment management, Accounts and reports, and Patient and test information management. These features make Medsky a comprehensive Lab Information Management System for modern laboratories.",
+      },
+      {
+        id: "lms-f7",
+        question: "Is Medsky one of the Best Lab Management Software solutions?",
+        answer:
+          "Medsky is designed as a Modern Lab Software solution for laboratories, hospitals, and healthcare organizations that need an integrated platform for managing laboratory workflows. Its combination of LIS, billing, reporting, machine interfacing, and outsourced laboratory management makes it suitable for organizations looking for comprehensive lab software.",
+      },
+      {
+        id: "lms-f8",
+        question: "Can I get a Free Lab Management Software Demo of Medsky?",
+        answer:
+          "Yes. Healthcare organizations can request a Free Lab Software Demo to understand how Medsky works and how its laboratory workflows can be configured for their requirements. A demo can cover registration, billing, test management, reports, lab history, machine interfacing, outsourcing, and other key LIS/LIMS functions.",
+      },
+      {
+        id: "lms-f9",
+        question: "Can Medsky Lab Software integrate with laboratory machines?",
+        answer:
+          "Yes. Medsky includes machine interfacing capabilities that can help laboratories connect supported laboratory equipment with their software workflow. This can reduce manual data entry and help improve the efficiency and accuracy of laboratory result processing, depending on the machine and integration requirements.",
+      },
+      {
+        id: "lms-f10",
+        question: "Who can use Medsky Lab Management System Software?",
+        answer:
+          "Medsky Lab Management System Software can be used by diagnostic laboratories, hospital laboratories, clinics, medical institutions, and healthcare organizations. It is suitable for organizations looking for Best Lab Software, Web Based Lab Management Software, or a modern LIS/LIMS platform to manage laboratory operations, patient information, billing, testing, reports, and outsourced investigations.",
       },
     ],
   },
@@ -457,90 +1064,181 @@ export const MODULES_DATA: ModuleData[] = [
     slug: "opd",
     name: "Clinic Management Software (CMS)",
     shortName: "CMS",
-    tagline: "Outpatient registration, queue management, doctor consultations, and polyclinic billing.",
+    tagline: "Simplify Clinic Workflows, Consultations & Better Patient Care",
     description:
-      "Purpose-built for outpatient clinics and polyclinics to manage rapid patient check-ins, automated token queues, consultations, and day-care billing.",
+      "Medsky Clinic Management Software helps doctors and clinics manage everyday operations through one integrated platform. From patient registration and appointments to consultations, digital prescriptions, billing and medical records, Medsky streamlines clinic workflows and helps deliver better patient care.",
     iconName: "Activity",
     image: "/images/clinic.png",
     category: "Clinical",
     badge: "Polyclinic",
     heroHighlights: [
-      "Zero-wait digital patient registration & check-in",
-      "Specialty orthopedic joint mapping and digital prescriptions",
-      "One-click ICD-10 medical coding and digital prescriptions",
-      "Instant routing to physiotherapy, radiology, and billing desks",
+      "Easy Patient Registration & Management",
+      "Smart Appointment & Token Management",
+      "Digital EMR, EHR & Prescriptions",
+      "Integrated Billing & Accounts",
     ],
     about: {
-      badge: "Outpatient & Polyclinic",
+      badge: "",
       title: "Streamlining Clinic Operations & Doctor Consultations",
       description:
-        "Medsky CMS delivers a frictionless outpatient experience for single-doctor clinics and multi-specialty polyclinics alike. Manage token boards, write rapid structured prescriptions, and process counter receipts in seconds.",
+        "Medsky Clinic Management Software is an integrated solution designed to simplify the daily operations of individual clinics, medical practices and multi-specialty polyclinics. From the first patient visit to consultation, prescription and payment, Medsky helps doctors and clinic staff manage workflows efficiently, reduce paperwork and maintain organized patient information. Its flexible modules support the operational needs of different types of clinics while helping healthcare professionals focus more on patient care.",
       image: "/images/clinic.png",
       highlights: [
-        "Dynamic live token queue display for clinic waiting areas",
-        "Specialty SOAP templates with pre-configured prescription sets",
-        "Automated WhatsApp appointment confirmations & medication reminders",
-        "Multi-doctor revenue splitting and daily cash collection reconciliation",
+        "Smart Token Management: Live token queue display and patient flow management for reduced waiting times.",
+        "Digital Consultations & Prescriptions: Specialty-based SOAP templates, structured clinical records, and pre-configured prescription sets.",
+        "Automated Patient Communication: WhatsApp appointment confirmations, reminders, and medication notifications.",
+        "Efficient Billing & Revenue Management: Multi-doctor revenue sharing, cash collection tracking, and daily billing reconciliation.",
       ],
     },
     keyFeatures: [
       {
-        title: "Patient Registration & EMR",
-        description: "Capture demographic data, insurance ID, past medical history, and emergency contacts with instant UHID generation.",
+        title: "Patient Registration",
+        description:
+          "Register new and existing patients with demographic information, contact details, identification information, medical history, and other relevant patient details.",
         icon: "FileText",
       },
       {
-        title: "Specialty Templates",
-        description: "Examination forms, range-of-motion assessments, and pre-surgical checklists.",
-        icon: "Stethoscope",
+        title: "Appointment Management",
+        description:
+          "Schedule and manage appointments based on doctor availability, consultation timings, patient preferences, and appointment status.",
+        icon: "Calendar",
       },
       {
         title: "Token & Queue Management",
-        description: "Multi-screen visual token boards with priority overrides for urgent patients.",
+        description:
+          "Manage patient tokens and consultation queues to organize patient flow and reduce waiting-time confusion.",
         icon: "ListOrdered",
+      },
+      {
+        title: "Vitals Management",
+        description:
+          "Record and track important patient vitals such as Blood Pressure, Pulse Rate, Temperature, Respiratory Rate, Height, Weight, BMI and SpO₂.",
+        icon: "HeartPulse",
+      },
+      {
+        title: "EMR Management",
+        description:
+          "Maintain digital medical records containing consultation details, clinical notes, diagnosis, prescriptions, investigations, and treatment information.",
+        icon: "PenTool",
+      },
+      {
+        title: "EHR Management",
+        description:
+          "Maintain a structured longitudinal patient health record to help healthcare professionals access relevant historical information during consultations.",
+        icon: "Database",
+      },
+      {
+        title: "Patient History",
+        description:
+          "Access previous visits, consultations, diagnoses, prescriptions, investigations, vitals, and other relevant clinical information.",
+        icon: "Clock",
+      },
+      {
+        title: "Investigation Management",
+        description:
+          "Record investigation requests and maintain patient investigation history and reports.",
+        icon: "FlaskConical",
+      },
+      {
+        title: "Billing Management",
+        description:
+          "Manage consultation charges, procedures, investigations, packages, discounts, payments, receipts, and outstanding amounts.",
+        icon: "Receipt",
+      },
+      {
+        title: "Reports & Analytics",
+        description:
+          "Generate useful clinical, patient, appointment, billing, and operational reports for clinic management.",
+        icon: "BarChart3",
+      },
+      {
+        title: "Follow-Up Management",
+        description:
+          "Track follow-up visits and help doctors maintain continuity of patient care.",
+        icon: "CheckCircle2",
       },
     ],
     benefits: [
       {
-        title: "45% Reduction in Patient Wait Time",
-        description: "Live token boards and automated slot pacing prevent waiting room overcrowding and patient frustration.",
-        icon: "Clock",
+        title: "Improved Operational Efficiency",
+        description: "Simplify routine clinic activities and reduce manual administrative work.",
+        icon: "TrendingUp",
       },
       {
-        title: "Under 90-Sec Consultation Charting",
-        description: "Quick-pick symptom chips, one-click favorites, and voice dictation streamline doctor clinical notes.",
-        icon: "Zap",
+        title: "Better Patient Experience",
+        description: "Organize appointments, reduce waiting time and improve patient coordination.",
+        icon: "HeartPulse",
       },
       {
-        title: "100% Prescription Clarity",
-        description: "Clean, standardized digital prescriptions eliminate pharmacist confusion and handwriting misinterpretations.",
+        title: "Organized Medical Records",
+        description: "Maintain easily accessible digital patient records and consultation history.",
         icon: "FileText",
       },
       {
-        title: "Zero Patient No-Shows",
-        description: "Automated SMS and WhatsApp reminders sent 24 hours and 2 hours prior reduce missed appointments by 75%.",
-        icon: "Smartphone",
+        title: "Simplified Financial Management",
+        description: "Streamline billing, payment tracking and daily collection reports.",
+        icon: "Receipt",
+      },
+      {
+        title: "Reduced Paperwork",
+        description: "Replace manual documentation with structured digital workflows.",
+        icon: "FileSpreadsheet",
+      },
+      {
+        title: "Better Clinic Management",
+        description: "Monitor appointments, consultations and daily operations through organized reports.",
+        icon: "BarChart3",
       },
     ],
     whyMedsky: [
       {
-        title: "Doctor-First Clean Interface",
-        description: "Clean, distraction-free clinical charting screen optimized for touchscreens, iPads, and standard desktop browsers.",
-        icon: "HeartPulse",
-      },
-      {
-        title: "Multi-Specialty Ready",
-        description: "Pre-loaded specialty forms for General Medicine, Pediatrics, Cardiology, Orthopedics, ENT, and Gynecology.",
+        title: "Complete Clinic Workflow",
+        description: "Manage registration, appointments, vitals, consultation, EMR, EHR, prescriptions, billing, reports, and follow-ups through one platform.",
         icon: "Layers",
       },
       {
-        title: "Instant WhatsApp Rx Dispatch",
-        description: "Prescriptions, diet advice, and follow-up dates delivered directly to the patient's phone upon completion.",
-        icon: "Smartphone",
+        title: "Doctor-Centric Clinical Workflow",
+        description: "Provide doctors with access to relevant patient history, vitals, previous visits, investigations, prescriptions, and clinical records.",
+        icon: "Stethoscope",
       },
       {
-        title: "Affordable & Scalable Cloud Model",
-        description: "No expensive local server installations required; scales effortlessly as you add new doctors or branch clinics.",
+        title: "Organized Patient Records",
+        description: "Keep patient information and clinical history structured and easily accessible to authorized users.",
+        icon: "Database",
+      },
+      {
+        title: "Efficient Appointment Management",
+        description: "Manage doctor schedules, appointments, tokens, queues, and follow-ups in an organized manner.",
+        icon: "Calendar",
+      },
+      {
+        title: "Digital EMR & EHR",
+        description: "Move from paper-based records to structured digital patient records.",
+        icon: "PenTool",
+      },
+      {
+        title: "Easy E-Prescription",
+        description: "Create and maintain digital prescriptions with complete medicine instructions.",
+        icon: "FileText",
+      },
+      {
+        title: "Better Patient Experience",
+        description: "Help reduce unnecessary waiting and simplify registration, consultation, billing, and follow-up workflows.",
+        icon: "HeartPulse",
+      },
+      {
+        title: "Useful Reports",
+        description: "Access reports that help clinics monitor patients, appointments, billing, and daily operations.",
+        icon: "BarChart3",
+      },
+      {
+        title: "Role-Based Access",
+        description: "Provide appropriate access to doctors, receptionists, billing staff, and administrators according to their responsibilities.",
+        icon: "ShieldCheck",
+      },
+      {
+        title: "Flexible Clinic Management",
+        description: "Suitable for individual doctors, specialty clinics, polyclinics, and growing healthcare practices.",
         icon: "Building2",
       },
     ],
@@ -580,18 +1278,75 @@ export const MODULES_DATA: ModuleData[] = [
     faqs: [
       {
         id: "cms-f1",
-        question: "Can multiple doctors use Medsky CMS in a shared polyclinic setting?",
-        answer: "Yes. Medsky CMS supports individual doctor schedules, custom consultation fees, private clinical notes, and multi-doctor revenue splitting with separate receptionist consoles.",
+        question: "What is a Clinic Management System?",
+        answer:
+          "A Clinic Management System (CMS) is software used to manage the administrative and clinical activities of a clinic. Medsky CMS helps manage patients, appointments, outpatient consultations, electronic medical records, billing, payments, and other clinic workflows.",
       },
       {
         id: "cms-f2",
-        question: "Does Medsky CMS work on iPads, tablets, and mobile phones?",
-        answer: "Yes, Medsky CMS is completely responsive and cloud-based. Doctors can examine patients and write prescriptions effortlessly using tablets or laptops.",
+        question: "How does Medsky CIMS help clinics?",
+        answer:
+          "Medsky Clinic Information Management System connects important clinic workflows in one system, including patient registration, appointments, OPD management, EMR, EHR, token display, billing, and payment management.",
       },
       {
         id: "cms-f3",
-        question: "Can digital prescriptions be sent to patients via WhatsApp and SMS?",
-        answer: "Yes. With a single click, patients receive their encrypted PDF prescription, lifestyle advice, and follow-up appointment date on their WhatsApp and SMS.",
+        question: "What is the best Clinic Management Software for modern clinics?",
+        answer:
+          "The best Clinic Management Software should provide easy patient management, appointment scheduling, digital medical records, billing, reporting, and secure access. Medsky provides an integrated Modern Clinic Management Software platform for streamlining clinic operations.",
+      },
+      {
+        id: "cms-f4",
+        question: "Why choose Medsky as a Clinic Management System?",
+        answer:
+          "Medsky Clinic Management System brings clinical and administrative workflows together in one platform. It helps clinics reduce manual work, organize patient information, improve appointment management, and simplify billing and documentation.",
+      },
+      {
+        id: "cms-f5",
+        question: "Is Medsky suitable for small clinics?",
+        answer:
+          "Yes. Medsky Clinic Software can help small and growing clinics organize patient registration, appointments, consultation records, billing, and other day-to-day activities through a centralized system.",
+      },
+      {
+        id: "cms-f6",
+        question: "Is Medsky suitable for multi-specialty clinics?",
+        answer:
+          "Yes. Medsky can support clinics with multiple doctors and specialties by organizing appointments, patient records, consultation workflows, and billing information.",
+      },
+      {
+        id: "cms-f7",
+        question: "Does Medsky Clinic Software provide Patient appointment management?",
+        answer:
+          "Yes. Medsky includes Patient Appointment Management to help clinics organize patient appointments and doctor schedules, making appointment workflows more structured and efficient.",
+      },
+      {
+        id: "cms-f8",
+        question: "Does Medsky Clinic System Software provide EMR?",
+        answer:
+          "Yes. Medsky includes Electronic Medical Record (EMR) functionality for maintaining digital patient consultation and clinical records.",
+      },
+      {
+        id: "cms-f9",
+        question: "Is Medsky Clinic Management Software web based?",
+        answer:
+          "Yes. Medsky is designed as Web Based Clinic Management Software, allowing authorized users to access clinic workflows through a web-based interface.",
+      },
+      {
+        id: "cms-f10",
+        question: "Is Medsky a Web Based Healthcare Software?",
+        answer:
+          "Yes. Medsky provides Cloud Based Clinic Management System capabilities for managing clinic and healthcare workflows through a centralized digital platform.",
+      },
+      {
+        id: "cms-f11",
+        question: "Can Medsky Clinic Software be accessed from multiple locations?",
+        answer:
+          "Yes, in supported web/cloud deployments, authorized users can access Medsky from different locations using an internet connection, subject to the organization's access and security configuration.",
+      },
+      {
+        id: "cms-f12",
+        question: "How can I request a Medsky Clinic Management System Software Demo?",
+        answer:
+          "You can contact Medsky to request a Free Clinic Management Software Demo. During the demo, your clinic can explore the CMS/CIMS platform, modules, workflows, deployment options, and implementation requirements.",
       },
     ],
   },
@@ -599,93 +1354,122 @@ export const MODULES_DATA: ModuleData[] = [
   // 4. PHARMACY MANAGEMENT SOFTWARE (PMS)
   {
     slug: "pharmacy",
-    name: "Pharmacy & Medication POS (PMS)",
+    name: "Pharmacy Management Software (PMS)",
     shortName: "PMS",
-    tagline: "Complete pharmacy point-of-sale, batch expiry monitoring, and stock reordering.",
+    tagline: "Simplify Pharmacy Operations with Smart Pharmacy Management Software",
     description:
-      "Automated pharmacy management featuring barcode scanning, generic substitution suggestions, near-expiry alerts, and integrated retail billing.",
+      "Medsky Pharmacy Management Software (PIMS) is an integrated solution designed to streamline pharmacy operations, from medicine purchasing and sales to inventory, expiry tracking, GST billing, and accounts. Manage your pharmacy efficiently with real-time stock visibility, organized billing, and accurate business reports through one connected platform.",
     iconName: "Pill",
     image: "/images/pharmacy.png",
     category: "Operations",
     badge: "Pharmacy POS",
     heroHighlights: [
-      "Direct receipt of doctor digital prescriptions with dosage validation",
-      "FIFO / FEFO automated batch dispensing to minimize expiry losses",
-      "Integrated drug database with sound-alike/look-alike (LASA) safety alerts",
-      "Multi-store inventory management (Main store, OPD, IPD satellite stores)",
+      "Efficient Purchase & Sales Management",
+      "Real-Time Inventory & Stock Tracking",
+      "Automated Medicine Expiry Alerts",
+      "GST Billing & Financial Reports",
     ],
     about: {
-      badge: "Dispensary & Retail POS",
-      title: "Eliminating Expiry Losses & Powering High-Speed Pharmacy Retail",
+      badge: "Pharmacy Operations",
+      title: "Manage Your Pharmacy with Greater Efficiency",
       description:
-        "Medsky PMS combines high-speed POS barcode billing with intelligent supply chain controls. Whether managing a busy hospital inpatient dispensary or standalone retail chemist shop, track 300,000+ medicine master records effortlessly.",
+        "Medsky Pharmacy Management Software simplifies daily pharmacy operations by bringing essential activities together in one centralized platform.",
       image: "/images/pharmacy.png",
       highlights: [
-        "Automated FEFO (First-Expiry-First-Out) batch selection during billing",
-        "Pre-loaded master catalog of 300,000+ formulations and generic substitutes",
-        "Full GST compliance with automated HSN mapping & GSTR-1 export",
-        "Schedule H and H1 restricted drug register with doctor tracking",
+        "Easy Purchase & Sales Management: Manage medicine purchases, suppliers, and sales billing efficiently.",
+        "Accurate Stock Management: Monitor medicine availability and maintain optimal inventory levels.",
+        "Expiry Management: Track medicine expiry dates and reduce stock wastage.",
+        "GST & Accounts Management: Manage GST reports, daily transactions, and financial records with ease.",
       ],
     },
     keyFeatures: [
       {
-        title: "Smart Prescription Dispensing",
-        description: "Incoming e-prescriptions appear immediately on dispensing queue; scan barcodes to ensure zero errors.",
-        icon: "ScanLine",
+        title: "Purchase & Supplier Management",
+        description:
+          "Manage medicine purchases, supplier details, purchase orders, and purchase entries efficiently.",
+        icon: "Package",
       },
       {
-        title: "Batch & Expiry Management",
-        description: "Automated FEFO picking with 30/60/90-day expiry notifications and vendor returns.",
+        title: "Fast Sales & Billing",
+        description:
+          "Process cash and credit sales with organized billing and accurate transaction records.",
+        icon: "CreditCard",
+      },
+      {
+        title: "Inventory Management",
+        description:
+          "Monitor medicine stock, batch details, quantities, and stock movements in real time.",
+        icon: "Layers",
+      },
+      {
+        title: "Expiry & Due Alerts",
+        description:
+          "Track medicine expiry dates and identify near-expiry products to minimize stock wastage.",
         icon: "Clock",
       },
       {
-        title: "POS & GST Invoicing",
-        description: "Fast retail billing with multiple tender modes (Cash, Card, UPI, Insurance credit).",
-        icon: "CreditCard",
+        title: "GST & Financial Management",
+        description:
+          "Maintain GST-related transactions, sales summaries, purchase reports, and accounts.",
+        icon: "Receipt",
+      },
+      {
+        title: "Business Reports & Insights",
+        description:
+          "Access essential reports to monitor pharmacy performance and support better business decisions.",
+        icon: "BarChart3",
       },
     ],
     benefits: [
       {
-        title: "Zero Expiry Losses via FEFO",
-        description: "Automated algorithms prioritize near-expiry batches and flag impending expirations 90 days ahead.",
+        title: "Save Time & Reduce Manual Work",
+        description:
+          "Simplify purchasing, billing, inventory updates, and daily pharmacy activities.",
         icon: "Clock",
       },
       {
-        title: "Sub-30-Second Counter Billing",
-        description: "Barcode scanning, instant generic substitution lookup, and one-tap UPI QR codes maximize checkout throughput.",
-        icon: "Zap",
+        title: "Reduce Medicine Wastage",
+        description:
+          "Monitor expiry dates and identify near-expiry medicines to minimize avoidable losses.",
+        icon: "ShieldAlert",
       },
       {
-        title: "Zero Medication Dispensing Errors",
-        description: "Sound-Alike/Look-Alike (LASA) safety warnings and allergy flags safeguard patient health during dispensing.",
-        icon: "ShieldCheck",
+        title: "Improve Stock Accuracy",
+        description:
+          "Maintain better visibility of medicine availability, batch details, and inventory movements.",
+        icon: "CheckCircle2",
       },
       {
-        title: "Automated GST & Statutory Audit Logs",
-        description: "Generate compliant GST invoices with automated HSN codes, input credit calculations, and tax summaries.",
-        icon: "Receipt",
+        title: "Gain Better Business Control",
+        description:
+          "Access organized sales, purchase, GST, and financial reports for informed decisions.",
+        icon: "TrendingUp",
       },
     ],
     whyMedsky: [
       {
-        title: "Integrated Hospital Inpatient Indents",
-        description: "Receive electronic medication orders from ICU and ward nurse stations directly into the dispensary queue.",
-        icon: "Bed",
+        title: "Healthcare Software Expertise",
+        description:
+          "Developed by a team with experience in healthcare software solutions.",
+        icon: "Award",
       },
       {
-        title: "Smart Reorder Thresholds",
-        description: "Auto-generate Purchase Orders based on dynamic consumption rates and supplier lead times.",
-        icon: "RefreshCw",
+        title: "Integrated Pharmacy Operations",
+        description:
+          "Manage purchasing, sales, inventory, expiry, billing, and accounts in one platform.",
+        icon: "Layers",
       },
       {
-        title: "Multi-Branch Central Warehouse Control",
-        description: "Manage inter-store transfers, centralized purchasing, and distributed stock audit reports across branches.",
-        icon: "Building2",
+        title: "User-Friendly Workflows",
+        description:
+          "Simple and organized screens help pharmacy staff handle daily operations efficiently.",
+        icon: "LayoutGrid",
       },
       {
-        title: "Mobile POS Billing Support",
-        description: "Conduct bedside drug dispensing or retail queue busting using mobile phones and handheld POS terminals.",
-        icon: "Smartphone",
+        title: "Reliable After-Sales Support",
+        description:
+          "Get assistance from our support team to keep your pharmacy operations running smoothly.",
+        icon: "Headphones",
       },
     ],
     workflowSteps: [
@@ -724,18 +1508,69 @@ export const MODULES_DATA: ModuleData[] = [
     faqs: [
       {
         id: "pms-f1",
-        question: "How does FEFO (First-Expiry-First-Out) batch management protect against expired drugs?",
-        answer: "Medsky PMS automatically suggests and prioritizes medicine batches that are closest to expiration date during dispensing, alerting staff 30, 60, and 90 days before expiry to initiate vendor credit returns.",
+        question: "What is Pharmacy Management Software?",
+        answer:
+          "Pharmacy Management System is software designed to manage the day-to-day operations of a pharmacy. Medsky helps pharmacies manage inventory, purchases, suppliers, sales, payments, stock levels, expiry dates, and business reports from a centralized system.",
       },
       {
         id: "pms-f2",
-        question: "Can the pharmacy dispense against OPD prescriptions and IPD ward indents?",
-        answer: "Yes, both retail walk-in OPD prescriptions and Inpatient ward doctor indents are handled seamlessly, with direct posting to the patient's active inpatient account.",
+        question: "Is Medsky suitable for retail pharmacies?",
+        answer:
+          "Yes. Medsky Pharmacy Software can support retail pharmacy operations including medicine sales, cash and credit transactions, inventory management, purchase management, supplier payments, stock monitoring, and reporting.",
       },
       {
         id: "pms-f3",
-        question: "Is GST and multi-tier tax invoicing built into the POS?",
-        answer: "Yes, complete HSN codes, multi-tax GST slabs (0%, 5%, 12%, 18%), and automated B2B/B2C GST return exports are built natively into the billing engine.",
+        question: "Is Medsky suitable for hospital pharmacies?",
+        answer:
+          "Yes. Medsky can help hospital pharmacies manage medicine inventory, purchases, sales, suppliers, stock levels, expiry monitoring, and related pharmacy operations.",
+      },
+      {
+        id: "pms-f4",
+        question: "Does Medsky Pharmacy Software manage medicine inventory?",
+        answer:
+          "Yes. Pharmacy Inventory Management is a core part of Medsky. It helps pharmacies manage medicine stock, purchases, sales, minimum stock levels, and expiry-related information.",
+      },
+      {
+        id: "pms-f5",
+        question: "Does Medsky provide minimum-stock alerts?",
+        answer:
+          "Yes. Medsky Pharmacy Management System provides minimum-stock alerts to help pharmacy users identify medicines that have reached defined stock thresholds and require replenishment.",
+      },
+      {
+        id: "pms-f6",
+        question: "Does Medsky provide short-expiry alerts?",
+        answer:
+          "Yes. Medsky provides short-expiry alerts to help pharmacy staff identify medicines approaching their expiry dates and manage inventory more effectively.",
+      },
+      {
+        id: "pms-f7",
+        question: "What makes Medsky one of the Best Pharmacy Software solutions?",
+        answer:
+          "Medsky combines pharmacy inventory, purchasing, supplier management, sales, payment tracking, expiry alerts, stock alerts, margin analysis, GST reports, and accounts in one Pharmacy Management Software platform.",
+      },
+      {
+        id: "pms-f8",
+        question: "What is the Best Pharmacy Information Management System?",
+        answer:
+          "The Best Pharmacy Information Management System should make pharmacy information easy to organize, monitor, and retrieve. Medsky PIMS provides centralized pharmacy information management with inventory, purchasing, sales, supplier, payment, and reporting capabilities.",
+      },
+      {
+        id: "pms-f9",
+        question: "Is Medsky Web Based Pharmacy Management System Software?",
+        answer:
+          "Yes. Medsky supports Cloud Based Pharmacy Management System Software capabilities for managing pharmacy inventory, purchasing, sales, suppliers, payments, alerts, and reports.",
+      },
+      {
+        id: "pms-f10",
+        question: "What are the benefits of Cloud Based Pharmacy Management System?",
+        answer:
+          "A Cloud Based Pharmacy Management System can provide centralized data access, scalable infrastructure, easier maintenance, and convenient access for authorized users.",
+      },
+      {
+        id: "pms-f11",
+        question: "Can I get a Free Pharmacy Management Software Demo?",
+        answer:
+          "Yes. You can request a Free Pharmacy Management System Software Demo to see how Medsky manages pharmacy inventory, purchases, sales, suppliers, payments, alerts, and reporting.",
       },
     ],
   },
@@ -868,18 +1703,63 @@ export const MODULES_DATA: ModuleData[] = [
     faqs: [
       {
         id: "app-f1",
-        question: "Can patients book appointments via WhatsApp?",
-        answer: "Yes, Medsky includes an AI-enabled WhatsApp booking bot where patients select doctor specialties, choose time slots, and receive instant confirmation tokens.",
+        question: "What is Medsky Patient Appointment Management Software?",
+        answer:
+          "Medsky Patient Appointment Management Software is a digital Doctor Appointment Software designed to help hospitals, clinics, and healthcare providers manage patient appointments efficiently. It supports doctor-specific calendars, online appointment booking, appointment slots, reminders, and centralized appointment management.",
       },
       {
         id: "app-f2",
-        question: "How does the waiting room Smart TV token display work?",
-        answer: "Connect any Smart TV or Android stick via HDMI to open the Medsky Queue display URL. It shows live token numbers called by consulting doctors with audible chime notifications.",
+        question: "Does Medsky support Online Doctor Appointment Booking?",
+        answer:
+          "Yes. Medsky supports Online Doctor Appointment Booking, allowing patients to request or book appointments based on the availability of the selected doctor. This helps healthcare organizations simplify appointment scheduling and provide patients with a convenient online booking experience.",
       },
       {
         id: "app-f3",
-        question: "Can doctors adjust slot durations or block leave dates?",
-        answer: "Yes, doctors have a dedicated schedule manager to customize consultation slots (e.g. 10m vs 30m), emergency buffers, and vacation blockouts.",
+        question: "What is Doctor Calendar Management in Medsky?",
+        answer:
+          "Doctor Calendar Management allows healthcare organizations to manage each doctor's working schedule, availability, appointment timings, and booked slots. Medsky provides a Doctor-Specific Calendar to help staff and doctors view and manage appointments efficiently.",
+      },
+      {
+        id: "app-f4",
+        question: "Does Medsky provide Doctor Slot Booking Software?",
+        answer:
+          "Yes. Medsky provides Doctor Slot Booking functionality that helps manage available appointment slots based on doctor schedules. Patients or authorized staff can select appropriate available slots, helping reduce scheduling conflicts and improve appointment management.",
+      },
+      {
+        id: "app-f5",
+        question: "Can patients book appointments online using Medsky?",
+        answer:
+          "Yes. Medsky provides an Online Appointment facility that enables patients to book or request appointments with doctors based on available schedules and appointment slots. This can help hospitals and clinics reduce manual appointment calls and improve the patient booking experience.",
+      },
+      {
+        id: "app-f6",
+        question: "Can Medsky manage appointments for multiple doctors?",
+        answer:
+          "Yes. Medsky Appointment Management Software supports doctor-specific appointment calendars, making it suitable for clinics, hospitals, and multi-specialty healthcare organizations. Each doctor's schedule and appointment availability can be managed according to their working hours and slot configuration.",
+      },
+      {
+        id: "app-f7",
+        question: "How does Medsky Doctor Appointment Software help hospitals and clinics?",
+        answer:
+          "Medsky Doctor Appointment Software helps healthcare organizations streamline appointment scheduling, doctor calendar management, patient booking, and slot management. It can reduce manual scheduling work, minimize appointment conflicts, and provide staff with a centralized view of upcoming appointments.",
+      },
+      {
+        id: "app-f8",
+        question: "Does Medsky support appointment reminders?",
+        answer:
+          "Yes. Medsky can support Appointment Reminders to help patients stay informed about scheduled appointments. Automated or configured reminders can help reduce missed appointments and improve communication between healthcare providers and patients.",
+      },
+      {
+        id: "app-f9",
+        question: "Is Medsky Online Appointment Software suitable for clinics and hospitals?",
+        answer:
+          "Yes. Medsky Online Appointment Software is suitable for clinics, hospitals, specialty centers, and individual doctors. It can help manage doctor calendars, patient appointments, online booking, available slots, and appointment schedules through an integrated healthcare software platform.",
+      },
+      {
+        id: "app-f10",
+        question: "Why choose Medsky for Doctor Appointment and Slot Booking?",
+        answer:
+          "Medsky combines Doctor Appointment Software, Online Appointment Booking, Doctor Calendar Management, and Slot Booking into an integrated solution. Its doctor-specific calendar and appointment management capabilities help healthcare organizations organize schedules efficiently while providing patients with a convenient way to book appointments.",
       },
     ],
   },
@@ -1012,18 +1892,63 @@ export const MODULES_DATA: ModuleData[] = [
     faqs: [
       {
         id: "emr-f1",
-        question: "Does the EMR support ICD-10 and SNOMED-CT clinical coding?",
-        answer: "Yes, Medsky Doctor EMR includes full ICD-10 diagnostic search and SNOMED-CT terminology for international compliance and insurance processing.",
+        question: "What is Medsky Electronic Medical Record (EMR) Software?",
+        answer:
+          "Medsky Electronic Medical Record (EMR) Software is a digital healthcare solution that helps doctors and healthcare organizations manage patient clinical information electronically. It enables healthcare professionals to maintain digital case sheets, patient history, clinical records, e-prescriptions, and medical information in a centralized system.",
       },
       {
         id: "emr-f2",
-        question: "Can doctors customize their own prescription favorites and templates?",
-        answer: "Yes, doctors can create specialty drug sets (e.g. Hypertension Starter Kit, Post-Op Antibiotics) to write complete prescriptions in a single click.",
+        question: "What is the difference between EMR and EHR?",
+        answer:
+          "EMR (Electronic Medical Record) primarily focuses on maintaining a patient's medical records within a healthcare facility, while EHR (Electronic Health Record) provides a broader view of a patient's health information across different healthcare workflows and providers. Medsky supports both EMR and EHR capabilities to help healthcare organizations manage comprehensive digital patient records.",
       },
       {
         id: "emr-f3",
-        question: "How does the clinical decision support system alert for drug allergies?",
-        answer: "When a doctor selects a medication, Medsky automatically checks the patient's recorded allergies, active prescriptions, and kidney/liver impairment warnings, flashing an immediate alert.",
+        question: "Does Medsky provide Electronic Health Record (EHR) Software?",
+        answer:
+          "Yes. Medsky Electronic Health Record Software helps healthcare organizations maintain comprehensive digital patient information, including medical history, clinical records, case sheets, prescriptions, and other patient-related information. It provides healthcare professionals with quick access to relevant patient information during clinical workflows.",
+      },
+      {
+        id: "emr-f4",
+        question: "Does Medsky offer E-Prescription Software?",
+        answer:
+          "Yes. Medsky provides E-Prescription Software that enables doctors to create and manage digital prescriptions. Doctors can record medicines and prescription instructions electronically, helping reduce handwritten prescriptions and making prescription information easier to access and manage.",
+      },
+      {
+        id: "emr-f5",
+        question: "What is Computerized Prescription Software?",
+        answer:
+          "Computerized Prescription Software allows doctors to create prescriptions digitally instead of writing them manually. Medsky's computerized prescription functionality helps doctors prepare digital prescriptions as part of the patient's clinical workflow while maintaining prescription information within the patient's medical record.",
+      },
+      {
+        id: "emr-f6",
+        question: "How does Medsky EMR Software help doctors?",
+        answer:
+          "Medsky EMR Software helps doctors access patient information quickly and manage clinical documentation digitally. Key capabilities include digital case sheets, patient history, e-prescriptions, patient dashboards, and clinical records, helping doctors streamline documentation and improve the efficiency of everyday consultations.",
+      },
+      {
+        id: "emr-f7",
+        question: "Is Medsky a complete EMR and EHR Software solution?",
+        answer:
+          "Medsky combines Electronic Medical Record (EMR) and Electronic Health Record (EHR) capabilities with other healthcare workflows. Doctors and healthcare organizations can manage digital patient records, case sheets, medical history, e-prescriptions, and related clinical information through an integrated healthcare software platform.",
+      },
+      {
+        id: "emr-f8",
+        question: "Can Medsky E-Prescription Software maintain patient prescription history?",
+        answer:
+          "Yes. Medsky can maintain digital prescription information as part of the patient's clinical record. This allows authorized healthcare professionals to review previous prescription and patient information during subsequent consultations, supporting better continuity of care.",
+      },
+      {
+        id: "emr-f9",
+        question: "Is Medsky EMR Software suitable for hospitals and clinics?",
+        answer:
+          "Yes. Medsky EMR and EHR Software is designed for use by hospitals, clinics, doctors, and healthcare organizations. It can support digital patient documentation, electronic medical records, computerized prescriptions, case sheets, patient history, and other clinical workflows.",
+      },
+      {
+        id: "emr-f10",
+        question: "Why choose Medsky for Electronic Medical Record and E-Prescription Software?",
+        answer:
+          "Medsky provides an integrated Electronic Medical Record, Electronic Health Record, and E-Prescription Software solution designed to simplify clinical documentation. With features such as digital case sheets, patient history, patient dashboard, E-Prescription, and computerized prescription management, Medsky helps healthcare organizations move toward efficient and paperless clinical workflows.",
       },
     ],
   },
@@ -1783,6 +2708,346 @@ export const MODULES_DATA: ModuleData[] = [
         id: "rep-f1",
         question: "Can hospital management receive automated daily MIS reports via email?",
         answer: "Yes, automated scheduled digests can be configured to email morning revenue summaries, bed occupancy, and critical clinical indicators directly to executives.",
+      },
+    ],
+  },
+
+  // INSURANCE MANAGEMENT SOFTWARE
+  {
+    slug: "insurance",
+    name: "Insurance Management Software",
+    shortName: "IMS",
+    tagline: "Simplify hospital insurance operations with organized billing and claim management.",
+    description:
+      "Simplify hospital insurance operations by organizing patient insurance records, billing, claim processing, tracking, and payment settlements.",
+    iconName: "ShieldCheck",
+    image: "/images/hms-reseption.png",
+    category: "Financial",
+    badge: "Insurance",
+    heroHighlights: [
+      "Insurance Patient Registration & Billing",
+      "Claim Preparation, Submission & Tracking",
+      "Pending Claims, Payment Tracking & Reports",
+      "Cashless & reimbursement claim management",
+    ],
+    about: {
+      badge: "Insurance Operations",
+      title: "Streamlined Hospital Insurance & Claim Management",
+      description:
+        "Medsky Insurance Management Software helps hospitals organize patient insurance records, process claims efficiently, and track payment settlements to reduce delays and revenue leakage.",
+      highlights: [
+        "Insurance Patient Registration & Billing",
+        "Claim Preparation, Submission & Tracking",
+        "Pending Claims & Payment Tracking",
+        "Comprehensive Insurance Reports",
+      ],
+    },
+    keyFeatures: [
+      {
+        title: "Insurance Patient Registration & Billing",
+        description: "Register insurance patients, capture policy details, and generate accurate insurance bills.",
+        icon: "FileText",
+      },
+      {
+        title: "Claim Preparation, Submission & Tracking",
+        description: "Prepare, submit, and track insurance claims through an organized workflow.",
+        icon: "ShieldCheck",
+      },
+      {
+        title: "Pending Claims & Payment Tracking",
+        description: "Monitor pending claims, track payment settlements, and generate detailed insurance reports.",
+        icon: "Receipt",
+      },
+    ],
+    workflowSteps: [
+      { stepNumber: "01", title: "Patient Registration", detail: "Register insurance patient and capture policy and coverage details." },
+      { stepNumber: "02", title: "Claim Submission", detail: "Prepare and submit claims to insurance providers with supporting documents." },
+      { stepNumber: "03", title: "Payment Settlement", detail: "Track pending claims and record payment settlements accurately." },
+    ],
+    metrics: [
+      { value: "Fast", label: "Claim Processing" },
+      { value: "100%", label: "Claim Accuracy" },
+      { value: "Zero", label: "Revenue Leakage" },
+    ],
+    relatedModules: ["ipd", "billing", "opd"],
+    faqs: [
+      {
+        id: "ims-f1",
+        question: "What is Medsky Insurance Management Software?",
+        answer:
+          "Medsky Insurance Management Software helps hospitals manage patient insurance records, billing, claim preparation, submission, tracking, and payment settlement in an organized digital workflow.",
+      },
+    ],
+  },
+
+  // SURGERY / OT MANAGEMENT SOFTWARE
+  {
+    slug: "surgery",
+    name: "Surgery / OT Management Software",
+    shortName: "OTM",
+    tagline: "Coordinate surgical operations and OT scheduling with organized pre and post-operative workflows.",
+    description:
+      "Coordinate surgical operations by managing OT schedules, procedure bookings, pre-operative assessments, and post-operative documentation.",
+    iconName: "Activity",
+    image: "/images/hms-reseption.png",
+    category: "Clinical",
+    badge: "Surgery & OT",
+    heroHighlights: [
+      "OT Scheduling, Calendar & Surgery Booking",
+      "Pre-operative Assessment, Anesthesia & Surgical Records",
+      "OT Consumables, Surgery Billing & Reports",
+      "Post-operative documentation and discharge coordination",
+    ],
+    about: {
+      badge: "Surgical Operations",
+      title: "Organized Surgical & OT Management for Modern Hospitals",
+      description:
+        "Medsky Surgery / OT Management Software helps hospitals coordinate operation theatres, manage surgery scheduling, record pre and post-operative assessments, and track OT consumables and billing.",
+      highlights: [
+        "OT Scheduling, Calendar & Surgery Booking",
+        "Pre-operative Assessment & Anesthesia Records",
+        "OT Consumables Management",
+        "Surgery Billing & Comprehensive Reports",
+      ],
+    },
+    keyFeatures: [
+      {
+        title: "OT Scheduling, Calendar & Surgery Booking",
+        description: "Manage operation theatre schedules, surgery bookings, and OT calendar with real-time availability.",
+        icon: "Calendar",
+      },
+      {
+        title: "Pre-operative Assessment & Surgical Records",
+        description: "Document pre-operative assessments, anesthesia details, and complete surgical records.",
+        icon: "FileText",
+      },
+      {
+        title: "OT Consumables, Surgery Billing & Reports",
+        description: "Track OT consumables, generate surgery billing, and access detailed surgical reports.",
+        icon: "Receipt",
+      },
+    ],
+    workflowSteps: [
+      { stepNumber: "01", title: "Surgery Booking", detail: "Book OT slot, assign surgeon, and schedule pre-operative assessment." },
+      { stepNumber: "02", title: "Surgical Procedure", detail: "Record anesthesia, intraoperative notes, and consumables used." },
+      { stepNumber: "03", title: "Post-Operative Care", detail: "Document post-op care, generate surgery bill, and discharge coordination." },
+    ],
+    metrics: [
+      { value: "Efficient", label: "OT Utilization" },
+      { value: "Zero", label: "Scheduling Conflicts" },
+      { value: "100%", label: "Record Accuracy" },
+    ],
+    relatedModules: ["ipd", "billing", "nursing"],
+    faqs: [
+      {
+        id: "otm-f1",
+        question: "What is Medsky Surgery / OT Management Software?",
+        answer:
+          "Medsky Surgery / OT Management Software helps hospitals coordinate operation theatres, manage surgery scheduling, record pre and post-operative assessments, and handle OT consumables and billing in an organized workflow.",
+      },
+    ],
+  },
+
+  // MRD MANAGEMENT SOFTWARE
+  {
+    slug: "mrd",
+    name: "MRD Management Software",
+    shortName: "MRD",
+    tagline: "Organize hospital medical records through efficient document management and quick retrieval.",
+    description:
+      "Organize hospital medical records through efficient document management, indexing, tracking, and quick retrieval of patient information.",
+    iconName: "Database",
+    image: "/images/hms-reseption.png",
+    category: "Administrative",
+    badge: "Medical Records",
+    heroHighlights: [
+      "Patient Medical Records & Document Management",
+      "Medical Record Indexing, Tracking & Retrieval",
+      "Discharge Records, Patient History & MRD Reports",
+      "Secure digital storage with quick access to patient records",
+    ],
+    about: {
+      badge: "Medical Records Department",
+      title: "Efficient Medical Record Management for Hospitals",
+      description:
+        "Medsky MRD Management Software helps hospitals organize patient medical records, manage document indexing, enable quick retrieval, and maintain discharge records and patient history in a structured digital system.",
+      highlights: [
+        "Patient Medical Records & Document Management",
+        "Medical Record Indexing & Tracking",
+        "Quick Record Retrieval",
+        "Discharge Records & MRD Reports",
+      ],
+    },
+    keyFeatures: [
+      {
+        title: "Patient Medical Records & Document Management",
+        description: "Digitally manage patient medical records and clinical documents in an organized repository.",
+        icon: "FileText",
+      },
+      {
+        title: "Medical Record Indexing, Tracking & Retrieval",
+        description: "Index, track, and quickly retrieve patient medical records when needed.",
+        icon: "Database",
+      },
+      {
+        title: "Discharge Records, Patient History & MRD Reports",
+        description: "Maintain discharge records, patient history, and generate comprehensive MRD reports.",
+        icon: "BarChart3",
+      },
+    ],
+    workflowSteps: [
+      { stepNumber: "01", title: "Record Creation", detail: "Capture and index patient medical records and documents digitally." },
+      { stepNumber: "02", title: "Record Management", detail: "Organize, track, and update medical records throughout the patient journey." },
+      { stepNumber: "03", title: "Record Retrieval", detail: "Retrieve patient records quickly using indexed search and patient history." },
+    ],
+    metrics: [
+      { value: "Fast", label: "Record Retrieval" },
+      { value: "100%", label: "Digital Records" },
+      { value: "Secure", label: "Document Storage" },
+    ],
+    relatedModules: ["ipd", "opd", "doctor"],
+    faqs: [
+      {
+        id: "mrd-f1",
+        question: "What is Medsky MRD Management Software?",
+        answer:
+          "Medsky MRD Management Software helps hospitals organize patient medical records, manage document indexing, enable quick retrieval of records, and maintain discharge summaries and patient history in a structured digital workflow.",
+      },
+    ],
+  },
+
+  // DAY CARE MANAGEMENT SOFTWARE
+  {
+    slug: "daycare",
+    name: "Day Care Management Software",
+    shortName: "DCM",
+    tagline: "Manage short-stay treatments and procedures with streamlined patient registration and billing.",
+    description:
+      "Manage short-stay treatments and procedures with streamlined patient registration, scheduling, clinical workflows, billing, and discharge.",
+    iconName: "Calendar",
+    image: "/images/hms-reseption.png",
+    category: "Clinical",
+    badge: "Day Care",
+    heroHighlights: [
+      "Day Care Registration, Appointment & Scheduling",
+      "Procedure, Doctor Consultation & Nursing Management",
+      "Medication, Billing & Discharge Management",
+      "Short-stay clinical workflow management",
+    ],
+    about: {
+      badge: "Day Care Operations",
+      title: "Streamlined Day Care Management for Short-Stay Procedures",
+      description:
+        "Medsky Day Care Management Software helps hospitals manage short-stay treatments and procedures efficiently, from patient registration and scheduling to clinical workflows, billing, and discharge.",
+      highlights: [
+        "Day Care Registration, Appointment & Scheduling",
+        "Procedure & Doctor Consultation Management",
+        "Nursing & Medication Management",
+        "Billing & Discharge Management",
+      ],
+    },
+    keyFeatures: [
+      {
+        title: "Day Care Registration, Appointment & Scheduling",
+        description: "Register day care patients, manage appointments, and schedule procedures with ease.",
+        icon: "Calendar",
+      },
+      {
+        title: "Procedure, Doctor Consultation & Nursing Management",
+        description: "Document procedures, doctor consultations, and nursing activities for day care patients.",
+        icon: "Stethoscope",
+      },
+      {
+        title: "Medication, Billing & Discharge Management",
+        description: "Manage medications, generate day care billing, and coordinate patient discharge.",
+        icon: "Receipt",
+      },
+    ],
+    workflowSteps: [
+      { stepNumber: "01", title: "Day Care Registration", detail: "Register patient, book appointment, and schedule procedure." },
+      { stepNumber: "02", title: "Clinical Care", detail: "Manage procedure, doctor consultation, nursing, and medication." },
+      { stepNumber: "03", title: "Billing & Discharge", detail: "Generate bill and complete discharge documentation." },
+    ],
+    metrics: [
+      { value: "Efficient", label: "Patient Throughput" },
+      { value: "Fast", label: "Discharge Process" },
+      { value: "100%", label: "Billing Accuracy" },
+    ],
+    relatedModules: ["ipd", "opd", "billing"],
+    faqs: [
+      {
+        id: "dcm-f1",
+        question: "What is Medsky Day Care Management Software?",
+        answer:
+          "Medsky Day Care Management Software helps hospitals manage short-stay treatments and procedures with organized patient registration, scheduling, clinical workflows, billing, and discharge management.",
+      },
+    ],
+  },
+
+  // DIALYSIS MANAGEMENT SOFTWARE
+  {
+    slug: "dialysis",
+    name: "Dialysis Management Software",
+    shortName: "DLM",
+    tagline: "Manage dialysis services through organized patient records and treatment scheduling.",
+    description:
+      "Manage dialysis services through organized patient records, treatment scheduling, session documentation, and billing workflows.",
+    iconName: "HeartPulse",
+    image: "/images/hms-reseption.png",
+    category: "Clinical",
+    badge: "Dialysis",
+    heroHighlights: [
+      "Dialysis Patient Registration & Session Scheduling",
+      "Pre/Post-Dialysis Records, Vital Signs & Treatment Documentation",
+      "Dialysis Billing, Patient History & Reports",
+      "Complete dialysis session monitoring and documentation",
+    ],
+    about: {
+      badge: "Dialysis Operations",
+      title: "Organized Dialysis Management for Healthcare Facilities",
+      description:
+        "Medsky Dialysis Management Software helps healthcare facilities manage dialysis patient records, schedule treatment sessions, document pre and post-dialysis vitals, and handle billing in an organized workflow.",
+      highlights: [
+        "Dialysis Patient Registration & Session Scheduling",
+        "Pre/Post-Dialysis Vital Signs & Treatment Documentation",
+        "Dialysis Billing & Patient History",
+        "Comprehensive Dialysis Reports",
+      ],
+    },
+    keyFeatures: [
+      {
+        title: "Dialysis Patient Registration & Session Scheduling",
+        description: "Register dialysis patients, schedule treatment sessions, and manage dialysis calendars.",
+        icon: "Calendar",
+      },
+      {
+        title: "Pre/Post-Dialysis Records & Treatment Documentation",
+        description: "Document pre and post-dialysis vital signs, treatment parameters, and session notes.",
+        icon: "FileText",
+      },
+      {
+        title: "Dialysis Billing, Patient History & Reports",
+        description: "Generate dialysis billing, maintain patient treatment history, and access comprehensive reports.",
+        icon: "BarChart3",
+      },
+    ],
+    workflowSteps: [
+      { stepNumber: "01", title: "Patient Registration", detail: "Register dialysis patient and schedule treatment sessions." },
+      { stepNumber: "02", title: "Session Documentation", detail: "Record pre-dialysis vitals, treatment parameters, and post-dialysis observations." },
+      { stepNumber: "03", title: "Billing & Reports", detail: "Generate session billing and maintain comprehensive patient treatment history." },
+    ],
+    metrics: [
+      { value: "Organized", label: "Session Management" },
+      { value: "Complete", label: "Treatment Records" },
+      { value: "Accurate", label: "Dialysis Billing" },
+    ],
+    relatedModules: ["ipd", "billing", "nursing"],
+    faqs: [
+      {
+        id: "dlm-f1",
+        question: "What is Medsky Dialysis Management Software?",
+        answer:
+          "Medsky Dialysis Management Software helps healthcare facilities manage dialysis patient records, schedule treatment sessions, document pre and post-dialysis vitals and treatment details, and handle billing and reports in an organized workflow.",
       },
     ],
   },

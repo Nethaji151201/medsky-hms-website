@@ -13,7 +13,7 @@ import { LocationAppointmentWidget } from "@/components/locations/LocationAppoin
 import { PricingSection } from "@/components/home/PricingSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 
-export const dynamicParams = true;
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return LOCATIONS_DATA.map((state) => ({

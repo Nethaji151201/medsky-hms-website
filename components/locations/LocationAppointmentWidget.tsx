@@ -5,6 +5,7 @@ import { Phone, CheckCircle2, Send, MapPin } from "lucide-react";
 import { submitAppointmentBooking, AppointmentBookingData } from "@/lib/api";
 import { Button } from "@/ui/Button";
 import { ScrollReveal } from "@/ui/ScrollReveal";
+import { isValidEmail, isValidPhone, sanitizePhoneNumber } from "@/lib/validation";
 
 const PRODUCT_OPTIONS = [
   "HMS - Hospital Management Software",
@@ -46,6 +47,17 @@ export function LocationAppointmentWidget({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+
+    if (formData.email && !isValidEmail(formData.email)) {
+      setErrorMessage("Please enter a valid work email address (e.g. name@clinic.com).");
+      return;
+    }
+
+    if (!isValidPhone(formData.phone)) {
+      setErrorMessage("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
     setLoading(true);
 
     const res = await submitAppointmentBooking(formData);
@@ -88,7 +100,7 @@ export function LocationAppointmentWidget({
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight mt-2">
-                  Request a Demo in{" "}
+                  Request a Free Demo in{" "}
                   <span className="text-primary dark:text-cyan-400">{locationName}</span>
                 </h2>
 
@@ -177,11 +189,20 @@ export function LocationAppointmentWidget({
                           <input
                             type="tel"
                             required
+                            maxLength={10}
+                            minLength={10}
+                            inputMode="numeric"
+                            pattern="[0-9]{10}"
                             value={formData.phone}
-                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            placeholder="+91-91 59 59 53 53"
+                            onChange={(e) => setFormData({ ...formData, phone: sanitizePhoneNumber(e.target.value) })}
+                            placeholder="9159595353 (10 digits)"
                             className="w-full bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-all"
                           />
+                          {formData.phone && formData.phone.length > 0 && formData.phone.length < 10 && (
+                            <p className="text-[10px] text-amber-600 dark:text-amber-400 mt-1">
+                              Please enter 10 digits ({formData.phone.length}/10 entered)
+                            </p>
+                          )}
                         </div>
 
                         <div>

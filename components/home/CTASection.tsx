@@ -4,7 +4,68 @@ import { ArrowRight, Phone, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/ui/Button";
 import { ScrollReveal } from "@/ui/ScrollReveal";
 
-export function CTASection() {
+export type FacilityType = "hospital" | "clinic" | "laboratory" | "lab" | "pharmacy" | "all";
+
+export interface CTASectionProps {
+  facilityType?: FacilityType;
+  badge?: string;
+  title?: string;
+  description?: string;
+}
+
+const FACILITY_CONTENT: Record<
+  FacilityType,
+  { badge: string; title: string; description: string }
+> = {
+  hospital: {
+    badge: "Ready to Modernize Your Hospital?",
+    title: "Experience the Future of Hospital Management with Medsky HMS.",
+    description:
+      "Schedule a personalized demonstration tailored specifically to your clinical specialties, ward capacity, and operational workflows.",
+  },
+  clinic: {
+    badge: "Ready to Modernize Your Clinic?",
+    title: "Experience the Future of Clinic Management with Medsky CMS.",
+    description:
+      "Schedule a personalized demonstration tailored specifically to your clinical practice, appointment volume, and outpatient workflows.",
+  },
+  laboratory: {
+    badge: "Ready to Modernize Your Laboratory?",
+    title: "Experience the Future of Laboratory Management with Medsky LIMS.",
+    description:
+      "Schedule a personalized demonstration tailored specifically to your diagnostic analyzers, test processing, and lab workflows.",
+  },
+  lab: {
+    badge: "Ready to Modernize Your Laboratory?",
+    title: "Experience the Future of Laboratory Management with Medsky LIMS.",
+    description:
+      "Schedule a personalized demonstration tailored specifically to your diagnostic analyzers, test processing, and lab workflows.",
+  },
+  pharmacy: {
+    badge: "Ready to Modernize Your Pharmacy?",
+    title: "Experience the Future of Pharmacy Management with Medsky PMS.",
+    description:
+      "Schedule a personalized demonstration tailored specifically to your medicine retail inventory, batch tracking, and pharmacy workflows.",
+  },
+  all: {
+    badge: "Ready to Modernize Your Hospital, Clinic, Lab, or Pharmacy?",
+    title: "Experience the Future of Hospital, Clinic, Lab, or Pharmacy Management with Medsky.",
+    description:
+      "Schedule a personalized demonstration tailored specifically to your clinical specialties, facility capacity, and operational workflows.",
+  },
+};
+
+export function CTASection({
+  facilityType = "all",
+  badge,
+  title,
+  description,
+}: CTASectionProps = {}) {
+  const content = FACILITY_CONTENT[facilityType] || FACILITY_CONTENT.all;
+  const resolvedBadge = badge || content.badge;
+  const resolvedTitle = title || content.title;
+  const resolvedDescription = description || content.description;
+
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden bg-[#040c18] text-white">
       {/* Rich Glowing Atmospheric Gradient Flares matching attached image */}
@@ -24,19 +85,19 @@ export function CTASection() {
         <ScrollReveal direction="top">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
-            Ready to Modernize Your Hospital?
+            {resolvedBadge}
           </div>
         </ScrollReveal>
 
         <ScrollReveal direction="top" delay={100}>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight">
-            Experience the Future of Hospital Management with Medsky HMS.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
+            {resolvedTitle}
           </h2>
         </ScrollReveal>
 
         <ScrollReveal direction="top" delay={200}>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Schedule a personalized demonstration tailored specifically to your clinical specialties, ward capacity, and operational workflows.
+            {resolvedDescription}
           </p>
         </ScrollReveal>
 
@@ -49,7 +110,7 @@ export function CTASection() {
               rightIcon={<ArrowRight className="w-5 h-5" />}
               className="w-full sm:w-auto shadow-xl shadow-primary/30 text-base"
             >
-              Request a Live Demo
+              Request a Free Demo
             </Button>
 
             <Button
@@ -72,7 +133,7 @@ export function CTASection() {
             </span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-teal-400" />
-              Live data walkthrough with clinical expert
+              Technical Expert
             </span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-teal-400" />

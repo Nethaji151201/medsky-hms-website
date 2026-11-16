@@ -264,6 +264,35 @@ export function Footer() {
         </div>
 
         {/* ========================================================================= */}
+        {/* Locations Single Line Section (Above Copyright)                           */}
+        {/* ========================================================================= */}
+        <div className="py-4 sm:py-5 border-b border-slate-800/80 flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-2.5 gap-y-1.5 text-xs sm:text-[13px]">
+          {/* <span className="text-white font-bold flex items-center gap-1.5 mr-1">
+            <MapPin className="w-3.5 h-3.5 text-primary flex-shrink-0" />
+            <span>Location :</span>
+          </span> */}
+          {[
+            { name: "Tamil Nadu", href: "" },
+            { name: "Andhra Pradesh", href: "" },
+            { name: "Telangana", href: "" },
+            { name: "Kerala", href: "" },
+            { name: "Karnataka", href: "" },
+          ].map((loc, idx, arr) => (
+            <React.Fragment key={loc.name}>
+              <Link
+                href={loc.href}
+                className="text-slate-300 hover:text-primary transition-colors font-medium"
+              >
+                {loc.name}
+              </Link>
+              {idx < arr.length - 1 && (
+                <span className="text-slate-600 select-none font-light">|</span>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* ========================================================================= */}
         {/* Bottom Row: Copyright & Design and Development Credit                     */}
         {/* ========================================================================= */}
         <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">

@@ -46,7 +46,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose HMS Essential →",
+        ctaLabel: "Choose HMS Essential  ",
         ctaHref: "/demo?product=hms&plan=essential",
         features: [
           { text: "Up to 15 IPD Bed Management", included: true },
@@ -71,7 +71,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: true,
         ctaButtonType: "teal",
-        ctaLabel: "Choose HMS Standard →",
+        ctaLabel: "Choose HMS Standard  ",
         ctaHref: "/demo?product=hms&plan=standard",
         features: [
           { text: "Up to 50 IPD Bed Management", included: true },
@@ -98,7 +98,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose HMS Enterprise →",
+        ctaLabel: "Choose HMS Enterprise  ",
         ctaHref: "/demo?product=hms&plan=gold",
         features: [
           { text: "Above 50 IPD Bed Management", included: true },
@@ -133,7 +133,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Get CMS Essential →",
+        ctaLabel: "Get CMS Essential  ",
         ctaHref: "/demo?product=cms&plan=solo",
         features: [
           { text: "Patient Registration", included: true },
@@ -155,7 +155,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: true,
         ctaButtonType: "teal",
-        ctaLabel: "Get CMS Standard →",
+        ctaLabel: "Get CMS Standard  ",
         ctaHref: "/demo?product=cms&plan=polyclinic",
         features: [
           { text: "Everything in Essential", included: true },
@@ -178,7 +178,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Get CMS Enterprise →",
+        ctaLabel: "Get CMS Enterprise  ",
         ctaHref: "/demo?product=cms&plan=network",
         features: [
           { text: "Everything in Standard", included: true },
@@ -206,7 +206,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose LMS Essential →",
+        ctaLabel: "Choose LMS Essential  ",
         ctaHref: "/demo?product=lms&plan=basic",
         features: [
           { text: "Patient Registration", included: true },
@@ -228,7 +228,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: true,
         ctaButtonType: "teal",
-        ctaLabel: "Choose LMS Standard →",
+        ctaLabel: "Choose LMS Standard  ",
         ctaHref: "/demo?product=lms&plan=smart",
         features: [
           { text: "Everything in Essential", included: true },
@@ -250,7 +250,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose LMS Enterprise →",
+        ctaLabel: "Choose LMS Enterprise  ",
         ctaHref: "/demo?product=lms&plan=chain",
         features: [
           { text: "Everything in Standard", included: true },
@@ -278,7 +278,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose PMS Essential →",
+        ctaLabel: "Choose PMS Essential",
         ctaHref: "/demo?product=pms&plan=retail",
         features: [
           { text: "Single User Login", included: true },
@@ -301,7 +301,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: true,
         ctaButtonType: "teal",
-        ctaLabel: "Choose PMS Standard →",
+        ctaLabel: "Choose PMS Standard",
         ctaHref: "/demo?product=pms&plan=hospital",
         features: [
           { text: "Everything in PMS Essential", included: true },
@@ -323,7 +323,7 @@ export const PRICING_CATEGORIES: PricingCategory[] = [
         billingPeriodNote: "Yearly Package (Billed Annually)",
         isPopular: false,
         ctaButtonType: "navy",
-        ctaLabel: "Choose PMS Enterprise →",
+        ctaLabel: "Choose PMS Enterprise  ",
         ctaHref: "/demo?product=pms&plan=chain",
         features: [
           { text: "Everything in PMS Standard", included: true },

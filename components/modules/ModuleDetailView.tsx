@@ -63,14 +63,21 @@ import {
   LayoutDashboard,
   DollarSign,
 } from "lucide-react";
-import { MODULES_DATA, ModuleData } from "@/data/modules";
+import {
+  MODULES_DATA,
+  ModuleData,
+  HMS_MODULES_DIRECTORY,
+  CMS_MODULES_DIRECTORY,
+  LMS_MODULES_DIRECTORY,
+  PMS_MODULES_DIRECTORY,
+} from "@/data/modules";
 import { PricingCategoryKey } from "@/data/pricing";
 import { Card } from "@/ui/Card";
 import { Badge } from "@/ui/Badge";
 import { SectionHeader } from "@/ui/SectionHeader";
 import { ScrollReveal } from "@/ui/ScrollReveal";
 import { PricingSection } from "@/components/home/PricingSection";
-import { CTASection } from "@/components/home/CTASection";
+import { CTASection, FacilityType } from "@/components/home/CTASection";
 
 interface ModuleDetailViewProps {
   slug: string;
@@ -142,6 +149,31 @@ const PRICING_SLUG_MAP: Record<string, PricingCategoryKey> = {
   nursing: "hms",
   inventory: "pms",
   reports: "hms",
+  insurance: "hms",
+  surgery: "hms",
+  mrd: "hms",
+  daycare: "hms",
+  dialysis: "hms",
+};
+
+const MODULE_FACILITY_MAP: Record<string, FacilityType> = {
+  ipd: "hospital",
+  opd: "clinic",
+  laboratory: "laboratory",
+  pharmacy: "pharmacy",
+  doctor: "clinic",
+  appointments: "clinic",
+  emergency: "hospital",
+  radiology: "laboratory",
+  billing: "hospital",
+  nursing: "hospital",
+  inventory: "pharmacy",
+  reports: "hospital",
+  insurance: "hospital",
+  surgery: "hospital",
+  mrd: "hospital",
+  daycare: "hospital",
+  dialysis: "hospital",
 };
 
 export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
@@ -191,22 +223,8 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
                 Home
               </Link>
               <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-              <Link href="/modules" className="hover:text-teal-400 transition-colors">
-                Modules
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
               <span className="text-teal-300 font-semibold">{module.shortName}</span>
             </nav>
-
-            {/* Category & Badge - Smooth Top Slide */}
-            <div className="flex flex-wrap items-center gap-2.5 animate-slide-top" style={{ animationDelay: "100ms" }}>
-              <span className="px-3.5 py-1 rounded-full bg-primary/20 border border-primary/40 text-primary-light text-xs font-bold uppercase tracking-wider">
-                {module.badge}
-              </span>
-              <span className="text-xs font-medium text-slate-300">
-                {module.category} Module
-              </span>
-            </div>
 
             {/* Huge Headline - Smooth Left Slide */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] transition-all duration-300">
@@ -245,12 +263,12 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
                 </div>
               </Link>
 
-              <Link
+              {/* <Link
                 href="/contact"
                 className="inline-flex items-center px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border border-white/15 transition-all"
               >
                 Speak with Specialist
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
@@ -324,10 +342,10 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
                 <div className="pt-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold text-xs uppercase tracking-wider hover:border-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-all shadow-sm group"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary hover:bg-primary-hover text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-primary/30 active:scale-[0.98] transition-all group"
                   >
-                    <span>Request Live Demo</span>
-                    <ArrowRight className="w-4 h-4 text-slate-600 dark:text-slate-400 group-hover:translate-x-1 group-hover:text-primary transition-all" />
+                    <span>Request a Free Demo</span>
+                    <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </ScrollReveal>
@@ -343,10 +361,28 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
         <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <ScrollReveal direction="top">
             <SectionHeader
-              badge="Features Matrix"
+              // badge="Features Matrix"
               title="Core Capabilities of"
-              titleHighlight={module.shortName}
-              description="Engineered to meet real clinical realities, regulatory compliances, and departmental speed."
+              titleHighlight={
+                slug === "laboratory"
+                  ? "Laboratory Management Software"
+                  : slug === "ipd"
+                    ? "Hospital Management Software"
+                    : slug === "pharmacy"
+                      ? "Pharmacy Management Software"
+                      : module.shortName
+              }
+              description={
+                slug === "opd"
+                  ? "Medsky Clinic Management System provides essential tools for managing patient, clinical, administrative, and reporting workflows."
+                  : slug === "laboratory"
+                    ? "Everything Your Laboratory Needs in One Integrated Platform — Medsky LIMS offers essential capabilities to manage laboratory workflows, improve productivity, and maintain organized diagnostic records."
+                    : slug === "pharmacy"
+                      ? "Everything You Need to Manage Your Pharmacy — Medsky PIMS offers essential capabilities to simplify pharmacy management and improve operational efficiency."
+                      : slug === "ipd"
+                        ? "Medsky Hospital Management Software offers a comprehensive suite of solutions to streamline clinical, administrative, financial, and operational workflows across your hospital."
+                        : `Medsky ${module.name} offers a comprehensive suite of solutions to streamline clinical, administrative, financial, and operational workflows across your hospital.`
+              }
             />
           </ScrollReveal>
 
@@ -392,32 +428,66 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
         <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
           <ScrollReveal direction="top">
             <SectionHeader
-              badge="Integrated Healthcare Suite"
-              title="Medsky HMS"
-              titleHighlight="Modules Directory."
-              description="Every clinical, diagnostic, operational, and financial department connected seamlessly in a single cloud system."
+              badge={
+                slug === "laboratory"
+                  ? "Diagnostics Software Suite"
+                  : slug === "opd"
+                    ? "Clinic Software Suite"
+                    : slug === "pharmacy"
+                      ? "Pharmacy Software Suite"
+                      : "Integrated Healthcare Suite"
+              }
+              title={
+                slug === "laboratory"
+                  ? "Medsky Laboratory Management Software"
+                  : slug === "opd"
+                    ? "Clinic Management Software"
+                    : slug === "pharmacy"
+                      ? "Medsky Pharmacy Management Software"
+                      : "Medsky HMS"
+              }
+              titleHighlight={
+                slug === "laboratory" || slug === "opd" || slug === "pharmacy"
+                  ? "Modules"
+                  : "Modules Directory."
+              }
+              description={
+                slug === "laboratory"
+                  ? "Simplify Every Stage of Your Laboratory Workflow — Medsky LIMS provides integrated modules to manage laboratory operations, from patient registration and sample processing to machine interfacing, outsourced investigations, and financial management."
+                  : slug === "opd"
+                    ? "Powerful Modules to Manage Every Aspect of Your Clinic. Medsky offers a comprehensive set of clinic management modules designed to simplify clinical, administrative and financial operations. Each module can work independently or together as an integrated clinic management solution."
+                    : slug === "pharmacy"
+                      ? "Simplify Every Step of Pharmacy Management — Medsky Pharmacy Management Software provides integrated modules to manage medicine procurement, sales, inventory, expiry monitoring, GST, and financial operations. Each module works together to help pharmacies maintain organized workflows and improve business efficiency."
+                      : "One Integrated Platform. Complete Hospital Management. Medsky offers a comprehensive suite of Hospital Management Software modules designed to simplify clinical, administrative, financial, and operational workflows. From outpatient and inpatient management to laboratory, pharmacy, surgery, and insurance, every module helps healthcare facilities manage their daily operations efficiently."
+              }
             />
           </ScrollReveal>
 
-          {/* Complete 3-Column Grid Showing All 12 Modules at the same time */}
+          {/* Complete 3-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-6">
-            {MODULES_DATA.map((mod, idx) => {
+            {(slug === "laboratory"
+              ? LMS_MODULES_DIRECTORY
+              : slug === "opd"
+                ? CMS_MODULES_DIRECTORY
+                : slug === "pharmacy"
+                  ? PMS_MODULES_DIRECTORY
+                  : HMS_MODULES_DIRECTORY
+            ).map((mod, idx) => {
               const ModIcon = ICON_MAP[mod.iconName] || Activity;
               const isCurrent = mod.slug === module.slug;
 
               return (
                 <ScrollReveal
-                  key={mod.slug}
+                  key={mod.id || mod.slug}
                   direction="bottom"
                   delay={idx * 50}
                   className="h-full"
                 >
                   <div
-                    className={`p-6 sm:p-8 rounded-[24px] border flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-2 h-full bg-white dark:bg-slate-900 ${
-                      isCurrent
-                        ? "border-teal-500 ring-2 ring-teal-500/20 shadow-lg"
-                        : "border-slate-200/80 dark:border-slate-800 hover:border-teal-500/50 shadow-sm hover:shadow-xl"
-                    }`}
+                    className={`p-6 sm:p-8 rounded-[24px] border flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-2 h-full bg-white dark:bg-slate-900 ${isCurrent
+                      ? "border-teal-500 ring-2 ring-teal-500/20 shadow-lg"
+                      : "border-slate-200/80 dark:border-slate-800 hover:border-teal-500/50 shadow-sm hover:shadow-xl"
+                      }`}
                   >
                     <div>
                       {/* Top Row: Icon Container + Category Tag */}
@@ -436,19 +506,19 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2.5 leading-relaxed line-clamp-3">
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2.5 leading-relaxed">
                         {mod.description}
                       </p>
 
-                      {/* Core Highlights */}
+                      {/* Key Features */}
                       <div className="space-y-2 mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
                         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">
-                          CORE HIGHLIGHTS:
+                          KEY FEATURES:
                         </span>
-                        {mod.heroHighlights.slice(0, 2).map((hl, i) => (
+                        {mod.heroHighlights.slice(0, 3).map((hl, i) => (
                           <div key={i} className="text-xs text-slate-600 dark:text-slate-300 flex items-start gap-1.5">
                             <span className="text-teal-600 dark:text-teal-400 font-bold">•</span>
-                            <span className="line-clamp-1">{hl}</span>
+                            <span>{hl}</span>
                           </div>
                         ))}
                       </div>
@@ -459,13 +529,13 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
                       <span className="text-xs font-semibold text-teal-600 dark:text-teal-400">
                         {mod.metrics[0]?.value} {mod.metrics[0]?.label}
                       </span>
-                      <Link
+                      {/* <Link
                         href={`/modules/${mod.slug}`}
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors group"
                       >
                         <span>Explore Module</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                      </Link>
+                      </Link> */}
                     </div>
                   </div>
                 </ScrollReveal>
@@ -484,9 +554,31 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
             <ScrollReveal direction="top">
               <SectionHeader
                 badge="Key Advantages"
-                title="Transformative Benefits of"
-                titleHighlight={module.shortName}
-                description={`Measurable clinical, operational, and financial improvements delivered to healthcare facilities running ${module.shortName}.`}
+                title={
+                  slug === "laboratory" || slug === "pharmacy"
+                    ? "Benefits of"
+                    : slug === "opd"
+                      ? "Benefits of Medsky"
+                      : "Why Choose Medsky"
+                }
+                titleHighlight={
+                  slug === "laboratory"
+                    ? "Medsky LIMS"
+                    : slug === "opd"
+                      ? "Clinic Management Software"
+                      : slug === "pharmacy"
+                        ? "Medsky Pharmacy Software"
+                        : "Healthcare Software?"
+                }
+                description={
+                  slug === "laboratory"
+                    ? "Transform Your Laboratory Operations with Smarter Workflows — Medsky LIMS helps laboratories improve operational efficiency, simplify diagnostic processes, and manage daily activities with better coordination."
+                    : slug === "opd"
+                      ? "Transform Your Clinic Operations with Smarter Management. Medsky CMS helps healthcare professionals manage their clinics more efficiently while improving the overall patient experience."
+                      : slug === "pharmacy"
+                        ? "Transform Your Pharmacy Operations with Smart Technology — Medsky PIMS helps pharmacies improve daily operations through organized workflows, accurate inventory management, and better business visibility."
+                        : "Smarter Healthcare Management. Simplified Operations. Better Patient Care."
+                }
               />
             </ScrollReveal>
 
@@ -534,10 +626,38 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
           <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
             <ScrollReveal direction="top">
               <SectionHeader
-                badge="Why Healthcare Leaders Choose Us"
-                title="Why Choose Medsky for"
-                titleHighlight={`${module.shortName}?`}
-                description="Built on clinical rigor, ultra-reliable infrastructure, and human-centric healthcare engineering."
+                badge={
+                  slug === "laboratory"
+                    ? "Reliable Software Partner"
+                    : slug === "opd"
+                      ? "Connected Digital Platform"
+                      : slug === "pharmacy"
+                        ? "Trusted Technology Partner"
+                        : "Why Healthcare Leaders Choose Us"
+                }
+                title={
+                  slug === "laboratory" || slug === "pharmacy"
+                    ? "Why Choose"
+                    : "Why Choose Medsky"
+                }
+                titleHighlight={
+                  slug === "laboratory"
+                    ? "Medsky LIMS?"
+                    : slug === "opd"
+                      ? "Clinic Management System"
+                      : slug === "pharmacy"
+                        ? "Medsky Pharmacy Management System?"
+                        : `${module.shortName}?`
+                }
+                description={
+                  slug === "laboratory"
+                    ? "A Reliable Software Partner for Modern Diagnostic Laboratories — Medsky combines healthcare technology expertise with practical laboratory workflow understanding to deliver a reliable and easy-to-manage laboratory software solution."
+                    : slug === "opd"
+                      ? "A Connected Digital Platform for Modern Clinics — Built for individual doctors, specialty clinics, and polyclinics."
+                      : slug === "pharmacy"
+                        ? "Your Trusted Partner in Simplifying Pharmacy Management — Medsky combines practical pharmacy workflows with reliable healthcare software technology to help retail pharmacies, medical stores, and hospital pharmacies manage their operations more efficiently."
+                        : "Built on clinical rigor, ultra-reliable infrastructure, and human-centric healthcare engineering."
+                }
               />
             </ScrollReveal>
 
@@ -588,7 +708,7 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
       {/* ========================================================================= */}
       {/* 8. DIRECT CTA BANNER (Above Testimonials)                                 */}
       {/* ========================================================================= */}
-      <CTASection />
+      <CTASection facilityType={MODULE_FACILITY_MAP[slug] || "all"} />
 
       {/* ========================================================================= */}
       {/* 9. PRODUCT TESTIMONIALS (White Background)                                */}
@@ -689,9 +809,8 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
                           {faq.question}
                         </span>
                         <ChevronDown
-                          className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-300 ${
-                            isOpen ? "transform rotate-180 text-cyan-600 dark:text-cyan-400" : ""
-                          }`}
+                          className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? "transform rotate-180 text-cyan-600 dark:text-cyan-400" : ""
+                            }`}
                         />
                       </button>
 
@@ -710,7 +829,7 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
                   <p className="text-sm text-slate-500 dark:text-slate-400">
                     Have a specific question about {module.shortName}?{" "}
                     <Link href="/contact" className="text-cyan-600 dark:text-cyan-400 font-bold hover:underline">
-                      Speak with our clinical specialist →
+                      Speak with our Technical Team →
                     </Link>
                   </p>
                 </div>

@@ -43,15 +43,57 @@ export interface ApiResponse<T = unknown> {
   data?: T;
 }
 
+import { sendContactEmail } from "./emailjs";
+import { isValidEmail, isValidPhone } from "./validation";
+
 export async function submitDemoRequest(data: DemoRequestData): Promise<ApiResponse<DemoRequestData>> {
-  // Simulate asynchronous API call
-  await new Promise((resolve) => setTimeout(resolve, 800));
-  
   if (!data.email || !data.fullName || !data.phone) {
     return {
       success: false,
       message: "Please fill in all required fields (Name, Email, Phone).",
     };
+  }
+
+  if (!isValidEmail(data.email)) {
+    return {
+      success: false,
+      message: "Please provide a valid work email address.",
+    };
+  }
+
+  if (!isValidPhone(data.phone)) {
+    return {
+      success: false,
+      message: "Please provide a valid 10-digit mobile number.",
+    };
+  }
+
+  // Send email notification to support
+  try {
+    const modulesList = data.selectedModules?.length ? data.selectedModules.join(", ") : "Standard suite";
+    const demoDetails = [
+      `Organization: ${data.organization || "N/A"}`,
+      `Role: ${data.role || "N/A"}`,
+      `Facility Type: ${data.facilityType || "N/A"}`,
+      `Beds: ${data.bedCount || "N/A"}`,
+      `Selected Modules: ${modulesList}`,
+      `Preferred Slot: ${data.preferredDate || "Flexible"} ${data.preferredTime || ""}`,
+      data.message ? `Notes: ${data.message}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    await sendContactEmail({
+      name: data.fullName,
+      email: data.email,
+      phone: data.phone,
+      city: data.organization || "Not specified",
+      product: "Hospital Management Software Demo",
+      message: demoDetails,
+      title: `Demo Request - ${data.organization || data.fullName}`,
+    });
+  } catch (err) {
+    console.error("Error sending demo request notification:", err);
   }
 
   return {
@@ -62,13 +104,40 @@ export async function submitDemoRequest(data: DemoRequestData): Promise<ApiRespo
 }
 
 export async function submitAppointmentBooking(data: AppointmentBookingData): Promise<ApiResponse<AppointmentBookingData>> {
-  await new Promise((resolve) => setTimeout(resolve, 700));
-
   if (!data.name || !data.phone) {
     return {
       success: false,
       message: "Please provide your Name and Phone Number.",
     };
+  }
+
+  if (data.email && !isValidEmail(data.email)) {
+    return {
+      success: false,
+      message: "Please provide a valid work email address.",
+    };
+  }
+
+  if (!isValidPhone(data.phone)) {
+    return {
+      success: false,
+      message: "Please provide a valid 10-digit mobile number.",
+    };
+  }
+
+  // Send enquiry via EmailJS
+  try {
+    await sendContactEmail({
+      name: data.name,
+      email: data.email || "support@medskyhms.com",
+      phone: data.phone,
+      city: data.city || data.state || "Not specified",
+      product: data.product || "Hospital Management Software",
+      message: data.remarks || "Enquiry submitted via website appointment widget.",
+      title: `Booking Enquiry - ${data.name}`,
+    });
+  } catch (err) {
+    console.error("Error sending appointment booking notification:", err);
   }
 
   return {
@@ -79,18 +148,47 @@ export async function submitAppointmentBooking(data: AppointmentBookingData): Pr
 }
 
 export async function submitContactForm(data: ContactFormData): Promise<ApiResponse<ContactFormData>> {
-  await new Promise((resolve) => setTimeout(resolve, 600));
-
   if (!data.fullName || !data.email || !data.message) {
     return {
       success: false,
-      message: "Please provide your Full Name, Email, and Message.",
+      message: "Please provide your Full Name, Work Email, and Remarks.",
+    };
+  }
+
+  if (!isValidEmail(data.email)) {
+    return {
+      success: false,
+      message: "Please provide a valid work email address.",
+    };
+  }
+
+  if (data.phone && !isValidPhone(data.phone)) {
+    return {
+      success: false,
+      message: "Please provide a valid 10-digit mobile number.",
+    };
+  }
+
+  const result = await sendContactEmail({
+    name: data.fullName,
+    email: data.email,
+    phone: data.phone || "Not provided",
+    city: data.city || "Not specified",
+    product: data.product || "Hospital Management Software",
+    message: data.message,
+    title: `${data.product || "Enquiry"} - ${data.fullName}`,
+  });
+
+  if (!result.success) {
+    return {
+      success: false,
+      message: result.error || "Failed to deliver your enquiry. Please check your network or try again.",
     };
   }
 
   return {
     success: true,
-    message: "Thank you for getting in touch. Your message has been routed to our team and we will respond promptly.",
+    message: "Thank you for getting in touch. Your message has been sent to our team and we will respond promptly.",
     data,
   };
 }
