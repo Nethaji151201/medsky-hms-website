@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   tagline: "Best Hospital & Clinic Management Software",
   description:
     "Smart healthcare management software built for hospitals, clinics, diagnostic centers, and pharmacies.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://medskyhms.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://medsky.com",
   ogImage: "/images/medsky-og.jpg",
   supportPhone: "+91-91 59 59 53 53",
   enquiryPhone: "",

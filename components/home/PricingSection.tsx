@@ -156,6 +156,14 @@ export function PricingSection({
     : 0;
   const [activeIndex, setActiveIndex] = useState(initialIndex >= 0 ? initialIndex : 0);
 
+  // Touch & Mouse Drag Gesture State for Smooth Mobile & Tablet Swiping
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  const touchStartXRef = useRef(0);
+  const touchStartYRef = useRef(0);
+  const isHorizontalSwipeRef = useRef<boolean | null>(null);
+  const isDraggingRef = useRef(false);
+
   useEffect(() => {
     if (initialCategory) {
       const idx = PRICING_CATEGORIES.findIndex((c) => c.id === initialCategory);
@@ -181,6 +189,108 @@ export function PricingSection({
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % PRICING_CATEGORIES.length);
+  };
+
+  // Drag gesture handlers
+  const startDrag = (clientX: number, clientY: number) => {
+    touchStartXRef.current = clientX;
+    touchStartYRef.current = clientY;
+    isHorizontalSwipeRef.current = null;
+    isDraggingRef.current = false;
+  };
+
+  const moveDrag = (clientX: number, clientY: number) => {
+    if (!touchStartXRef.current) return;
+    const diffX = clientX - touchStartXRef.current;
+    const diffY = clientY - touchStartYRef.current;
+
+    // Detect gesture axis: only engage if horizontal swipe intent is clear
+    if (isHorizontalSwipeRef.current === null) {
+      if (Math.abs(diffX) > 8 || Math.abs(diffY) > 8) {
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          isHorizontalSwipeRef.current = true;
+          setIsDragging(true);
+          isDraggingRef.current = true;
+        } else {
+          isHorizontalSwipeRef.current = false;
+        }
+      }
+    }
+
+    if (isHorizontalSwipeRef.current) {
+      // Elastic edge resistance if swiping at boundaries
+      let offset = diffX;
+      if (
+        (activeIndex === 0 && diffX > 0) ||
+        (activeIndex === PRICING_CATEGORIES.length - 1 && diffX < 0)
+      ) {
+        offset = diffX * 0.35;
+      }
+      setDragOffset(offset);
+    }
+  };
+
+  const endDrag = () => {
+    if (isHorizontalSwipeRef.current && isDraggingRef.current) {
+      const threshold = 40; // Pixels required to switch tab
+      if (dragOffset < -threshold) {
+        // Dragged left -> advance to next tab
+        handleNext();
+      } else if (dragOffset > threshold) {
+        // Dragged right -> back to previous tab
+        handlePrev();
+      }
+    }
+
+    setIsDragging(false);
+    setDragOffset(0);
+    isHorizontalSwipeRef.current = null;
+    touchStartXRef.current = 0;
+    setTimeout(() => {
+      isDraggingRef.current = false;
+    }, 50);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (singleCategoryOnly || e.touches.length !== 1) return;
+    startDrag(e.touches[0].clientX, e.touches[0].clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (singleCategoryOnly || e.touches.length !== 1) return;
+    moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+  };
+
+  const handleTouchEnd = () => {
+    if (singleCategoryOnly) return;
+    endDrag();
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (singleCategoryOnly || e.button !== 0) return;
+    startDrag(e.clientX, e.clientY);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (singleCategoryOnly || !touchStartXRef.current) return;
+    moveDrag(e.clientX, e.clientY);
+  };
+
+  const handleMouseUp = () => {
+    if (singleCategoryOnly) return;
+    endDrag();
+  };
+
+  const handleMouseLeave = () => {
+    if (singleCategoryOnly || !touchStartXRef.current) return;
+    endDrag();
+  };
+
+  const handleClickCapture = (e: React.MouseEvent) => {
+    if (isDraggingRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
   };
 
   return (
@@ -272,10 +382,28 @@ export function PricingSection({
         </div>
       ) : (
         /* Smooth Horizontal Sliding Carousel Container for All Tabs */
-        <div className="relative w-full max-w-[1400px] mx-auto overflow-hidden px-4 sm:px-6 pt-6 pb-4">
+        <div
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          onClickCapture={handleClickCapture}
+          className="relative w-full max-w-[1400px] mx-auto overflow-hidden px-4 sm:px-6 pt-6 pb-4 select-none touch-pan-y cursor-grab active:cursor-grabbing"
+        >
           <div
-            className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform pt-1"
-            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            className="flex will-change-transform pt-1"
+            style={{
+              transform: isDragging
+                ? `translateX(calc(-${activeIndex * 100}% + ${dragOffset}px))`
+                : `translateX(-${activeIndex * 100}%)`,
+              transition: isDragging
+                ? "none"
+                : "transform 500ms cubic-bezier(0.25, 1, 0.5, 1)",
+            }}
           >
             {PRICING_CATEGORIES.map((category) => (
               <div key={category.id} className="w-full flex-shrink-0 px-2 sm:px-4 pt-4 pb-2">
