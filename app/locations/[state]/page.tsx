@@ -125,7 +125,7 @@ export default async function StateLocationPage({
       <PricingSection />
 
       {/* 8. Specialist Testimonials (60fps Marquee) */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       {/* 9. Localized FAQs */}
       <LocationFaqSection locationName={stateData.name} locationType="state" />

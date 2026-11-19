@@ -153,7 +153,7 @@ export default async function CityLocationPage({
       <PricingSection />
 
       {/* 8. Specialist Testimonials */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       {/* 9. Localized FAQs */}
       <LocationFaqSection

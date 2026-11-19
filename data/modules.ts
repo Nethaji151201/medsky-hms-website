@@ -499,7 +499,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     id: "hms",
     name: "Hospital Management Software",
-    slug: "ipd",
+    slug: "hospital-management-software",
     tagline: "HMS",
     description:
       "Streamline clinical workflows, automate billing, and elevate patient care with a secure, all-in-one Hospital Management System designed for modern medical institutions.",
@@ -510,7 +510,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     id: "lms",
     name: "Laboratory Management Software (LMS)",
-    slug: "laboratory",
+    slug: "laboratory-management-software",
     tagline: "LMS",
     description:
       "Medsky Laboratory Information Management System (LIMS) is an integrated software solution designed to simplify laboratory operations, streamline sample processing, and improve diagnostic workflows.",
@@ -521,7 +521,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     id: "cms",
     name: "Clinic Management Software (CMS)",
-    slug: "opd",
+    slug: "clinic-management-software",
     tagline: "CMS",
     description:
       "Medsky Clinic Management Software helps doctors and clinics manage everyday operations through one integrated platform. From patient registration and appointments to consultations, digital prescriptions, billing and medical records, Medsky streamlines clinic workflows and helps deliver better patient care.",
@@ -532,7 +532,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     id: "pharmacy",
     name: "Pharmacy Management Software (PMS)",
-    slug: "pharmacy",
+    slug: "pharmacy-management-software",
     tagline: "PMS",
     description:
       "Medsky Pharmacy Management Software (PIMS) is an integrated solution designed to streamline pharmacy operations, from medicine purchasing and sales to inventory, expiry tracking, GST billing, and accounts.",
@@ -565,9 +565,9 @@ export const PRODUCTS_DATA: ProductItem[] = [
 ];
 
 export const MODULES_DATA: ModuleData[] = [
-  // 1. HOSPITAL MANAGEMENT SOFTWARE (HMS / IPD)
+  // 1. HOSPITAL MANAGEMENT SOFTWARE (HMS)
   {
-    slug: "ipd",
+    slug: "hospital-management-software",
     name: "Hospital Management Software (HMS)",
     shortName: "HMS",
     tagline: "Simplify Hospital Operations with Medsky HMS",
@@ -837,7 +837,7 @@ export const MODULES_DATA: ModuleData[] = [
 
   // 2. LABORATORY MANAGEMENT SOFTWARE (LMS / LIS)
   {
-    slug: "laboratory",
+    slug: "laboratory-management-software",
     name: "Laboratory Information & Management Software (LIMS)",
     shortName: "LIMS",
     tagline: "Complete Laboratory Management Software for Accurate & Efficient Lab Operations",
@@ -1061,7 +1061,7 @@ export const MODULES_DATA: ModuleData[] = [
 
   // 3. CLINIC MANAGEMENT SOFTWARE (CMS / OPD)
   {
-    slug: "opd",
+    slug: "clinic-management-software",
     name: "Clinic Management Software (CMS)",
     shortName: "CMS",
     tagline: "Simplify Clinic Workflows, Consultations & Better Patient Care",
@@ -1353,7 +1353,7 @@ export const MODULES_DATA: ModuleData[] = [
 
   // 4. PHARMACY MANAGEMENT SOFTWARE (PMS)
   {
-    slug: "pharmacy",
+    slug: "pharmacy-management-software",
     name: "Pharmacy Management Software (PMS)",
     shortName: "PMS",
     tagline: "Simplify Pharmacy Operations with Smart Pharmacy Management Software",
@@ -3052,3 +3052,35 @@ export const MODULES_DATA: ModuleData[] = [
     ],
   },
 ];
+
+// Export slug aliases for legacy backward-compatibility
+export const MODULE_SLUG_ALIASES: Record<string, string> = {
+  ipd: "hospital-management-software",
+  hms: "hospital-management-software",
+  opd: "clinic-management-software",
+  cms: "clinic-management-software",
+  laboratory: "laboratory-management-software",
+  lms: "laboratory-management-software",
+  lims: "laboratory-management-software",
+  pharmacy: "pharmacy-management-software",
+  pms: "pharmacy-management-software",
+  pims: "pharmacy-management-software",
+};
+
+// Also append legacy alias entries into MODULES_DATA so that any lookup by legacy slug succeeds
+const _hmsBase = MODULES_DATA.find((m) => m.slug === "hospital-management-software");
+if (_hmsBase) {
+  MODULES_DATA.push({ ..._hmsBase, slug: "ipd" });
+}
+const _cmsBase = MODULES_DATA.find((m) => m.slug === "clinic-management-software");
+if (_cmsBase) {
+  MODULES_DATA.push({ ..._cmsBase, slug: "opd" });
+}
+const _lmsBase = MODULES_DATA.find((m) => m.slug === "laboratory-management-software");
+if (_lmsBase) {
+  MODULES_DATA.push({ ..._lmsBase, slug: "laboratory" });
+}
+const _pmsBase = MODULES_DATA.find((m) => m.slug === "pharmacy-management-software");
+if (_pmsBase) {
+  MODULES_DATA.push({ ..._pmsBase, slug: "pharmacy" });
+}

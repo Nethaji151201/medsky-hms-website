@@ -155,7 +155,7 @@ export default function LocationsDirectoryPage() {
       <PricingSection />
 
       {/* 4. Testimonials */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       {/* 5. Appointment Booking Widget */}
       <LocationAppointmentWidget

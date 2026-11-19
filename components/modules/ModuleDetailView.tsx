@@ -137,6 +137,10 @@ const ICON_MAP: Record<string, any> = {
 };
 
 const PRICING_SLUG_MAP: Record<string, PricingCategoryKey> = {
+  "hospital-management-software": "hms",
+  "clinic-management-software": "cms",
+  "laboratory-management-software": "lms",
+  "pharmacy-management-software": "pms",
   ipd: "hms",
   opd: "cms",
   laboratory: "lms",
@@ -157,6 +161,10 @@ const PRICING_SLUG_MAP: Record<string, PricingCategoryKey> = {
 };
 
 const MODULE_FACILITY_MAP: Record<string, FacilityType> = {
+  "hospital-management-software": "hospital",
+  "clinic-management-software": "clinic",
+  "laboratory-management-software": "laboratory",
+  "pharmacy-management-software": "pharmacy",
   ipd: "hospital",
   opd: "clinic",
   laboratory: "laboratory",
@@ -182,6 +190,11 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
   if (!module) {
     notFound();
   }
+
+  const isHms = slug === "hospital-management-software" || slug === "ipd";
+  const isCms = slug === "clinic-management-software" || slug === "opd";
+  const isLms = slug === "laboratory-management-software" || slug === "laboratory";
+  const isPms = slug === "pharmacy-management-software" || slug === "pharmacy";
 
   const pricingCategory: PricingCategoryKey = PRICING_SLUG_MAP[slug] || "hms";
   const [openFaqId, setOpenFaqId] = useState<string | null>(
@@ -364,22 +377,22 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
               // badge="Features Matrix"
               title="Core Capabilities of"
               titleHighlight={
-                slug === "laboratory"
+                isLms
                   ? "Laboratory Management Software"
-                  : slug === "ipd"
+                  : isHms
                     ? "Hospital Management Software"
-                    : slug === "pharmacy"
+                    : isPms
                       ? "Pharmacy Management Software"
                       : module.shortName
               }
               description={
-                slug === "opd"
+                isCms
                   ? "Medsky Clinic Management System provides essential tools for managing patient, clinical, administrative, and reporting workflows."
-                  : slug === "laboratory"
+                  : isLms
                     ? "Everything Your Laboratory Needs in One Integrated Platform — Medsky LIMS offers essential capabilities to manage laboratory workflows, improve productivity, and maintain organized diagnostic records."
-                    : slug === "pharmacy"
+                    : isPms
                       ? "Everything You Need to Manage Your Pharmacy — Medsky PIMS offers essential capabilities to simplify pharmacy management and improve operational efficiency."
-                      : slug === "ipd"
+                      : isHms
                         ? "Medsky Hospital Management Software offers a comprehensive suite of solutions to streamline clinical, administrative, financial, and operational workflows across your hospital."
                         : `Medsky ${module.name} offers a comprehensive suite of solutions to streamline clinical, administrative, financial, and operational workflows across your hospital.`
               }
@@ -429,34 +442,34 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
           <ScrollReveal direction="top">
             <SectionHeader
               badge={
-                slug === "laboratory"
+                isLms
                   ? "Diagnostics Software Suite"
-                  : slug === "opd"
+                  : isCms
                     ? "Clinic Software Suite"
-                    : slug === "pharmacy"
+                    : isPms
                       ? "Pharmacy Software Suite"
                       : "Integrated Healthcare Suite"
               }
               title={
-                slug === "laboratory"
+                isLms
                   ? "Medsky Laboratory Management Software"
-                  : slug === "opd"
+                  : isCms
                     ? "Clinic Management Software"
-                    : slug === "pharmacy"
+                    : isPms
                       ? "Medsky Pharmacy Management Software"
                       : "Medsky HMS"
               }
               titleHighlight={
-                slug === "laboratory" || slug === "opd" || slug === "pharmacy"
+                isLms || isCms || isPms
                   ? "Modules"
                   : "Modules Directory."
               }
               description={
-                slug === "laboratory"
+                isLms
                   ? "Simplify Every Stage of Your Laboratory Workflow — Medsky LIMS provides integrated modules to manage laboratory operations, from patient registration and sample processing to machine interfacing, outsourced investigations, and financial management."
-                  : slug === "opd"
+                  : isCms
                     ? "Powerful Modules to Manage Every Aspect of Your Clinic. Medsky offers a comprehensive set of clinic management modules designed to simplify clinical, administrative and financial operations. Each module can work independently or together as an integrated clinic management solution."
-                    : slug === "pharmacy"
+                    : isPms
                       ? "Simplify Every Step of Pharmacy Management — Medsky Pharmacy Management Software provides integrated modules to manage medicine procurement, sales, inventory, expiry monitoring, GST, and financial operations. Each module works together to help pharmacies maintain organized workflows and improve business efficiency."
                       : "One Integrated Platform. Complete Hospital Management. Medsky offers a comprehensive suite of Hospital Management Software modules designed to simplify clinical, administrative, financial, and operational workflows. From outpatient and inpatient management to laboratory, pharmacy, surgery, and insurance, every module helps healthcare facilities manage their daily operations efficiently."
               }
@@ -465,11 +478,11 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
 
           {/* Complete 3-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-6">
-            {(slug === "laboratory"
+            {(isLms
               ? LMS_MODULES_DIRECTORY
-              : slug === "opd"
+              : isCms
                 ? CMS_MODULES_DIRECTORY
-                : slug === "pharmacy"
+                : isPms
                   ? PMS_MODULES_DIRECTORY
                   : HMS_MODULES_DIRECTORY
             ).map((mod, idx) => {
@@ -555,27 +568,27 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
               <SectionHeader
                 badge="Key Advantages"
                 title={
-                  slug === "laboratory" || slug === "pharmacy"
+                  isLms || isPms
                     ? "Benefits of"
-                    : slug === "opd"
+                    : isCms
                       ? "Benefits of Medsky"
                       : "Why Choose Medsky"
                 }
                 titleHighlight={
-                  slug === "laboratory"
+                  isLms
                     ? "Medsky LIMS"
-                    : slug === "opd"
+                    : isCms
                       ? "Clinic Management Software"
-                      : slug === "pharmacy"
+                      : isPms
                         ? "Medsky Pharmacy Software"
                         : "Healthcare Software?"
                 }
                 description={
-                  slug === "laboratory"
+                  isLms
                     ? "Transform Your Laboratory Operations with Smarter Workflows — Medsky LIMS helps laboratories improve operational efficiency, simplify diagnostic processes, and manage daily activities with better coordination."
-                    : slug === "opd"
+                    : isCms
                       ? "Transform Your Clinic Operations with Smarter Management. Medsky CMS helps healthcare professionals manage their clinics more efficiently while improving the overall patient experience."
-                      : slug === "pharmacy"
+                      : isPms
                         ? "Transform Your Pharmacy Operations with Smart Technology — Medsky PIMS helps pharmacies improve daily operations through organized workflows, accurate inventory management, and better business visibility."
                         : "Smarter Healthcare Management. Simplified Operations. Better Patient Care."
                 }
@@ -627,34 +640,34 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
             <ScrollReveal direction="top">
               <SectionHeader
                 badge={
-                  slug === "laboratory"
+                  isLms
                     ? "Reliable Software Partner"
-                    : slug === "opd"
+                    : isCms
                       ? "Connected Digital Platform"
-                      : slug === "pharmacy"
+                      : isPms
                         ? "Trusted Technology Partner"
                         : "Why Healthcare Leaders Choose Us"
                 }
                 title={
-                  slug === "laboratory" || slug === "pharmacy"
+                  isLms || isPms
                     ? "Why Choose"
                     : "Why Choose Medsky"
                 }
                 titleHighlight={
-                  slug === "laboratory"
+                  isLms
                     ? "Medsky LIMS?"
-                    : slug === "opd"
+                    : isCms
                       ? "Clinic Management System"
-                      : slug === "pharmacy"
+                      : isPms
                         ? "Medsky Pharmacy Management System?"
                         : `${module.shortName}?`
                 }
                 description={
-                  slug === "laboratory"
+                  isLms
                     ? "A Reliable Software Partner for Modern Diagnostic Laboratories — Medsky combines healthcare technology expertise with practical laboratory workflow understanding to deliver a reliable and easy-to-manage laboratory software solution."
-                    : slug === "opd"
+                    : isCms
                       ? "A Connected Digital Platform for Modern Clinics — Built for individual doctors, specialty clinics, and polyclinics."
-                      : slug === "pharmacy"
+                      : isPms
                         ? "Your Trusted Partner in Simplifying Pharmacy Management — Medsky combines practical pharmacy workflows with reliable healthcare software technology to help retail pharmacies, medical stores, and hospital pharmacies manage their operations more efficiently."
                         : "Built on clinical rigor, ultra-reliable infrastructure, and human-centric healthcare engineering."
                 }
@@ -713,7 +726,7 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
       {/* ========================================================================= */}
       {/* 9. PRODUCT TESTIMONIALS (White Background)                                */}
       {/* ========================================================================= */}
-      {module.testimonials && module.testimonials.length > 0 && (
+      {/* {module.testimonials && module.testimonials.length > 0 && (
         <section className="bg-white dark:bg-[#060b14] py-20 sm:py-28 border-b border-slate-200/60 dark:border-slate-800/60 transition-colors duration-300">
           <div className="max-w-[1520px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
             <ScrollReveal direction="top">
@@ -750,7 +763,6 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
 
                     <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100 dark:border-slate-800">
                       <div className="w-11 h-11 rounded-full overflow-hidden relative flex-shrink-0 bg-cyan-100 dark:bg-cyan-950 border border-cyan-200 dark:border-cyan-800">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={test.avatar}
                           alt={test.name}
@@ -772,7 +784,7 @@ export function ModuleDetailView({ slug }: ModuleDetailViewProps) {
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* ========================================================================= */}
       {/* 10. PRODUCT FAQ (Light Grey Shade Background - Above Footer)              */}

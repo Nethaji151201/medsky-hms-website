@@ -30,28 +30,28 @@ import { cn } from "@/lib/utils";
 const PRODUCT_SUBMENU = [
   {
     label: "Hospital Management Software",
-    href: "/modules/ipd",
+    href: "/hospital-management-software",
     desc: "Inpatient admissions, bed census, OT & ward nursing care",
     icon: Building2,
     badge: "HMS",
   },
   {
     label: "Clinic Management Software",
-    href: "/modules/opd",
+    href: "/clinic-management-software",
     desc: "Queue tokens, OPD consultations & digital e-prescriptions",
     icon: Stethoscope,
     badge: "CMS",
   },
   {
     label: "Laboratory Management Software",
-    href: "/modules/laboratory",
+    href: "/laboratory-management-software",
     desc: "Sample barcode scan & bi-directional analyzer sync (LIS)",
     icon: FlaskConical,
     badge: "LMS",
   },
   {
     label: "Pharmacy Management Software",
-    href: "/modules/pharmacy",
+    href: "/pharmacy-management-software",
     desc: "High-speed POS, FEFO batch expiry & drug inventory alerts",
     icon: Pill,
     badge: "PMS",
@@ -120,7 +120,7 @@ export function Header() {
               priority
             />
             <span className="text-2xl sm:text-[26px] font-black tracking-tight text-white flex items-center">
-              MedSky
+              Med<span className="text-primary">Sky</span>
             </span>
           </Link>
 
@@ -245,7 +245,7 @@ export function Header() {
             </Link>
 
             {/* FAQ */}
-            <Link
+            {/* <Link
               href="/faq"
               className={cn(
                 "text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-colors",
@@ -255,7 +255,7 @@ export function Header() {
               )}
             >
               FAQ
-            </Link>
+            </Link> */}
 
             {/* CONTACT */}
             <Link
@@ -333,7 +333,7 @@ export function Header() {
                 </span>
                 <div className="grid grid-cols-2 gap-3">
                   <Link
-                    href="/modules/ipd"
+                    href="/hospital-management-software"
                     onClick={() => setSideDrawerOpen(false)}
                     className="p-3 rounded-xl bg-white/5 hover:bg-primary/20 border border-white/10 text-left transition-colors"
                   >
@@ -343,7 +343,7 @@ export function Header() {
                   </Link>
 
                   <Link
-                    href="/modules/opd"
+                    href="/clinic-management-software"
                     onClick={() => setSideDrawerOpen(false)}
                     className="p-3 rounded-xl bg-white/5 hover:bg-primary/20 border border-white/10 text-left transition-colors"
                   >
@@ -353,7 +353,7 @@ export function Header() {
                   </Link>
 
                   <Link
-                    href="/modules/laboratory"
+                    href="/laboratory-management-software"
                     onClick={() => setSideDrawerOpen(false)}
                     className="p-3 rounded-xl bg-white/5 hover:bg-primary/20 border border-white/10 text-left transition-colors"
                   >
@@ -363,7 +363,7 @@ export function Header() {
                   </Link>
 
                   <Link
-                    href="/modules/pharmacy"
+                    href="/pharmacy-management-software"
                     onClick={() => setSideDrawerOpen(false)}
                     className="p-3 rounded-xl bg-white/5 hover:bg-primary/20 border border-white/10 text-left transition-colors"
                   >
@@ -419,7 +419,7 @@ export function Header() {
                     className="w-8 h-8 object-contain"
                   />
                   <span className="text-xl font-black text-white flex items-center">
-                    MedSky<span className="text-primary">.</span>
+                    Med<span className="text-primary">Sky</span>
                   </span>
                 </Link>
                 <button
@@ -447,28 +447,28 @@ export function Header() {
                   APPOINTMENT BOOKING
                 </Link>
                 <Link
-                  href="/modules/ipd"
+                  href="/hospital-management-software"
                   className="block px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:bg-white/10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   HMS (HOSPITAL SUITE)
                 </Link>
                 <Link
-                  href="/modules/opd"
+                  href="/clinic-management-software"
                   className="block px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:bg-white/10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   CMS (CLINIC SUITE)
                 </Link>
                 <Link
-                  href="/modules/laboratory"
+                  href="/laboratory-management-software"
                   className="block px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:bg-white/10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   LMS (LAB LIS SUITE)
                 </Link>
                 <Link
-                  href="/modules/pharmacy"
+                  href="/pharmacy-management-software"
                   className="block px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-300 hover:bg-white/10"
                   onClick={() => setMobileMenuOpen(false)}
                 >

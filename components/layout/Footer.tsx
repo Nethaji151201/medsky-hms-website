@@ -47,7 +47,7 @@ export function Footer() {
                   className="w-9 h-9 object-contain transition-transform group-hover:scale-105 duration-200"
                 />
                 <span className="text-2xl sm:text-[26px] font-black tracking-tight text-white flex items-center">
-                  MedSky
+                  Med<span className="text-primary">Sky</span>
                 </span>
               </Link>
 
@@ -129,10 +129,10 @@ export function Footer() {
               </h4>
               <ul className="space-y-2 text-xs sm:text-[13px] mt-2.5">
                 {[
-                  { name: "Hospital Management Software", href: "/modules/ipd" },
-                  { name: "Clinic Management Software", href: "/modules/opd" },
-                  { name: "Laboratory Management Software", href: "/modules/laboratory" },
-                  { name: "Pharmacy Management Software", href: "/modules/pharmacy" },
+                  { name: "Hospital Management Software", href: "/hospital-management-software" },
+                  { name: "Clinic Management Software", href: "/clinic-management-software" },
+                  { name: "Laboratory Management Software", href: "/laboratory-management-software" },
+                  { name: "Pharmacy Management Software", href: "/pharmacy-management-software" },
                   { name: "Appointment Management Software", href: "/#appointment" },
                   { name: "Patient EMR / EHR", href: "/modules/doctor" },
                 ].map((item) => (

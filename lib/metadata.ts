@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const SITE_CONFIG = {
-  name: "Medsky HMS",
+  name: "Medsky - Best Hospital & Clinic Management Software",
   shortName: "Medsky",
-  tagline: "Best Hospital Software, Clinic (CMS), Lab (LMS) & Pharmacy (PMS) Software",
+  tagline: "Best Hospital & Clinic Management Software",
   description:
-    "Medsky HMS is India's leading all-in-one cloud Hospital Software, Clinic Management Software (CMS), Diagnostic Lab Information Software (LMS/LIS), and Pharmacy Management Software (PMS). ABDM & NABH compliant with OPD, IPD, EMR/EHR, analyzer interfacing, and online appointment booking.",
+    "Smart healthcare management software built for hospitals, clinics, diagnostic centers, and pharmacies.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://medskyhms.com",
   ogImage: "/images/medsky-og.jpg",
   supportPhone: "+91-91 59 59 53 53",
@@ -95,8 +95,8 @@ export function createMetadata({
   keywords?: string[];
 } = {}): Metadata {
   const pageTitle = title
-    ? `${title} | Medsky HMS - Hospital, Clinic, Lab & Pharmacy Software`
-    : `${SITE_CONFIG.name} | Best Hospital Software, Clinic (CMS), Lab (LMS) & Pharmacy (PMS) Software`;
+    ? (title === "Medsky" ? "Medsky" : `${title} | Medsky`)
+    : "Medsky";
   const pageDescription = description || SITE_CONFIG.description;
   const pageUrl = `${SITE_CONFIG.url}${path}`;
   const pageImage = image || `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`;

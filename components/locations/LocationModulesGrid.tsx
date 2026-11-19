@@ -83,7 +83,7 @@ function ProductCard({
         {/* 4. Link CTA */}
         <div className="pt-4">
           <Link
-            href={`/modules/${product.slug}`}
+            href={`/${product.slug}`}
             className="inline-flex items-center gap-1.5 text-xs sm:text-[13px] font-bold text-[#162044] dark:text-cyan-400 hover:text-primary dark:hover:text-cyan-300 transition-colors"
           >
             <span>Explore {product.name}</span>

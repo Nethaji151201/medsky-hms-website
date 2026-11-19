@@ -11,6 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}`, lastModified: new Date(), changeFrequency: "daily", priority: 1.0 },
+    { url: `${baseUrl}/hospital-management-software`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/clinic-management-software`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/laboratory-management-software`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/pharmacy-management-software`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
     { url: `${baseUrl}/locations`, lastModified: new Date(), changeFrequency: "daily", priority: 0.95 },
     { url: `${baseUrl}/features`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/modules`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },

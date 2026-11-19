@@ -68,7 +68,9 @@ export default function ModulesPage() {
 
         {/* Modules Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-4">
-          {MODULES_DATA.map((module) => {
+          {MODULES_DATA.filter(
+            (m) => !["ipd", "opd", "laboratory", "pharmacy"].includes(m.slug)
+          ).map((module) => {
             const Icon = ICON_MAP[module.iconName] || Stethoscope;
             return (
               <Card

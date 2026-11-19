@@ -13,6 +13,9 @@ import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata = createMetadata();
 
 export default function HomePage() {
   return (
@@ -36,7 +39,7 @@ export default function HomePage() {
       <PricingSection />
 
       {/* 7. Specialist Testimonials (2-Row 60fps Marquee with Edge Shading) */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       {/* 8. Frequently Asked Questions */}
       <FAQSection />
